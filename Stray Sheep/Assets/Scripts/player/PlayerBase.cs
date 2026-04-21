@@ -8,14 +8,23 @@ public class PlayerBase : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 7f;
-    public float rotationSpeed = 10f; // Higher = Snappier, Lower = Heavier
+    public float rotationSpeed = 10f; 
+
+    [Header("Attack Settings")]
+    public GameObject attackPrefab; 
+    public Transform attackPoint;   
+    public float attackCooldown = 0.4f;
+    private float nextAttackTime = 0f;
 
     private Vector2 moveInput;
+    private Vector3 currentLookDirection; 
 
     private void Awake()
     {
         controller = GetComponent<CharacterController>();
         controls = new InputSystem_Actions();
+
+        controls.Player.Attack.performed += ctx => PerformAttack();
     }
 
     private void OnEnable() => controls.Player.Enable();
@@ -39,13 +48,9 @@ public class PlayerBase : MonoBehaviour
     {
         Vector3 targetDirection = Vector3.zero;
 
-        // CHECK FOR MOUSE/KEYBOARD
-        if (Mouse.current != null && Mouse.current.wasUpdatedThisFrame)
+        if (Gamepad.current == null || Mouse.current.wasUpdatedThisFrame)
         {
-            // Create a ray from the camera to the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            
-            // Create a virtual plane at the player's height to find where the mouse hits
             Plane groundPlane = new Plane(Vector3.up, transform.position);
 
             if (groundPlane.Raycast(ray, out float rayDistance))
@@ -54,7 +59,6 @@ public class PlayerBase : MonoBehaviour
                 targetDirection = (point - transform.position).normalized;
             }
         }
-        // CHECK FOR GAMEPAD (Right Stick / Look Action)
         else
         {
             Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
@@ -64,18 +68,35 @@ public class PlayerBase : MonoBehaviour
             }
         }
 
-        // SMOOTH LERP/SLERP ROTATION
         if (targetDirection != Vector3.zero)
         {
-            targetDirection.y = 0; // Keep the character upright
+            targetDirection.y = 0;
+            currentLookDirection = targetDirection; 
+            
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
             
-            // Slerp provides a smooth arc between current and target rotation
             transform.rotation = Quaternion.Slerp(
                 transform.rotation, 
                 targetRotation, 
                 rotationSpeed * Time.deltaTime
             );
         }
+    }
+
+    private void PerformAttack()
+    {
+        if (Time.time < nextAttackTime) return;
+
+        if (currentLookDirection != Vector3.zero)
+        {
+            transform.rotation = Quaternion.LookRotation(currentLookDirection);
+        }
+
+        if (attackPrefab != null && attackPoint != null)
+        {
+            Instantiate(attackPrefab, attackPoint.position, transform.rotation);
+        }
+
+        nextAttackTime = Time.time + attackCooldown;
     }
 }
