@@ -27,6 +27,7 @@ public class EnemyBase : MonoBehaviour
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) playerTarget = player.transform;
+        NextLevelManager.instance.RegisterEnemy();
     }
 
     protected virtual void Update()
@@ -82,6 +83,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
+        NextLevelManager.instance.UnregisterEnemy();
         Destroy(gameObject);
     }
 
