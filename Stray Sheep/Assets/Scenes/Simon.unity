@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 385384227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AtackOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 1019877355}
   - component: {fileID: 1019877360}
   - component: {fileID: 1019877362}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 477877c34d0aaea47ad8cdbf3e9b2b9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 1
+  baseDamage: 0
   fireRateDelay: 0.5
   bulletSpeed: 15
   maxHealth: 3
@@ -650,8 +650,8 @@ MonoBehaviour:
   bounceCount: 0
   burstShots: 1
   bleedingDamage: 0
-  slowDuration: 0
-  slowAmount: 0.5
+  slowDuration: 10
+  slowAmount: 10
 --- !u!54 &1019877362
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -820,7 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statToModify: 5
-  percentageIncrease: 1
+  percentageIncrease: 99
   pickupEffect: {fileID: 0}
 --- !u!135 &1834226253
 SphereCollider:
@@ -1127,7 +1127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd88c348773750409b30d503f8842a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  maxHealth: 2
   damage: 1
   attackRange: 2.5
   attackCooldown: 1.5

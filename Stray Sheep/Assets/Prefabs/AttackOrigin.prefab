@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1257016439095853080}
   - component: {fileID: 2834441169794942353}
   - component: {fileID: 5544734133635553976}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TempAttack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5286651335053783845}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AttackOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
