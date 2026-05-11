@@ -11,6 +11,13 @@ public class PlayerStatsBase : MonoBehaviour
     public float maxHealth = 3f;
     public float currentHealth;
 
+    [Header("Weapon Upgrades")]
+    public int bounceCount = 0;
+    public int burstShots = 1;
+    public float bleedingDamage = 0f; // Damage per tick
+    public float slowDuration = 0f;
+    public float slowAmount = 0.5f; // Multiplier (0.5 = 50% slower)
+
     private void Start()
     {
         currentHealth = maxHealth;

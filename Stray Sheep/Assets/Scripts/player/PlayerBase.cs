@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+// fix the dash not far enough, maybe add a dash upgrade that increases dash distance and/or reduces cooldown?-
+
 public class PlayerBase : MonoBehaviour
 {
     private InputSystem_Actions controls;
@@ -8,16 +10,16 @@ public class PlayerBase : MonoBehaviour
 
     [Header("Movement")]
     public float moveSpeed = 7f;
-    public float rotationSpeed = 10f; 
+    public float rotationSpeed = 10f;
 
     [Header("Attack Settings")]
-    public GameObject attackPrefab; 
-    public Transform attackPoint;   
+    public GameObject attackPrefab;
+    public Transform attackPoint;
     public float attackCooldown = 0.4f;
     private float nextAttackTime = 0f;
 
     private Vector2 moveInput;
-    private Vector3 currentLookDirection; 
+    private Vector3 currentLookDirection;
 
     private void Awake()
     {
@@ -33,7 +35,7 @@ public class PlayerBase : MonoBehaviour
     private void Update()
     {
         moveInput = controls.Player.Move.ReadValue<Vector2>();
-        
+
         HandleMovement();
         HandleRotation();
     }
@@ -71,13 +73,13 @@ public class PlayerBase : MonoBehaviour
         if (targetDirection != Vector3.zero)
         {
             targetDirection.y = 0;
-            currentLookDirection = targetDirection; 
-            
+            currentLookDirection = targetDirection;
+
             Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            
+
             transform.rotation = Quaternion.Slerp(
-                transform.rotation, 
-                targetRotation, 
+                transform.rotation,
+                targetRotation,
                 rotationSpeed * Time.deltaTime
             );
         }
@@ -88,15 +90,42 @@ public class PlayerBase : MonoBehaviour
         if (Time.time < nextAttackTime) return;
 
         if (currentLookDirection != Vector3.zero)
-        {
             transform.rotation = Quaternion.LookRotation(currentLookDirection);
-        }
 
-        if (attackPrefab != null && attackPoint != null)
-        {
-            Instantiate(attackPrefab, attackPoint.position, transform.rotation);
-        }
+        PlayerStatsBase playerStats = GetComponent<PlayerStatsBase>();
+        int burstCount = playerStats != null ? playerStats.burstShots : 1;
+
+        for (int i = 0; i < burstCount; i++)
+            FireProjectile(i, burstCount, playerStats);
 
         nextAttackTime = Time.time + attackCooldown;
+    }
+
+    private void FireProjectile(int burstIndex, int burstCount, PlayerStatsBase playerStats)
+    {
+        if (attackPrefab == null || attackPoint == null) return;
+
+        GameObject projectile = Instantiate(attackPrefab, attackPoint.position, transform.rotation);
+        AttackInstance attackInstance = projectile.GetComponentInChildren<AttackInstance>();
+
+        if (attackInstance != null && playerStats != null)
+        {
+            attackInstance.damage = playerStats.baseDamage;
+            attackInstance.speed = playerStats.bulletSpeed;
+            attackInstance.bounceCount = playerStats.bounceCount;
+            attackInstance.bleedingDamage = playerStats.bleedingDamage;
+            attackInstance.slowDuration = playerStats.slowDuration;
+            Debug.Log($"Applied upgrades to projectile. BounceCount: {attackInstance.bounceCount}");
+        }
+        else
+        {
+            Debug.LogError("AttackInstance not found on projectile or playerStats is null!");
+        }
+
+        if (burstIndex > 0)
+        {
+            float angle = burstIndex * 15f - (burstCount - 1) * 7.5f;
+            projectile.transform.RotateAround(projectile.transform.position, Vector3.up, angle);
+        }
     }
 }
