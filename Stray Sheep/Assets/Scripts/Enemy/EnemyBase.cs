@@ -9,7 +9,7 @@ public class EnemyBase : MonoBehaviour
     public float damage = 1f;
     public float attackRange = 2.5f;
     public float attackCooldown = 1.5f;
-    
+
     protected float currentHealth;
     protected float nextAttackTime;
     protected Transform playerTarget;
@@ -20,7 +20,7 @@ public class EnemyBase : MonoBehaviour
     {
         currentHealth = maxHealth;
         agent = GetComponent<NavMeshAgent>();
-        
+
         rb = GetComponent<Rigidbody>();
         rb.isKinematic = true; // Prevents player/explosions from physically pushing them
         rb.useGravity = false;
@@ -92,11 +92,12 @@ public class EnemyBase : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
 
-        if (agent == null) agent = GetComponent<NavMeshAgent>();
-        if (agent != null)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(transform.position, agent.stoppingDistance);
-        }
+        if (agent == null)
+            agent = GetComponent<NavMeshAgent>();
+
+        if (agent == null) return;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, agent.stoppingDistance);
     }
 }

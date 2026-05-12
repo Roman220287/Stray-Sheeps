@@ -7,34 +7,83 @@ public class AttackInstance : MonoBehaviour
     public float speed = 15f;
     public bool isProjectile = true;
 
+    // Upgrade stats
+    public int bounceCount = 0;
+    public float bleedingDamage = 0f;
+    public float slowDuration = 0f;
+    public float slowAmount = 0.5f;
+
+    private int bouncesRemaining = -1;
+    private Vector3 lastDirection;
+
     private void Start()
     {
+        lastDirection = transform.root.forward;
         // Use transform.root to ensure we destroy the top-most parent after the lifetime ends
         Destroy(transform.root.gameObject, lifetime);
     }
 
     private void Update()
     {
-        if (isProjectile)
+        if (!isProjectile) return;
+
+        // Initialize bounces on first frame
+        if (bouncesRemaining == -1)
+            bouncesRemaining = bounceCount;
+
+        HandleEnvironmentBounce();
+        transform.root.Translate(transform.root.forward * speed * Time.deltaTime, Space.World);
+    }
+
+    private void HandleEnvironmentBounce()
+    {
+        float castDistance = speed * Time.deltaTime + 0.1f;
+        if (!Physics.Raycast(transform.root.position, transform.root.forward, out RaycastHit hitInfo, castDistance))
+            return;
+
+        if (hitInfo.collider.CompareTag("Enemy"))
+            return;
+
+        if (!hitInfo.collider.CompareTag("Environment"))
+            return;
+
+        if (bouncesRemaining <= 0)
         {
-            // Move the root object so the children follow correctly
-            transform.root.Translate(transform.root.forward * speed * Time.deltaTime, Space.World);
+            Destroy(transform.root.gameObject);
+            return;
         }
+
+        bouncesRemaining--;
+        BounceProjectile(hitInfo.normal);
+        transform.root.position = hitInfo.point + hitInfo.normal * 0.1f;
+        Debug.Log($"Bounced off environment! Bounces remaining: {bouncesRemaining}");
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!other.CompareTag("Enemy")) return;
+
+        Debug.Log("Hit Enemy");
+        other.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+
+        if (bleedingDamage > 0f)
         {
-            Debug.Log("Hit Enemy with child collider");
-            other.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
-            
-            // Destroy the top-most parent object on hit
-            Destroy(transform.root.gameObject);
+            BleedEffect bleed = other.gameObject.AddComponent<BleedEffect>();
+            bleed.Initialize(bleedingDamage, 3f);
         }
-        else if (other.CompareTag("Environment"))
+
+        if (slowDuration > 0f)
         {
-            Destroy(transform.root.gameObject);
+            SlowEffect slow = other.gameObject.AddComponent<SlowEffect>();
+            slow.Initialize(slowDuration, slowAmount);
         }
+
+        Destroy(transform.root.gameObject);
+    }
+
+    private void BounceProjectile(Vector3 normal)
+    {
+        lastDirection = Vector3.Reflect(lastDirection, normal);
+        transform.root.rotation = Quaternion.LookRotation(lastDirection);
     }
 }
