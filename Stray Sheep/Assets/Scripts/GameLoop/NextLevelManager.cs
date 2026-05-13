@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class NextLevelManager : MonoBehaviour
 {
     public static NextLevelManager instance;
 
     private int enemiesAlive;
-    private bool levelEnding;
+    private bool allWavesComplete = false;
+    private bool levelEnding = false;
 
     private void Awake()
     {
@@ -22,16 +24,34 @@ public class NextLevelManager : MonoBehaviour
     {
         enemiesAlive -= 1;
 
-        if (!levelEnding && enemiesAlive <= 0)
+        if (!levelEnding && allWavesComplete && enemiesAlive <= 0)
         {
             levelEnding = true;
-            NextLevel();
+            LoadNextLevel();
         }
     }
 
-    void NextLevel()
+    public void WavesFinished()
     {
-        Debug.Log("next level");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        allWavesComplete = true;
+
+        UnregisterEnemy();
+    }
+
+    IEnumerator LoadNextLevel()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int totalScenes = SceneManager.sceneCountInBuildSettings;
+
+        if (currentIndex + 1 < totalScenes)
+        {
+            SceneManager.LoadScene(currentIndex + 1);
+        }
+        else
+        {
+            Debug.Log("Prototype Complete!");
+        }
     }
 }
