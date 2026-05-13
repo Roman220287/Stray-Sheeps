@@ -1028,9 +1028,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1966646057}
-  - component: {fileID: 1966646056}
   - component: {fileID: 1966646055}
   - component: {fileID: 1966646054}
+  - component: {fileID: 1966646060}
   - component: {fileID: 1966646053}
   - component: {fileID: 1966646058}
   - component: {fileID: 1966646059}
@@ -1115,22 +1115,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966646052}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1966646056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1966646052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bd88c348773750409b30d503f8842a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 2
-  damage: 1
-  attackRange: 2.5
-  attackCooldown: 1.5
 --- !u!4 &1966646057
 Transform:
   m_ObjectHideFlags: 0
@@ -1195,6 +1179,22 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 1
+--- !u!114 &1966646060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966646052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b404441b52e674cae10c605f696783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  damage: 1
+  attackRange: 2.5
+  attackCooldown: 1.5
 --- !u!1 &2041889211
 GameObject:
   m_ObjectHideFlags: 0

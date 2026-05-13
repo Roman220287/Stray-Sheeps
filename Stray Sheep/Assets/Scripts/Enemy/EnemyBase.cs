@@ -27,52 +27,29 @@ public class EnemyBase : MonoBehaviour
 
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) playerTarget = player.transform;
-        NextLevelManager.instance.RegisterEnemy();
+
+        if (NextLevelManager.instance != null)
+            NextLevelManager.instance.RegisterEnemy();
     }
 
     protected virtual void Update()
     {
-        if (playerTarget == null) return;
-
-        float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.position);
-
-        if (distanceToPlayer <= attackRange)
-        {
-            AttackBehavior();
-        }
-        else
-        {
-            MoveBehavior();
-        }
+        // Override in subclasses
     }
 
     protected virtual void MoveBehavior()
     {
-        if (agent.isOnNavMesh)
-        {
-            agent.isStopped = false;
-            agent.SetDestination(playerTarget.position);
-        }
+        // Override in subclasses
     }
 
     protected virtual void AttackBehavior()
     {
-        agent.isStopped = true;
-
-        if (Time.time >= nextAttackTime)
-        {
-            PerformAttack();
-            nextAttackTime = Time.time + attackCooldown;
-        }
+        // Override in subclasses
     }
 
     protected virtual void PerformAttack()
     {
-        Vector3 lookDir = (playerTarget.position - transform.position).normalized;
-        lookDir.y = 0;
-        if (lookDir != Vector3.zero) transform.rotation = Quaternion.LookRotation(lookDir);
-
-        playerTarget.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        // Override in subclasses
     }
 
     public virtual void TakeDamage(float amount)
