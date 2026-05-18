@@ -550,6 +550,115 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1825134146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1825134150}
+  - component: {fileID: 1825134149}
+  - component: {fileID: 1825134148}
+  - component: {fileID: 1825134147}
+  m_Layer: 0
+  m_Name: Plane (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!64 &1825134147
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825134146}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1825134148
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825134146}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 5f77452fb134c954d8ec532fcfdfe5a0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1825134149
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825134146}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1825134150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825134146}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.70716727, w: 0.70704633}
+  m_LocalPosition: {x: -3.59, y: 2.882756, z: -1.61}
+  m_LocalScale: {x: 0.27626207, y: 0.27626207, z: 0.27626207}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90.01}
 --- !u!1 &2117574005
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,7 +686,7 @@ Transform:
   m_GameObject: {fileID: 2117574005}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.72, y: 3.95, z: -0.36}
+  m_LocalPosition: {x: -0.84, y: 3.45, z: 4.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -643,25 +752,111 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 0.51
+        m_Name: Droplet Size
+        m_Overridden: 1
+      - m_Value: 2.01
+        m_Name: Trail Size FLoat
+        m_Overridden: 1
+      - m_Value: 1.72
+        m_Name: InsideBall Size
+        m_Overridden: 1
+      - m_Value: 1.556
+        m_Name: Inball Inside Size
+        m_Overridden: 1
+      - m_Value: 1.5
+        m_Name: Texture Power
+        m_Overridden: 1
     m_Vector2f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 1, y: 3}
+        m_Name: Droplet Amount
+        m_Overridden: 1
+      - m_Value: {x: 0.4, y: 2}
+        m_Name: Droplet Delay
+        m_Overridden: 1
+      - m_Value: {x: 0.02, y: 0.1}
+        m_Name: Texture Speed
+        m_Overridden: 1
+      - m_Value: {x: 0.4, y: 0.2}
+        m_Name: Texture Tiling
+        m_Overridden: 1
     m_Vector3f:
       m_Array: []
     m_Vector4f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0.015208514, y: 0.013702081, z: 0.020288562, w: 1}
+        m_Name: Inkball Inside Color
+        m_Overridden: 1
     m_Uint:
       m_Array: []
     m_Int:
-      m_Array: []
+      m_Array:
+      - m_Value: 2
+        m_Name: Trail Size
+        m_Overridden: 0
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.19436678
+            value: 0.5057622
+            inSlope: 1.6336336
+            outSlope: 1.6336336
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.33333334
+            outWeight: 0.17630036
+          - serializedVersion: 3
+            time: 0.50947595
+            value: 0.98316514
+            inSlope: 0.058851384
+            outSlope: 0.058851384
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.20330106
+            outWeight: 0.1907131
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0.032117855
+            outSlope: 0.032117855
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0.26758698
+            outWeight: 0
+          m_PreInfinity: 2
+          m_PostInfinity: 2
+          m_RotationOrder: 4
+        m_Name: DropletSize over Lifetime
+        m_Overridden: 1
     m_Gradient:
       m_Array: []
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 2800000, guid: 8b90414980bd3644593f9be51fd9a7b7, type: 3}
+        m_Name: Trail Texture
+        m_Overridden: 1
+      - m_Value: {fileID: 2800000, guid: bea21471a96460245b5361b2a017f9fa, type: 3}
+        m_Name: Dot Texture (inside)
+        m_Overridden: 0
+      - m_Value: {fileID: 2800000, guid: 2dd7ac5657abf7744a8f4c1b7d1e7cd5, type: 3}
+        m_Name: Droplet Texture
+        m_Overridden: 1
     m_Bool:
       m_Array: []
 --- !u!1660057539 &9223372036854775807
@@ -672,3 +867,4 @@ SceneRoots:
   - {fileID: 164822773}
   - {fileID: 1675280460}
   - {fileID: 1071402625}
+  - {fileID: 1825134150}
