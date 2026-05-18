@@ -43,11 +43,18 @@ public class WaveSpawner : MonoBehaviour
 
         int randomSpawn = Random.Range(0, spawnPoints.Length);
         int randomEnemy = Random.Range(0, enemyPrefabs.Length);
+        Vector3 spawnPosition = spawnPoints[randomSpawn].position;
 
-        Instantiate(
+        GameObject enemyInstance = Instantiate(
             enemyPrefabs[randomEnemy],
-            spawnPoints[randomSpawn].position,
+            spawnPosition,
             Quaternion.identity
         );
+
+        SpawnDropEffect dropEffect = enemyInstance.GetComponent<SpawnDropEffect>();
+        if (dropEffect != null)
+        {
+            dropEffect.Initialize(spawnPosition);
+        }
     }
 }

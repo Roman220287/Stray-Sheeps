@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3117124808081199370}
   - component: {fileID: 4353713675305248617}
+  - component: {fileID: 1228278267282309996}
   - component: {fileID: 8587405049453653002}
   - component: {fileID: 2081916172355641440}
   - component: {fileID: 7125273637535910453}
@@ -53,6 +54,27 @@ MonoBehaviour:
   damage: 1
   attackRange: 2.5
   attackCooldown: 1.5
+--- !u!114 &1228278267282309996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725105498630441523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad83505b7bc0edd4386568eae5c5c12e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnHeight: 8
+  slowDescendDuration: 1.5
+  releaseHeight: 5
+  extraFallForce: 10
+  landingCheckDistance: 0.2
+  landingSettleTime: 0.2
+  showString: 1
+  stringMaterial: {fileID: 0}
+  stringWidth: 0.05
 --- !u!33 &8587405049453653002
 MeshFilter:
   m_ObjectHideFlags: 0
