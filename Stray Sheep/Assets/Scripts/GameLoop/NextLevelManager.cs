@@ -22,20 +22,24 @@ public class NextLevelManager : MonoBehaviour
 
     public void UnregisterEnemy()
     {
-        enemiesAlive -= 1;
+        enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
 
-        if (!levelEnding && allWavesComplete && enemiesAlive <= 0)
-        {
-            levelEnding = true;
-            LoadNextLevel();
-        }
+        CheckLevelComplete();
     }
 
     public void WavesFinished()
     {
         allWavesComplete = true;
+        CheckLevelComplete();
+    }
 
-        UnregisterEnemy();
+    private void CheckLevelComplete()
+    {
+        if (!levelEnding && allWavesComplete && enemiesAlive <= 0)
+        {
+            levelEnding = true;
+            StartCoroutine(LoadNextLevel());
+        }
     }
 
     IEnumerator LoadNextLevel()

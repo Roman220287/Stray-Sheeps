@@ -3,7 +3,7 @@ using System.Collections;
 
 public class WaveSpawner : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs;
     public Transform[] spawnPoints;
     public int numberOfWaves;
     public int enemiesPerWave;
@@ -35,10 +35,17 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        if (enemyPrefabs == null || enemyPrefabs.Length == 0)
+        {
+            Debug.LogWarning("WaveSpawner has no enemy prefabs assigned.");
+            return;
+        }
+
         int randomSpawn = Random.Range(0, spawnPoints.Length);
+        int randomEnemy = Random.Range(0, enemyPrefabs.Length);
 
         Instantiate(
-            enemyPrefab,
+            enemyPrefabs[randomEnemy],
             spawnPoints[randomSpawn].position,
             Quaternion.identity
         );
