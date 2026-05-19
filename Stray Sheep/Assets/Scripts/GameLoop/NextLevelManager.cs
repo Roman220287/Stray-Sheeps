@@ -5,6 +5,7 @@ using System.Collections;
 public class NextLevelManager : MonoBehaviour
 {
     public static NextLevelManager instance;
+    public ChooseUpgradeMenu upgradeMenu;
 
     private int enemiesAlive;
     private bool allWavesComplete = false;
@@ -23,7 +24,6 @@ public class NextLevelManager : MonoBehaviour
     public void UnregisterEnemy()
     {
         enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
-
         CheckLevelComplete();
     }
 
@@ -38,13 +38,25 @@ public class NextLevelManager : MonoBehaviour
         if (!levelEnding && allWavesComplete && enemiesAlive <= 0)
         {
             levelEnding = true;
-            StartCoroutine(LoadNextLevel());
+            if (upgradeMenu != null)
+            {
+                upgradeMenu.ShowMenu();
+            }
+            else
+            {
+                StartCoroutine(LoadNextLevel());
+            }
         }
+    }
+
+    public void ProceedToNextLevel()
+    {
+        StartCoroutine(LoadNextLevel());
     }
 
     IEnumerator LoadNextLevel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
