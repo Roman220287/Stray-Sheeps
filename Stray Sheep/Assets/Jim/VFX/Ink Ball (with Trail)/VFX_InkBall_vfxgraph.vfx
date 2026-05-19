@@ -112,15 +112,6 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614585}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661614589}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614591}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614594}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661615410}
       id: 0
       isStickyNote: 0
@@ -137,12 +128,6 @@ MonoBehaviour:
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614543}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661614553}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615162}
       id: 0
       isStickyNote: 0
   - title: Inkball Trail
@@ -188,12 +173,6 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615033}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615035}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615042}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661615310}
       id: 0
       isStickyNote: 0
@@ -218,34 +197,7 @@ MonoBehaviour:
     - model: {fileID: 8926484042661614985}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615000}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615004}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 0}
-      id: 0
-      isStickyNote: 0
     - model: {fileID: 8926484042661615045}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615285}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615329}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615049}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615323}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615374}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615055}
       id: 0
       isStickyNote: 0
     - model: {fileID: 8926484042661614912}
@@ -269,7 +221,7 @@ MonoBehaviour:
     x: -38
     y: -574
     width: 3518
-    height: 2476
+    height: 2477
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4841,7 +4793,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614913}
   m_ExposedName: Droplet Amount
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 8
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -6812,7 +6764,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615192}
   m_ExposedName: Trail Texture
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 6
   m_Category: Trail
   m_Min:
     m_Type:
@@ -6893,7 +6845,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615194}
   m_ExposedName: Dot Texture (inside)
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 4
   m_Category: (ink) Ball
   m_Min:
     m_Type:
@@ -6974,7 +6926,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615196}
   m_ExposedName: Droplet Texture
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 12
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -7692,7 +7644,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615302}
   m_ExposedName: Droplet Size
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 10
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -8751,7 +8703,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615357}
   m_ExposedName: Droplet Delay
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 9
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -9099,7 +9051,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615383}
   m_ExposedName: Trail Size
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 7
   m_Category: Trail
   m_Min:
     m_Type:
@@ -9183,7 +9135,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615390}
   m_ExposedName: DropletSize over Lifetime
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 11
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -9264,7 +9216,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615406}
   m_ExposedName: Inball Inside Size
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: (ink) Ball
   m_Min:
     m_Type:
@@ -9347,7 +9299,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615411}
   m_ExposedName: Shader Color
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9564,7 +9516,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615417}
   m_ExposedName: Texture Tiling
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 5
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9714,7 +9666,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615421}
   m_ExposedName: Scrolling Texture
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9795,7 +9747,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615423}
   m_ExposedName: Texture Speed
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 13
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9944,7 +9896,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615427}
   m_ExposedName: Texture Power
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 14
   m_Category: Shader
   m_Min:
     m_Type:
