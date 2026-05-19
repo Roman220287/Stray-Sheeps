@@ -542,6 +542,12 @@ VisualEffect:
       - m_Value: 1
         m_Name: Enable Looping
         m_Overridden: 1
+      - m_Value: 0
+        m_Name: Bool
+        m_Overridden: 1
+      - m_Value: 100000
+        m_Name: Loop Amount
+        m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
@@ -551,7 +557,13 @@ VisualEffect:
     m_NamedObject:
       m_Array: []
     m_Bool:
-      m_Array: []
+      m_Array:
+      - m_Value: 1
+        m_Name: Enemy Hit
+        m_Overridden: 1
+      - m_Value: 0
+        m_Name: Enable Looping
+        m_Overridden: 0
 --- !u!4 &671737079
 Transform:
   m_ObjectHideFlags: 0
