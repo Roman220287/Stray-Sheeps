@@ -1,131 +1,200 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// fix the dash not far enough, maybe add a dash upgrade that increases dash distance and/or reduces cooldown?-
-
 public class PlayerBase : MonoBehaviour
 {
-    private InputSystem_Actions controls;
-    private CharacterController controller;
+    [Header("References")]
+    [SerializeField] private CharacterController controller;
+    [SerializeField] private Transform attackPoint;
+    [SerializeField] private GameObject attackPrefab;
 
     [Header("Movement")]
-    public float moveSpeed = 7f;
-    public float rotationSpeed = 10f;
+    [SerializeField] public float moveSpeed = 7f;
+    [SerializeField] private float rotationSpeed = 10f;
 
-    [Header("Attack Settings")]
-    public GameObject attackPrefab;
-    public Transform attackPoint;
-    public float attackCooldown = 0.4f;
-    private float nextAttackTime = 0f;
+    [Header("Combat")]
+    [SerializeField] private float attackCooldown = 0.4f;
+    [SerializeField] private float burstSpreadAngle = 15f;
+
+    private InputSystem_Actions controls;
+    private PlayerStatsBase playerStats;
 
     private Vector2 moveInput;
-    private Vector3 currentLookDirection;
+    private Vector3 lookDirection;
+
+    private float nextAttackTime;
+
+    #region Unity Methods
 
     private void Awake()
     {
-        controller = GetComponent<CharacterController>();
+        controller ??= GetComponent<CharacterController>();
+        playerStats = GetComponent<PlayerStatsBase>();
+
         controls = new InputSystem_Actions();
 
-        controls.Player.Attack.performed += ctx => PerformAttack();
+        controls.Player.Attack.performed += _ => TryAttack();
     }
 
-    private void OnEnable() => controls.Player.Enable();
-    private void OnDisable() => controls.Player.Disable();
+    private void OnEnable()
+    {
+        controls.Player.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Player.Disable();
+    }
 
     private void Update()
     {
-        moveInput = controls.Player.Move.ReadValue<Vector2>();
+        ReadInput();
 
         HandleMovement();
         HandleRotation();
     }
 
+    #endregion
+
+    #region Input
+
+    private void ReadInput()
+    {
+        moveInput = controls.Player.Move.ReadValue<Vector2>();
+    }
+
+    #endregion
+
+    #region Movement
+
     private void HandleMovement()
     {
-        Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
-        controller.Move(move * moveSpeed * Time.deltaTime);
+        Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
 
     private void HandleRotation()
     {
-        Vector3 targetDirection = Vector3.zero;
+        Vector3 targetDirection = GetLookDirection();
 
+        if (targetDirection == Vector3.zero)
+            return;
+
+        lookDirection = targetDirection;
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime
+        );
+    }
+
+    private Vector3 GetLookDirection()
+    {
+        // Mouse aiming
         if (Gamepad.current == null || Mouse.current.wasUpdatedThisFrame)
         {
-            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-            Plane groundPlane = new Plane(Vector3.up, transform.position);
-
-            if (groundPlane.Raycast(ray, out float rayDistance))
-            {
-                Vector3 point = ray.GetPoint(rayDistance);
-                targetDirection = (point - transform.position).normalized;
-            }
-        }
-        else
-        {
-            Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
-            if (lookInput.sqrMagnitude > 0.1f)
-            {
-                targetDirection = new Vector3(lookInput.x, 0, lookInput.y);
-            }
+            return GetMouseLookDirection();
         }
 
-        if (targetDirection != Vector3.zero)
-        {
-            targetDirection.y = 0;
-            currentLookDirection = targetDirection;
+        // Controller aiming
+        Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
 
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
+        if (lookInput.sqrMagnitude < 0.1f)
+            return Vector3.zero;
 
-            transform.rotation = Quaternion.Slerp(
-                transform.rotation,
-                targetRotation,
-                rotationSpeed * Time.deltaTime
-            );
-        }
+        return new Vector3(lookInput.x, 0f, lookInput.y).normalized;
     }
 
-    private void PerformAttack()
+    private Vector3 GetMouseLookDirection()
     {
-        if (Time.time < nextAttackTime) return;
+        if (Camera.main == null)
+            return Vector3.zero;
 
-        if (currentLookDirection != Vector3.zero)
-            transform.rotation = Quaternion.LookRotation(currentLookDirection);
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 
-        PlayerStatsBase playerStats = GetComponent<PlayerStatsBase>();
-        int burstCount = playerStats != null ? playerStats.burstShots : 1;
+        Plane groundPlane = new Plane(Vector3.up, transform.position);
 
-        for (int i = 0; i < burstCount; i++)
-            FireProjectile(i, burstCount, playerStats);
+        if (!groundPlane.Raycast(ray, out float distance))
+            return Vector3.zero;
+
+        Vector3 hitPoint = ray.GetPoint(distance);
+
+        Vector3 direction = hitPoint - transform.position;
+        direction.y = 0f;
+
+        return direction.normalized;
+    }
+
+    #endregion
+
+    #region Combat
+
+    private void TryAttack()
+    {
+        if (Time.time < nextAttackTime)
+            return;
 
         nextAttackTime = Time.time + attackCooldown;
+
+        RotateTowardsLookDirection();
+
+        int burstCount = Mathf.Max(1, playerStats.burstShots);
+
+        for (int i = 0; i < burstCount; i++)
+        {
+            FireProjectile(i, burstCount);
+        }
     }
 
-    private void FireProjectile(int burstIndex, int burstCount, PlayerStatsBase playerStats)
+    private void RotateTowardsLookDirection()
     {
-        if (attackPrefab == null || attackPoint == null) return;
-
-        GameObject projectile = Instantiate(attackPrefab, attackPoint.position, transform.rotation);
-        AttackInstance attackInstance = projectile.GetComponentInChildren<AttackInstance>();
-
-        if (attackInstance != null && playerStats != null)
+        if (lookDirection != Vector3.zero)
         {
-            attackInstance.damage = playerStats.baseDamage;
-            attackInstance.speed = playerStats.bulletSpeed;
-            attackInstance.bounceCount = playerStats.bounceCount;
-            attackInstance.bleedingDamage = playerStats.bleedingDamage;
-            attackInstance.slowDuration = playerStats.slowDuration;
-            Debug.Log($"Applied upgrades to projectile. BounceCount: {attackInstance.bounceCount}");
-        }
-        else
-        {
-            Debug.LogError("AttackInstance not found on projectile or playerStats is null!");
-        }
-
-        if (burstIndex > 0)
-        {
-            float angle = burstIndex * 15f - (burstCount - 1) * 7.5f;
-            projectile.transform.RotateAround(projectile.transform.position, Vector3.up, angle);
+            transform.rotation = Quaternion.LookRotation(lookDirection);
         }
     }
+
+    private void FireProjectile(int burstIndex, int burstCount)
+    {
+        if (attackPrefab == null || attackPoint == null)
+            return;
+
+        float spreadOffset =
+            (burstIndex - (burstCount - 1) / 2f) * burstSpreadAngle;
+
+        Quaternion projectileRotation =
+            transform.rotation * Quaternion.Euler(0f, spreadOffset, 0f);
+
+        GameObject projectile = Instantiate(
+            attackPrefab,
+            attackPoint.position,
+            projectileRotation
+        );
+
+        ApplyProjectileStats(projectile);
+    }
+
+    private void ApplyProjectileStats(GameObject projectile)
+    {
+        AttackInstance attackInstance =
+            projectile.GetComponentInChildren<AttackInstance>();
+
+        if (attackInstance == null)
+        {
+            Debug.LogError("AttackInstance missing on projectile.");
+            return;
+        }
+
+        attackInstance.damage = playerStats.baseDamage;
+        attackInstance.speed = playerStats.bulletSpeed;
+        attackInstance.bounceCount = playerStats.bounceCount;
+        attackInstance.bleedingDamage = playerStats.bleedingDamage;
+        attackInstance.slowDuration = playerStats.slowDuration;
+    }
+
+    #endregion
 }

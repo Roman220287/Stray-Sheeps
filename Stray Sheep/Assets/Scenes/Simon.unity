@@ -677,7 +677,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 1
 --- !u!1 &1098860468
 GameObject:
@@ -1156,7 +1156,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!195 &1966646059
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1188,13 +1188,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1966646052}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06b404441b52e674cae10c605f696783, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d225e62ee43da148887ef5ddfca994e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 10
   damage: 1
   attackRange: 2.5
   attackCooldown: 1.5
+  matchObject: {fileID: 0}
+  fireEffect: {fileID: 0}
+  baseMovementSpeed: 3.5
+  speedMultiplierOnFire: 1.75
+  burnDuration: 8
 --- !u!1 &2041889211
 GameObject:
   m_ObjectHideFlags: 0
