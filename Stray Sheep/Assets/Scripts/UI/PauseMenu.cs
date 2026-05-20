@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject firstSelectedWhenPaused;
     public Behaviour[] disableWhilePaused;
+
+    [Header("Title Screen")]
+    public GameObject titleScreenUI;
+    public GameObject firstSelectedOnTitle;
+    public GameObject creditsScreenUI;
 
     private InputSystem_Actions controls;
     private bool isPaused;
@@ -82,4 +88,34 @@ public class PauseMenu : MonoBehaviour
     {
         Application.Quit();
     }
+
+     //only for title screen
+     #region Title Screen
+    public void StartGame()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
+
+    public void ShowCredits()
+    {
+        titleScreenUI.SetActive(false);
+        creditsScreenUI.SetActive(true);
+        if (firstSelectedOnTitle != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelectedOnTitle);
+        }
+    }
+
+    public void BackToTitle()
+    {
+        creditsScreenUI.SetActive(false);
+        titleScreenUI.SetActive(true);
+        if (firstSelectedOnTitle != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(firstSelectedOnTitle);
+        }
+    }
+    #endregion
 }
