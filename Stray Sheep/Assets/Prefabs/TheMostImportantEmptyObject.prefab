@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7719788749398833025}
   - component: {fileID: 6911890180032862086}
   m_Layer: 0
-  m_Name: Managers
+  m_Name: TheMostImportantEmptyObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,6 +86,9 @@ MonoBehaviour:
   firstSelectedWhenPaused: {fileID: 0}
   disableWhilePaused:
   - {fileID: 0}
+  titleScreenUI: {fileID: 0}
+  firstSelectedOnTitle: {fileID: 0}
+  creditsScreenUI: {fileID: 0}
 --- !u!114 &6911890180032862086
 MonoBehaviour:
   m_ObjectHideFlags: 0
