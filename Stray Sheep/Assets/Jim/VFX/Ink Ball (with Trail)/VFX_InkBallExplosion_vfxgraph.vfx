@@ -70,26 +70,17 @@ MonoBehaviour:
     - model: {fileID: 8926484042661615369}
       id: 0
       isStickyNote: 0
-    - model: {fileID: 8926484042661615373}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615386}
-      id: 0
-      isStickyNote: 0
-    - model: {fileID: 8926484042661615389}
-      id: 0
-      isStickyNote: 0
   stickyNoteInfos: []
   categories:
   - name: Droplets
-    collapsed: 1
+    collapsed: 0
   - name: Impact Circle
     collapsed: 1
   uiBounds:
     serializedVersion: 2
     x: -430
     y: 294
-    width: 3822
+    width: 3827
     height: 2912
 --- !u!114 &114350483966674976
 MonoBehaviour:
@@ -169,8 +160,8 @@ MonoBehaviour:
     descendantCount: 0
   - name: Loop Amount
     path: Loop Amount
-    tooltip: do NOT TOUCH THIS!!! keep this at 1 at ALL TIMES!!! (tenzij je dus gaat
-      testen xx kusjes sjomp)
+    tooltip: Should be 1 in game. When testing, hit the reset vfx button to actually
+      change the loop amount. ONLY CHANGE VALUE WHEN TESTING xx sjomp
     space: -1
     spaceable: 0
     sheetType: m_Int
@@ -242,7 +233,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.051269467920064929,"g":0.04091520980000496,"b":0.051269467920064929,"a":1.0},"time":0.0},{"color":{"r":0.015208514407277108,"g":0.013702080585062504,"b":0.020288562402129175,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.14000152051448823},{"alpha":0.9686274528503418,"time":0.40588998794555666},{"alpha":0.8056710958480835,"time":0.5517662167549133},{"alpha":0.0,"time":0.8341192007064819},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.051269467920064929,"g":0.04091520980000496,"b":0.051269467920064929,"a":1.0},"time":0.0},{"color":{"r":0.015208514407277108,"g":0.013702080585062504,"b":0.020288562402129175,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.14000152051448823},{"alpha":0.9686274528503418,"time":0.2529488205909729},{"alpha":0.0,"time":0.8341192007064819},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -860,7 +851,7 @@ MonoBehaviour:
   useAlphaClipping: 0
   generateMotionVector: 0
   excludeFromTUAndAA: 0
-  sortingPriority: -3
+  sortingPriority: 0
   m_SubOutputs:
   - {fileID: 8926484042661614781}
   - {fileID: 8926484042661614955}
@@ -5555,14 +5546,14 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661615175}
   m_ExposedName: Droplets Gradient
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 3
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -5610,7 +5601,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.051269467920064929,"g":0.04091520980000496,"b":0.051269467920064929,"a":1.0},"time":0.0},{"color":{"r":0.015208514407277108,"g":0.013702080585062504,"b":0.020288562402129175,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.14000152051448823},{"alpha":0.9686274528503418,"time":0.40588998794555666},{"alpha":0.8056710958480835,"time":0.5517662167549133},{"alpha":0.0,"time":0.8341192007064819},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.051269467920064929,"g":0.04091520980000496,"b":0.051269467920064929,"a":1.0},"time":0.0},{"color":{"r":0.015208514407277108,"g":0.013702080585062504,"b":0.020288562402129175,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.14000152051448823},{"alpha":0.9686274528503418,"time":0.2529488205909729},{"alpha":0.0,"time":0.8341192007064819},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: -1
   m_Property:
     name: o
@@ -6289,14 +6280,14 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661615234}
   m_ExposedName: Drag Coefficient
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 4
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -6512,7 +6503,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615246}
   m_ExposedName: Droplet Size Parameters
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 5
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -8139,7 +8130,7 @@ MonoBehaviour:
   useAlphaClipping: 0
   generateMotionVector: 0
   excludeFromTUAndAA: 0
-  sortingPriority: 0
+  sortingPriority: 2
   m_SubOutputs:
   - {fileID: 8926484042661615385}
   colorMapping: 0
@@ -8737,7 +8728,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615472}
   m_ExposedName: Impact Size
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 6
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -9846,7 +9837,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615524}
   m_ExposedName: Impact Circle Texture
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 7
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -10245,7 +10236,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615536}
   m_ExposedName: ImpactGradient
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 8
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -10361,7 +10352,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615547}
   m_ExposedName: Impact Lifetime
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 9
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -10438,7 +10429,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615555}
   - {fileID: 8926484042661615558}
   - {fileID: 8926484042661615561}
-  m_UIPosition: {x: 2968, y: 2048}
+  m_UIPosition: {x: 2973, y: 2048}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -10459,7 +10450,7 @@ MonoBehaviour:
   useAlphaClipping: 0
   generateMotionVector: 0
   excludeFromTUAndAA: 0
-  sortingPriority: -2
+  sortingPriority: -3
   m_SubOutputs:
   - {fileID: 8926484042661615554}
   colorMapping: 0
@@ -12025,7 +12016,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615615}
   m_ExposedName: Back Impact Size
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 10
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -12106,7 +12097,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615618}
   m_ExposedName: Back Impact Lifetime
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 11
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -12189,7 +12180,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615629}
   m_ExposedName: Back ImpactGradient
   m_Exposed: 1
-  m_Order: 13
+  m_Order: 12
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -12270,7 +12261,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615631}
   m_ExposedName: Enemy Hit
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -12448,14 +12439,14 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661615977}
   m_ExposedName: Loop Amount
   m_Exposed: 1
-  m_Order: 14
+  m_Order: 13
   m_Category: 
   m_Min:
     m_Type:
@@ -12470,8 +12461,8 @@ MonoBehaviour:
   m_IsOutput: 0
   m_EnumValues: []
   m_ValueFilter: 1
-  m_Tooltip: do NOT TOUCH THIS!!! keep this at 1 at ALL TIMES!!! (tenzij je dus gaat
-    testen xx kusjes sjomp)
+  m_Tooltip: Should be 1 in game. When testing, hit the reset vfx button to actually
+    change the loop amount. ONLY CHANGE VALUE WHEN TESTING xx sjomp
   m_Nodes:
   - m_Id: 0
     linkedSlots:
