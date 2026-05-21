@@ -14,7 +14,7 @@ public class SmoothCameraFollow : MonoBehaviour
     [SerializeField] private Vector3 positionOffset = Vector3.zero;
 
     [Tooltip("Fixed camera rotation in Euler angles (degrees). Set this for a top-down/isometric view.")]
-    [SerializeField] private Vector3 fixedRotation = new Vector3(35f, 45f, 0f);
+    [SerializeField] private Vector3 fixedRotation = new Vector3(69f, 0f, 0f);
 
     [Tooltip("How long the camera takes to catch up to the player's position. Smaller = snappier.")]
     [SerializeField] private float followSmoothTime = 0.25f;
