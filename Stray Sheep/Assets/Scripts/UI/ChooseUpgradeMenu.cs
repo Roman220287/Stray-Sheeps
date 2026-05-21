@@ -7,6 +7,9 @@ public class UpgradeOption
 {
     public string title;
     [TextArea] public string description;
+    public PickUpBase.StatType statToModify;
+    [Tooltip("The percentage to increase the stat by when this upgrade is chosen.")]
+    public float percentageIncrease = 10f;
 }
 
 public class ChooseUpgradeMenu : MonoBehaviour
@@ -17,6 +20,7 @@ public class ChooseUpgradeMenu : MonoBehaviour
     public Text[] optionTitles;
     public Text[] optionDescriptions;
     public Behaviour[] disableWhileMenuOpen;
+    public PickUpBase statsToApply;
 
     [Header("Upgrade Options")]
     [Tooltip("All upgrades that can be offered when a wave is cleared.")]
@@ -129,10 +133,32 @@ public class ChooseUpgradeMenu : MonoBehaviour
 
         UpgradeOption chosen = allUpgrades[activeChoices[buttonIndex]];
         Debug.Log($"Upgrade selected: {chosen.title}");
+
+        ApplyUpgrade(chosen);
         CloseMenu();
 
         if (NextLevelManager.instance != null)
             NextLevelManager.instance.ProceedToNextLevel();
+    }
+
+    private void ApplyUpgrade(UpgradeOption option)
+    {
+        if (statsToApply == null)
+        {
+            Debug.LogWarning("ChooseUpgradeMenu: statsToApply is not assigned. Cannot apply upgrade.");
+            return;
+        }
+
+        PlayerStatsBase playerStats = FindObjectsByType<PlayerStatsBase>(FindObjectsSortMode.None)[0];
+        if (playerStats == null)
+        {
+            Debug.LogWarning("ChooseUpgradeMenu: No PlayerStatsBase found in scene. Cannot apply upgrade.");
+            return;
+        }
+
+        statsToApply.statToModify = option.statToModify;
+        statsToApply.percentageIncrease = option.percentageIncrease;
+        statsToApply.ApplyPickupTo(playerStats);
     }
 
     private void Shuffle(List<int> list)
