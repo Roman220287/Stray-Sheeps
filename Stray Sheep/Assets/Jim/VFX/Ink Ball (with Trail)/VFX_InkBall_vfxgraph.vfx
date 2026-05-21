@@ -4721,7 +4721,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614913}
   m_ExposedName: Droplet Amount
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 14
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -6692,7 +6692,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615192}
   m_ExposedName: Trail Texture
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 12
   m_Category: Trail
   m_Min:
     m_Type:
@@ -6773,7 +6773,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615194}
   m_ExposedName: Dot Texture (inside)
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 10
   m_Category: (ink) Ball
   m_Min:
     m_Type:
@@ -6854,7 +6854,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615196}
   m_ExposedName: Droplet Texture
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 18
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -7572,7 +7572,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615302}
   m_ExposedName: Droplet Size
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 16
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -8631,7 +8631,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615357}
   m_ExposedName: Droplet Delay
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 15
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -8979,7 +8979,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615383}
   m_ExposedName: Trail Size
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 13
   m_Category: Trail
   m_Min:
     m_Type:
@@ -9063,7 +9063,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615390}
   m_ExposedName: DropletSize over Lifetime
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 17
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -9144,7 +9144,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615406}
   m_ExposedName: Inball Inside Size
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 8
   m_Category: (ink) Ball
   m_Min:
     m_Type:
@@ -9227,7 +9227,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615411}
   m_ExposedName: Shader Color
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 7
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9444,7 +9444,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615417}
   m_ExposedName: Texture Tiling
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 11
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9594,7 +9594,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615421}
   m_ExposedName: Scrolling Texture
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 9
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9675,7 +9675,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615423}
   m_ExposedName: Texture Speed
   m_Exposed: 1
-  m_Order: 13
+  m_Order: 19
   m_Category: Shader
   m_Min:
     m_Type:
@@ -9824,7 +9824,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615427}
   m_ExposedName: Texture Power
   m_Exposed: 1
-  m_Order: 14
+  m_Order: 20
   m_Category: Shader
   m_Min:
     m_Type:
@@ -10828,7 +10828,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615485}
   m_ExposedName: Shader Color 1
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -11045,7 +11045,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615491}
   m_ExposedName: Scrolling Texture 1
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 2
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -11126,7 +11126,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615493}
   m_ExposedName: Texture Tiling 1
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 3
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -11275,7 +11275,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615497}
   m_ExposedName: Texture Speed 1
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 4
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -11424,7 +11424,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615501}
   m_ExposedName: Texture Power 1
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 5
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -11505,7 +11505,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615503}
   m_ExposedName: Ball Overlay Size
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 6
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -11586,7 +11586,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615505}
   m_ExposedName: X Rotation
   m_Exposed: 1
-  m_Order: 15
+  m_Order: 21
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -11669,7 +11669,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615507}
   m_ExposedName: Ink Trail Gradient
   m_Exposed: 1
-  m_Order: 16
+  m_Order: 22
   m_Category: Trail
   m_Min:
     m_Type:
@@ -11750,7 +11750,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615509}
   m_ExposedName: Size Over Lifetime
   m_Exposed: 1
-  m_Order: 17
+  m_Order: 23
   m_Category: Trail
   m_Min:
     m_Type:
@@ -11832,7 +11832,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615511}
   m_ExposedName: Trail Lifetime
   m_Exposed: 1
-  m_Order: 18
+  m_Order: 24
   m_Category: Trail
   m_Min:
     m_Type:
