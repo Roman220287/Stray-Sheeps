@@ -53,6 +53,11 @@ public class PickUpBase : MonoBehaviour
 
         Destroy(gameObject);
     }
+    public void ApplyPickupTo(PlayerStatsBase stats)
+    {
+        ApplyPickup(stats);
+    }
+
     protected virtual void ApplyPickup(PlayerStatsBase stats)
     {
         float multiplier = percentageIncrease / 100f;

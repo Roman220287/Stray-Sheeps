@@ -351,11 +351,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349026232f5be764491c0cb639bb4cef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controller: {fileID: 988996583}
+  attackPoint: {fileID: 2092190985}
+  attackPrefab: {fileID: 4436262456611453642, guid: f5edbfb848fc33a4ebf8f191fd7f3243, type: 3}
   moveSpeed: 7
   rotationSpeed: 10
-  attackPrefab: {fileID: 4436262456611453642, guid: f5edbfb848fc33a4ebf8f191fd7f3243, type: 3}
-  attackPoint: {fileID: 2092190985}
   attackCooldown: 0
+  burstSpreadAngle: 15
 --- !u!4 &988996589
 Transform:
   m_ObjectHideFlags: 0
@@ -1341,9 +1343,17 @@ PrefabInstance:
       value: Managers
       objectReference: {fileID: 0}
     - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: statsToApply
+      value: 
+      objectReference: {fileID: 314762670905399410, guid: 0bcda4e67637e434a8f6df3c1afe9aba, type: 3}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: upgradeMenuUI
       value: 
       objectReference: {fileID: 683067907}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: allUpgrades.Array.size
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'optionButtons.Array.data[0]'
       value: 
@@ -1372,6 +1382,26 @@ PrefabInstance:
       propertyPath: 'disableWhileMenuOpen.Array.data[0]'
       value: 
       objectReference: {fileID: 988996588}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: allUpgrades.Array.data[1].statToModify
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: allUpgrades.Array.data[2].statToModify
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: allUpgrades.Array.data[3].statToModify
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: allUpgrades.Array.data[4].statToModify
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: allUpgrades.Array.data[5].statToModify
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 7140738945704158471, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
