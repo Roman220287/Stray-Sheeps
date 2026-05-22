@@ -1582,7 +1582,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.51
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1590,7 +1590,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.49
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1628,9 +1628,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_InkBall_vfxgraph
       objectReference: {fileID: 0}
+    - target: {fileID: 5364662463216027404, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Int.m_Array.Array.data[1].m_Value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[5].m_Value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Int.m_Array.Array.data[1].m_Overridden
