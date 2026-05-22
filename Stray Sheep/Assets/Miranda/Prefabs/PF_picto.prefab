@@ -52,13 +52,21 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 010b1cab2a454d74ba4739cd1ec020af, type: 2}
+    - target: {fileID: -6615942463076616880, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
+      propertyPath: m_Name
+      value: zipper
+      objectReference: {fileID: 0}
     - target: {fileID: -666439882109796749, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 010b1cab2a454d74ba4739cd1ec020af, type: 2}
+    - target: {fileID: -307392698178552484, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 010b1cab2a454d74ba4739cd1ec020af, type: 2}
     - target: {fileID: 919132149155446097, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
       propertyPath: m_Name
-      value: SM_picto
+      value: PF_picto
       objectReference: {fileID: 0}
     - target: {fileID: 3422754000546193221, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -68,10 +76,26 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 010b1cab2a454d74ba4739cd1ec020af, type: 2}
+    - target: {fileID: 4870801407698984332, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 010b1cab2a454d74ba4739cd1ec020af, type: 2}
+    - target: {fileID: 6829825619187663742, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
+      propertyPath: m_Name
+      value: Button_R
+      objectReference: {fileID: 0}
+    - target: {fileID: 7007398243948176323, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 010b1cab2a454d74ba4739cd1ec020af, type: 2}
     - target: {fileID: 8449996119470504636, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 010b1cab2a454d74ba4739cd1ec020af, type: 2}
+    - target: {fileID: 8961583953385355377, guid: 16ac70eed362f754fb6c40f11e536cc8, type: 3}
+      propertyPath: m_Name
+      value: Button_L
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

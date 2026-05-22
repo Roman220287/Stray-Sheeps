@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2932668159101603787}
   - component: {fileID: 5364662463216027404}
   m_Layer: 0
-  m_Name: PF_VFX_InkBall
+  m_Name: PF_VFX_Inkball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,6 +70,9 @@ VisualEffect:
       - m_Value: 0.3
         m_Name: Trail Lifetime
         m_Overridden: 1
+      - m_Value: 4
+        m_Name: DropletSize
+        m_Overridden: 0
     m_Vector2f:
       m_Array:
       - m_Value: {x: 1, y: 3}
@@ -84,6 +87,9 @@ VisualEffect:
       - m_Value: {x: 0.4, y: 0.2}
         m_Name: Texture Tiling
         m_Overridden: 1
+      - m_Value: {x: 0.4, y: 1.3}
+        m_Name: Droplet Lifetime
+        m_Overridden: 0
     m_Vector3f:
       m_Array: []
     m_Vector4f:
@@ -91,12 +97,18 @@ VisualEffect:
       - m_Value: {x: 0.015208514, y: 0.013702081, z: 0.020288562, w: 1}
         m_Name: Inkball Inside Color
         m_Overridden: 1
+      - m_Value: {x: 0.08869761, y: 0.052716505, z: 0.08869761, w: 1}
+        m_Name: Shader Color 1
+        m_Overridden: 0
     m_Uint:
       m_Array: []
     m_Int:
       m_Array:
       - m_Value: 2
         m_Name: Trail Size
+        m_Overridden: 0
+      - m_Value: 1
+        m_Name: Droplet Spawn Rate
         m_Overridden: 0
     m_Matrix4x4f:
       m_Array: []
@@ -234,7 +246,7 @@ VisualEffect:
         m_Overridden: 0
       - m_Value: {fileID: 2800000, guid: 2dd7ac5657abf7744a8f4c1b7d1e7cd5, type: 3}
         m_Name: Droplet Texture
-        m_Overridden: 1
+        m_Overridden: 0
     m_Bool:
       m_Array: []
 --- !u!73398921 &2932668159101603787
