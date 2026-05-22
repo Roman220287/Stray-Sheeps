@@ -5994,7 +5994,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615423}
   m_ExposedName: Texture Speed
   m_Exposed: 1
-  m_Order: 19
+  m_Order: 14
   m_Category: Shader
   m_Min:
     m_Type:
@@ -6143,7 +6143,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615427}
   m_ExposedName: Texture Power
   m_Exposed: 1
-  m_Order: 20
+  m_Order: 15
   m_Category: Shader
   m_Min:
     m_Type:
@@ -7905,7 +7905,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615505}
   m_ExposedName: X Rotation
   m_Exposed: 1
-  m_Order: 21
+  m_Order: 16
   m_Category: Ball Overlay
   m_Min:
     m_Type:
@@ -7988,7 +7988,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615507}
   m_ExposedName: Ink Trail Gradient
   m_Exposed: 1
-  m_Order: 22
+  m_Order: 17
   m_Category: Trail
   m_Min:
     m_Type:
@@ -8069,7 +8069,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615509}
   m_ExposedName: Size Over Lifetime
   m_Exposed: 1
-  m_Order: 23
+  m_Order: 18
   m_Category: Trail
   m_Min:
     m_Type:
@@ -8151,7 +8151,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615511}
   m_ExposedName: Trail Lifetime
   m_Exposed: 1
-  m_Order: 24
+  m_Order: 19
   m_Category: Trail
   m_Min:
     m_Type:
@@ -11510,7 +11510,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615908}
   m_ExposedName: Droplet Lifetime
   m_Exposed: 1
-  m_Order: 27
+  m_Order: 20
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -11663,7 +11663,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615912}
   m_ExposedName: Droplet Spawn Rate
   m_Exposed: 1
-  m_Order: 27
+  m_Order: 21
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -11744,7 +11744,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615914}
   m_ExposedName: Droplet Texture
   m_Exposed: 1
-  m_Order: 27
+  m_Order: 22
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -11825,7 +11825,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615916}
   m_ExposedName: Color Gradient Droplet
   m_Exposed: 1
-  m_Order: 27
+  m_Order: 23
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -11906,7 +11906,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615918}
   m_ExposedName: DropletSize
   m_Exposed: 1
-  m_Order: 27
+  m_Order: 24
   m_Category: Droplets
   m_Min:
     m_Type:
@@ -19274,7 +19274,7 @@ MonoBehaviour:
   - {fileID: 8926484042661616165}
   m_ExposedName: Droplet Size Over Lifetime
   m_Exposed: 1
-  m_Order: 28
+  m_Order: 25
   m_Category: Droplets
   m_Min:
     m_Type:
