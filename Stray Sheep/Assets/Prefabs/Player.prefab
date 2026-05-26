@@ -89,6 +89,8 @@ MonoBehaviour:
   rotationSpeed: 10
   attackCooldown: 0
   burstSpreadAngle: 15
+  dashDistance: 4
+  dashDuration: 0.15
 --- !u!114 &2588848360420270172
 MonoBehaviour:
   m_ObjectHideFlags: 0

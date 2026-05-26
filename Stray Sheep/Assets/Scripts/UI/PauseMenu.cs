@@ -77,6 +77,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         SetPause(false);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Pause()
