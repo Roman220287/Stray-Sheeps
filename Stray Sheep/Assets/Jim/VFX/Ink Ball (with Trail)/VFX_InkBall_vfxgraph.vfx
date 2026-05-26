@@ -160,9 +160,9 @@ MonoBehaviour:
   - title: Inkball Trail
     position:
       serializedVersion: 2
-      x: 1586
+      x: 1561
       y: -502
-      width: 706
+      width: 731
       height: 1877
     contents:
     - model: {fileID: 8926484042661614724}
@@ -955,7 +955,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615440}
   - {fileID: 8926484042661614543}
   dataType: 0
-  capacity: 250
+  capacity: 500000
   stripCapacity: 16
   particlePerStripCount: 16
   needsComputeBounds: 0
@@ -2830,7 +2830,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 500
+      m_SerializableObject: 5000
     m_Space: -1
   m_Property:
     name: Rate
@@ -3008,7 +3008,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 1842, y: 516}
+  m_UIPosition: {x: 1839, y: 447}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -3528,9 +3528,9 @@ MonoBehaviour:
   - {fileID: 8926484042661614724}
   - {fileID: 8926484042661614778}
   dataType: 1
-  capacity: 11325581
-  stripCapacity: 1381
-  particlePerStripCount: 8201
+  capacity: 25000000
+  stripCapacity: 5000
+  particlePerStripCount: 5000
   needsComputeBounds: 0
   boundsMode: 0
   m_Space: 1
@@ -8110,7 +8110,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615509}
       inputSlot: {fileID: 8926484042661614786}
-    position: {x: 1586.4615, y: 1127.348}
+    position: {x: 1586.3999, y: 1127.2}
     expandedSlots: []
     expanded: 1
     supecollapsed: 0
@@ -8191,7 +8191,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615511}
       inputSlot: {fileID: 8926484042661614742}
-    position: {x: 1644.9159, y: 13.8560295}
+    position: {x: 1644.7999, y: 14.400002}
     expandedSlots: []
     expanded: 1
     supecollapsed: 0
@@ -9123,7 +9123,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.5
+      m_SerializableObject: 5
     m_Space: -1
   m_Property:
     name: dragCoefficient
@@ -9157,7 +9157,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: False
+      m_SerializableObject: True
     m_Space: -1
   m_Property:
     name: _vfx_enabled
@@ -15306,7 +15306,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 3
+      m_SerializableObject: 10
     m_Space: -1
   m_Property:
     name: MinSpeed
@@ -15340,7 +15340,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 5
+      m_SerializableObject: 15
     m_Space: -1
   m_Property:
     name: MaxSpeed
