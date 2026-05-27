@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8376418411501391831}
   - component: {fileID: 1880817613813491056}
   m_Layer: 0
-  m_Name: upgrade
+  m_Name: PF_upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

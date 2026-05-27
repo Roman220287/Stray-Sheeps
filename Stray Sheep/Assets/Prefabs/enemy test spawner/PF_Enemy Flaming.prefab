@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7665461502043447952}
   - component: {fileID: 3397837068444758952}
   m_Layer: 0
-  m_Name: Enemy Flaming
+  m_Name: PF_Enemy Flaming
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
