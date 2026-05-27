@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerStatsBase : MonoBehaviour
 {
     [Header("Combat Stats")]
@@ -32,5 +32,6 @@ public class PlayerStatsBase : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject);
+        SceneManager.LoadScene("Title Screen");
     }
 }
