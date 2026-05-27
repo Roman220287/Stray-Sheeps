@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9a176cf86c921a74ca72a3c73054ba05, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 344b9aa520b72d4429fd23817e2b28e0, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2821634528992962307, guid: 0f54c8822e48d354ba162193bce6b6ef, type: 3}
     - target: {fileID: 919132149155446097, guid: 344b9aa520b72d4429fd23817e2b28e0, type: 3}
       propertyPath: m_Name
       value: PF_Trash can
