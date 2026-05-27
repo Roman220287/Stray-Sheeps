@@ -223,7 +223,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.toonshader": {
-      "version": "file:C:/Users/loren/Downloads/com.unity.toonshader-0.14.1-preview.tgz",
+      "version": "file:C:/Users/simon/Downloads/com.unity.toonshader-0.14.1-preview.tgz",
       "depth": 0,
       "source": "local-tarball",
       "dependencies": {

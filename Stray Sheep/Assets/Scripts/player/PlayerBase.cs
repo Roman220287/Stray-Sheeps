@@ -26,6 +26,7 @@ public class PlayerBase : MonoBehaviour
 
     private Vector2 moveInput;
     private Vector3 lookDirection;
+    private bool isUsingRightStickLook;
 
     private bool isDashing;
 
@@ -105,24 +106,28 @@ public class PlayerBase : MonoBehaviour
 
     private Vector3 GetLookDirection()
     {
-        // Mouse aiming
-        if (Gamepad.current == null || Mouse.current.wasUpdatedThisFrame)
+        // If right-stick look is used, ignore mouse look direction.
+        if (Gamepad.current != null)
         {
-            return GetMouseLookDirection();
+            Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
+
+            if (lookInput.sqrMagnitude >= 0.1f)
+            {
+                isUsingRightStickLook = true;
+                return new Vector3(lookInput.x, 0f, lookInput.y).normalized;
+            }
+
+            if (isUsingRightStickLook)
+                return Vector3.zero;
         }
 
-        // Controller aiming
-        Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
-
-        if (lookInput.sqrMagnitude < 0.1f)
-            return Vector3.zero;
-
-        return new Vector3(lookInput.x, 0f, lookInput.y).normalized;
+        isUsingRightStickLook = false;
+        return GetMouseLookDirection();
     }
 
     private Vector3 GetMouseLookDirection()
     {
-        if (Camera.main == null)
+        if (Camera.main == null || Mouse.current == null)
             return Vector3.zero;
 
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
