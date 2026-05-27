@@ -522,6 +522,14 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4377242290543662712, guid: f4bb10dc59ba0dd4c9d165fc6d249059, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 09f4455d009856c4ab45329b36cd38f8, type: 3}
+    - target: {fileID: 4377242290543662712, guid: f4bb10dc59ba0dd4c9d165fc6d249059, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7066a22f564dc9a42bd1e7f7a1d3b4fe, type: 3}
+    - target: {fileID: 4377242290543662712, guid: f4bb10dc59ba0dd4c9d165fc6d249059, type: 3}
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
       objectReference: {fileID: 21300000, guid: 7066a22f564dc9a42bd1e7f7a1d3b4fe, type: 3}
@@ -565,6 +573,10 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6837521526021538626, guid: f4bb10dc59ba0dd4c9d165fc6d249059, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c69a5a744f9d11f4fa3d59a3fca4e923, type: 3}
     - target: {fileID: 6837521526021538626, guid: f4bb10dc59ba0dd4c9d165fc6d249059, type: 3}
       propertyPath: m_SpriteState.m_HighlightedSprite
       value: 
@@ -1282,7 +1294,7 @@ MonoBehaviour:
   m_SpriteState:
     m_HighlightedSprite: {fileID: 21300000, guid: afc47ee321c1eaf43a15a13d56d293d8, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: afc47ee321c1eaf43a15a13d56d293d8, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1637,6 +1649,9 @@ MonoBehaviour:
   titleScreenUI: {fileID: 348882758}
   firstSelectedOnTitle: {fileID: 348882756}
   creditsScreenUI: {fileID: 870261646}
+  menuMoveDeadzone: 0.5
+  menuRepeatDelay: 0.25
+  menuRepeatRate: 0.12
 --- !u!114 &1611120687
 MonoBehaviour:
   m_ObjectHideFlags: 0
