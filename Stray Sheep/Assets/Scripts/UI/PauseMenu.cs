@@ -38,18 +38,18 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.UI.Enable();
+        controls?.UI.Enable();
         SetPause(false);
     }
 
     private void OnDisable()
     {
-        controls.UI.Disable();
+        controls?.UI.Disable();
     }
 
     private void OnDestroy()
     {
-        controls.Dispose();
+        controls?.Dispose();
     }
 
     private void Update()

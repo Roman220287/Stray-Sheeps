@@ -31,27 +31,20 @@ public class ChooseUpgradeMenu : MonoBehaviour
     [Tooltip("Number of choices shown to the player each wave.")]
     public int choicesToShow = 3;
 
-    [Header("Controller Navigation")]
-    public Button firstSelectedOption;
-    public float menuMoveDeadzone = 0.5f;
-    public float menuRepeatDelay = 0.25f;
-    public float menuRepeatRate = 0.12f;
-
     private List<int> activeChoices = new List<int>();
     private InputSystem_Actions controls;
     private Vector2 navigateInput;
-    private bool hasMoveInput;
+    private Vector2 previousNavigateInput;
     private float nextMoveTime;
 
     private void Awake()
     {
-        controls = new InputSystem_Actions();
-        controls.UI.Submit.performed += OnSubmit;
-        controls.UI.Navigate.performed += OnNavigate;
-        controls.UI.Navigate.canceled += OnNavigateCanceled;
-
         if (upgradeMenuUI != null)
             upgradeMenuUI.SetActive(false);
+
+        controls = new InputSystem_Actions();
+        controls.UI.Navigate.performed += OnNavigate;
+        controls.UI.Navigate.canceled += OnNavigateCanceled;
     }
 
     private void OnEnable()
@@ -71,23 +64,10 @@ public class ChooseUpgradeMenu : MonoBehaviour
 
     private void Update()
     {
-        if (upgradeMenuUI == null || !upgradeMenuUI.activeInHierarchy)
+        if (EventSystem.current == null || upgradeMenuUI == null || !upgradeMenuUI.activeInHierarchy)
             return;
 
-        MaintainSelection();
         HandleNavigation();
-    }
-
-    private void OnSubmit(InputAction.CallbackContext context)
-    {
-        if (!context.performed || EventSystem.current == null)
-            return;
-
-        var selected = EventSystem.current.currentSelectedGameObject;
-        if (selected == null)
-            return;
-
-        ExecuteEvents.Execute(selected, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
     }
 
     private void OnNavigate(InputAction.CallbackContext context)
@@ -98,62 +78,37 @@ public class ChooseUpgradeMenu : MonoBehaviour
     private void OnNavigateCanceled(InputAction.CallbackContext context)
     {
         navigateInput = Vector2.zero;
-        hasMoveInput = false;
+        previousNavigateInput = Vector2.zero;
         nextMoveTime = Time.unscaledTime;
     }
 
     private void HandleNavigation()
     {
-        if (navigateInput.sqrMagnitude < menuMoveDeadzone * menuMoveDeadzone)
+        float deadzone = 0.5f;
+        if (navigateInput.sqrMagnitude < deadzone * deadzone)
         {
-            hasMoveInput = false;
-            nextMoveTime = Time.unscaledTime;
+            previousNavigateInput = Vector2.zero;
             return;
         }
 
-        if (Time.unscaledTime < nextMoveTime)
-            return;
+        // Check if the direction has changed
+        bool directionChanged = Vector2.Distance(navigateInput.normalized, previousNavigateInput.normalized) > 0.1f;
 
-        MoveSelection(navigateInput);
-        nextMoveTime = Time.unscaledTime + (hasMoveInput ? menuRepeatRate : menuRepeatDelay);
-        hasMoveInput = true;
-    }
-
-    private void MaintainSelection()
-    {
-        if (EventSystem.current == null)
-            return;
-
-        if (EventSystem.current.currentSelectedGameObject != null)
-            return;
-
-        var first = firstSelectedOption != null ? firstSelectedOption : GetFirstActiveButton();
-        if (first != null)
+        if (directionChanged)
         {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(first.gameObject);
+            MoveSelection(navigateInput);
+            previousNavigateInput = navigateInput.normalized;
+            nextMoveTime = Time.unscaledTime + 0.25f;
         }
-    }
-
-    private Button GetFirstActiveButton()
-    {
-        if (optionButtons == null)
-            return null;
-
-        foreach (var button in optionButtons)
+        else if (Time.unscaledTime >= nextMoveTime)
         {
-            if (button != null && button.gameObject.activeInHierarchy && button.interactable)
-                return button;
+            MoveSelection(navigateInput);
+            nextMoveTime = Time.unscaledTime + 0.12f;
         }
-
-        return null;
     }
 
     private void MoveSelection(Vector2 input)
     {
-        if (EventSystem.current == null)
-            return;
-
         var current = EventSystem.current.currentSelectedGameObject;
         if (current == null)
             return;
@@ -163,6 +118,7 @@ public class ChooseUpgradeMenu : MonoBehaviour
             return;
 
         Selectable next = null;
+
         if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
             next = input.x > 0 ? selectable.FindSelectableOnRight() : selectable.FindSelectableOnLeft();
         else
@@ -258,6 +214,13 @@ public class ChooseUpgradeMenu : MonoBehaviour
                 if (optionButtons[slot] != null)
                     optionButtons[slot].onClick.RemoveAllListeners();
             }
+        }
+
+        // Set the first button as selected for controller navigation
+        if (optionButtons.Length > 0 && optionButtons[0] != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(optionButtons[0].gameObject);
         }
     }
 
