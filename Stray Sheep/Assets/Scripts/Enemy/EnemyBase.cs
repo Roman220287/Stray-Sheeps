@@ -5,10 +5,10 @@ using UnityEngine.AI;
 public class EnemyBase : MonoBehaviour
 {
     [Header("Base Stats")]
-    public float maxHealth = 10f;
-    public float damage = 1f;
-    public float attackRange = 2.5f;
-    public float attackCooldown = 1.5f;
+    [HideInInspector] public float maxHealth = 10f;
+    [HideInInspector] public float damage = 1f;
+    [HideInInspector] public float attackRange = 2.5f;
+    [HideInInspector] public float attackCooldown = 1.5f;
 
     protected float currentHealth;
     protected float nextAttackTime;
