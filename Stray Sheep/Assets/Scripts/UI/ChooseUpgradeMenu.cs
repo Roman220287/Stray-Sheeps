@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 [System.Serializable]
@@ -30,11 +32,100 @@ public class ChooseUpgradeMenu : MonoBehaviour
     public int choicesToShow = 3;
 
     private List<int> activeChoices = new List<int>();
+    private InputSystem_Actions controls;
+    private Vector2 navigateInput;
+    private Vector2 previousNavigateInput;
+    private float nextMoveTime;
 
     private void Awake()
     {
         if (upgradeMenuUI != null)
             upgradeMenuUI.SetActive(false);
+
+        controls = new InputSystem_Actions();
+        controls.UI.Navigate.performed += OnNavigate;
+        controls.UI.Navigate.canceled += OnNavigateCanceled;
+    }
+
+    private void OnEnable()
+    {
+        controls?.UI.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls?.UI.Disable();
+    }
+
+    private void OnDestroy()
+    {
+        controls?.Dispose();
+    }
+
+    private void Update()
+    {
+        if (EventSystem.current == null || upgradeMenuUI == null || !upgradeMenuUI.activeInHierarchy)
+            return;
+
+        HandleNavigation();
+    }
+
+    private void OnNavigate(InputAction.CallbackContext context)
+    {
+        navigateInput = context.ReadValue<Vector2>();
+    }
+
+    private void OnNavigateCanceled(InputAction.CallbackContext context)
+    {
+        navigateInput = Vector2.zero;
+        previousNavigateInput = Vector2.zero;
+        nextMoveTime = Time.unscaledTime;
+    }
+
+    private void HandleNavigation()
+    {
+        float deadzone = 0.5f;
+        if (navigateInput.sqrMagnitude < deadzone * deadzone)
+        {
+            previousNavigateInput = Vector2.zero;
+            return;
+        }
+
+        // Check if the direction has changed
+        bool directionChanged = Vector2.Distance(navigateInput.normalized, previousNavigateInput.normalized) > 0.1f;
+
+        if (directionChanged)
+        {
+            MoveSelection(navigateInput);
+            previousNavigateInput = navigateInput.normalized;
+            nextMoveTime = Time.unscaledTime + 0.25f;
+        }
+        else if (Time.unscaledTime >= nextMoveTime)
+        {
+            MoveSelection(navigateInput);
+            nextMoveTime = Time.unscaledTime + 0.12f;
+        }
+    }
+
+    private void MoveSelection(Vector2 input)
+    {
+        var current = EventSystem.current.currentSelectedGameObject;
+        if (current == null)
+            return;
+
+        var selectable = current.GetComponent<Selectable>();
+        if (selectable == null)
+            return;
+
+        Selectable next = null;
+
+        if (Mathf.Abs(input.x) > Mathf.Abs(input.y))
+            next = input.x > 0 ? selectable.FindSelectableOnRight() : selectable.FindSelectableOnLeft();
+        else
+            next = input.y > 0 ? selectable.FindSelectableOnUp() : selectable.FindSelectableOnDown();
+
+        if (next != null)
+            EventSystem.current.SetSelectedGameObject(next.gameObject);
     }
 
     public void ShowMenu()
@@ -123,6 +214,13 @@ public class ChooseUpgradeMenu : MonoBehaviour
                 if (optionButtons[slot] != null)
                     optionButtons[slot].onClick.RemoveAllListeners();
             }
+        }
+
+        // Set the first button as selected for controller navigation
+        if (optionButtons.Length > 0 && optionButtons[0] != null)
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(optionButtons[0].gameObject);
         }
     }
 
