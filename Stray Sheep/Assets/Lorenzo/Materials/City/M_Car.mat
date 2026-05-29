@@ -464,7 +464,7 @@ Material:
     - _simpleUI: 0
     - _utsTechnique: 0
     m_Colors:
-    - _1st_ShadeColor: {r: 0.51719993, g: 0.5943396, b: 0.4177198, a: 1}
+    - _1st_ShadeColor: {r: 0.88412154, g: 0.9056604, b: 0.756141, a: 1}
     - _2nd_ShadeColor: {r: 0, g: 0, b: 0, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -485,7 +485,7 @@ Material:
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineMaskColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Outline_Color: {r: 0.31746784, g: 0.509434, b: 0.2811499, a: 1}
+    - _Outline_Color: {r: 0.37699786, g: 0.6226415, b: 0.33187968, a: 1}
     - _RimLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimLightMaskColor: {r: 1, g: 0, b: 1, a: 1}
     - _SecondShadeMaskColor: {r: 0, g: 0, b: 1, a: 1}
