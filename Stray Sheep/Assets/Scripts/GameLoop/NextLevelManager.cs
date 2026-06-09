@@ -10,7 +10,7 @@ public class NextLevelManager : MonoBehaviour
     private int enemiesAlive;
     private bool allWavesComplete = false;
     private bool levelEnding = false;
-    [SerializeField] private int depth = 0;
+    [SerializeField] public int depth = 0;
 
     private void Awake()
     {
