@@ -189,7 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5286651335053783845}
   m_Layer: 6
-  m_Name: AttackOrigin
+  m_Name: PF_AttackOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

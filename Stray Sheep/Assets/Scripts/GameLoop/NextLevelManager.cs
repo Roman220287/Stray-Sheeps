@@ -10,6 +10,7 @@ public class NextLevelManager : MonoBehaviour
     private int enemiesAlive;
     private bool allWavesComplete = false;
     private bool levelEnding = false;
+    [SerializeField] private int depth = 0;
 
     private void Awake()
     {
@@ -60,6 +61,8 @@ public class NextLevelManager : MonoBehaviour
 
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
+
+        depth += 1;
 
         if (currentIndex + 1 < totalScenes)
         {

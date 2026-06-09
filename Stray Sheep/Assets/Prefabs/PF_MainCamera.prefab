@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 4451340966721305946}
   - component: {fileID: 2296625115874065248}
   - component: {fileID: 8834088553807705432}
+  - component: {fileID: 4227311317022857241}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: PF_MainCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,3 +156,15 @@ MonoBehaviour:
   fixedRotation: {x: 69, y: 0, z: 0}
   followSmoothTime: 0.25
   followPosition: 1
+--- !u!114 &4227311317022857241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6600361309485746691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb7cdbc655a683c49aef5055d764d61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

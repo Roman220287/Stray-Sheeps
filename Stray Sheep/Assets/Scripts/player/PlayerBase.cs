@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerBase : MonoBehaviour
 {
@@ -16,11 +17,18 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] private float attackCooldown = 0.4f;
     [SerializeField] private float burstSpreadAngle = 15f;
 
+    [Header("Dash")]
+    [SerializeField] private float dashDistance = 4f;
+    [SerializeField] private float dashDuration = 0.15f;
+
     private InputSystem_Actions controls;
     private PlayerStatsBase playerStats;
 
     private Vector2 moveInput;
     private Vector3 lookDirection;
+    private bool isUsingRightStickLook;
+
+    private bool isDashing;
 
     private float nextAttackTime;
 
@@ -34,6 +42,7 @@ public class PlayerBase : MonoBehaviour
         controls = new InputSystem_Actions();
 
         controls.Player.Attack.performed += _ => TryAttack();
+        controls.Player.Dash.performed += _ => TryDash();
     }
 
     private void OnEnable()
@@ -49,6 +58,9 @@ public class PlayerBase : MonoBehaviour
     private void Update()
     {
         ReadInput();
+
+        if (isDashing)
+            return;
 
         HandleMovement();
         HandleRotation();
@@ -94,24 +106,28 @@ public class PlayerBase : MonoBehaviour
 
     private Vector3 GetLookDirection()
     {
-        // Mouse aiming
-        if (Gamepad.current == null || Mouse.current.wasUpdatedThisFrame)
+        // If right-stick look is used, ignore mouse look direction.
+        if (Gamepad.current != null)
         {
-            return GetMouseLookDirection();
+            Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
+
+            if (lookInput.sqrMagnitude >= 0.1f)
+            {
+                isUsingRightStickLook = true;
+                return new Vector3(lookInput.x, 0f, lookInput.y).normalized;
+            }
+
+            if (isUsingRightStickLook)
+                return Vector3.zero;
         }
 
-        // Controller aiming
-        Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
-
-        if (lookInput.sqrMagnitude < 0.1f)
-            return Vector3.zero;
-
-        return new Vector3(lookInput.x, 0f, lookInput.y).normalized;
+        isUsingRightStickLook = false;
+        return GetMouseLookDirection();
     }
 
     private Vector3 GetMouseLookDirection()
     {
-        if (Camera.main == null)
+        if (Camera.main == null || Mouse.current == null)
             return Vector3.zero;
 
         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -129,12 +145,28 @@ public class PlayerBase : MonoBehaviour
         return direction.normalized;
     }
 
+    private Vector3 GetDashDirection()
+    {
+        if (lookDirection != Vector3.zero)
+            return lookDirection;
+
+        Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        if (moveDirection.sqrMagnitude > 0.01f)
+            return moveDirection.normalized;
+
+        return transform.forward;
+    }
+
     #endregion
 
     #region Combat
 
     private void TryAttack()
     {
+        if (isDashing)
+            return;
+
         if (Time.time < nextAttackTime)
             return;
 
@@ -148,6 +180,38 @@ public class PlayerBase : MonoBehaviour
         {
             FireProjectile(i, burstCount);
         }
+    }
+
+    private void TryDash()
+    {
+        if (isDashing)
+            return;
+
+        Vector3 dashDirection = GetDashDirection();
+
+        if (dashDirection == Vector3.zero)
+            return;
+
+        StartCoroutine(DashCoroutine(dashDirection));
+    }
+
+    private IEnumerator DashCoroutine(Vector3 dashDirection)
+    {
+        isDashing = true;
+
+        float elapsedTime = 0f;
+        float dashSpeed = dashDistance / Mathf.Max(0.01f, dashDuration);
+
+        while (elapsedTime < dashDuration)
+        {
+            float stepDistance = dashSpeed * Time.deltaTime;
+            controller.Move(dashDirection * stepDistance);
+
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        isDashing = false;
     }
 
     private void RotateTowardsLookDirection()
