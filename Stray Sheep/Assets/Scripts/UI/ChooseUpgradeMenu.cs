@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -23,6 +24,11 @@ public class ChooseUpgradeMenu : MonoBehaviour
     public Text[] optionDescriptions;
     public Behaviour[] disableWhileMenuOpen;
     public PickUpBase statsToApply;
+
+    [Header("Win Screen")]
+    public GameObject winScreenUI;
+    [Tooltip("How long to show the win screen after choosing an upgrade (in seconds)")]
+    public float winScreenDuration = 3f;
 
     [Header("Upgrade Options")]
     [Tooltip("All upgrades that can be offered when a wave is cleared.")]
@@ -235,8 +241,7 @@ public class ChooseUpgradeMenu : MonoBehaviour
         ApplyUpgrade(chosen);
         CloseMenu();
 
-        if (NextLevelManager.instance != null)
-            NextLevelManager.instance.ProceedToNextLevel();
+        StartCoroutine(ShowWinScreenThenProceed());
     }
 
     private void ApplyUpgrade(UpgradeOption option)
@@ -257,6 +262,20 @@ public class ChooseUpgradeMenu : MonoBehaviour
         statsToApply.statToModify = option.statToModify;
         statsToApply.percentageIncrease = option.percentageIncrease;
         statsToApply.ApplyPickupTo(playerStats);
+    }
+
+    private IEnumerator ShowWinScreenThenProceed()
+    {
+        if (winScreenUI != null)
+            winScreenUI.SetActive(true);
+
+        yield return new WaitForSecondsRealtime(winScreenDuration);
+
+        if (winScreenUI != null)
+            winScreenUI.SetActive(false);
+
+        if (NextLevelManager.instance != null)
+            NextLevelManager.instance.ProceedToNextLevel();
     }
 
     private void Shuffle(List<int> list)
