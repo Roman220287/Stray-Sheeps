@@ -4311,6 +4311,8 @@ GameObject:
   - component: {fileID: 3350249639579821020}
   - component: {fileID: 3657832800200027845}
   - component: {fileID: 7337410652885457307}
+  - component: {fileID: 4311025977051627824}
+  - component: {fileID: 8309003915954255802}
   m_Layer: 0
   m_Name: PF_Environment_City
   m_TagString: Untagged
@@ -4389,6 +4391,48 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &4311025977051627824
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100122997371574084}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 27.462135, y: 3.5518415, z: 1.489707}
+  m_Center: {x: 5.106825, y: -3.1798005, z: -2.4866233}
+--- !u!65 &8309003915954255802
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5100122997371574084}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 27.462135, y: 2.8640678, z: 1.3913383}
+  m_Center: {x: 5.106825, y: -3.5236874, z: -18.366087}
 --- !u!1 &5136687757032663989
 GameObject:
   m_ObjectHideFlags: 0

@@ -1087,6 +1087,26 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3393565198314169372, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.658
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393565198314169372, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.506
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393565198314169372, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9122101
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393565198314169372, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4097228
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393565198314169372, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -48.375
+      objectReference: {fileID: 0}
     - target: {fileID: 5100122997371574084, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
       propertyPath: m_Name
       value: PF_Environment_City
