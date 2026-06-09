@@ -995,16 +995,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.47851
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.47851
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.47851
+      objectReference: {fileID: 0}
+    - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.88
+      value: -4.61
       objectReference: {fileID: 0}
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.802
+      value: 1.91
       objectReference: {fileID: 0}
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -22.94
+      value: -24.64
       objectReference: {fileID: 0}
     - target: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1048,7 +1060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.size
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.size
@@ -1079,8 +1091,16 @@ PrefabInstance:
       value: Ball Size
       objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[10].m_Name
+      value: Trail Size
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[4].m_Value
       value: 0.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[5].m_Value
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[7].m_Value
@@ -1093,6 +1113,10 @@ PrefabInstance:
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[9].m_Value
       value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[10].m_Value
+      value: 1.11
       objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Gradient.m_Array.Array.data[1].m_Name
@@ -1181,6 +1205,10 @@ PrefabInstance:
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[2].m_Value.z
       value: 0.1981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[10].m_Overridden
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9071802012404082041, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[1].m_Value

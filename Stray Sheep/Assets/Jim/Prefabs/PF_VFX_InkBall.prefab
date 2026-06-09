@@ -67,7 +67,7 @@ VisualEffect:
       - m_Value: 0.98
         m_Name: Texture Power
         m_Overridden: 1
-      - m_Value: 0.3
+      - m_Value: 0.2
         m_Name: Trail Lifetime
         m_Overridden: 1
       - m_Value: 4
@@ -81,6 +81,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 1.25
         m_Name: Ball Size
+        m_Overridden: 1
+      - m_Value: 1.11
+        m_Name: Trail Size
         m_Overridden: 1
     m_Vector2f:
       m_Array:
