@@ -197,9 +197,9 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.toonshader": {
-      "version": "file:C:/~ ALL/~ School/Jaar 2/Periode 8/Project Publish/Toon Shader/com.unity.toonshader-0.14.1-preview.tgz",
+      "version": "file:C:/Users/maris/Downloads/com.unity.toonshader-0.14.1-preview/package",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "local",
       "dependencies": {
         "com.unity.film-internal-utilities": "0.20.0-preview",
         "com.unity.render-pipelines.core": "17.0.3"
