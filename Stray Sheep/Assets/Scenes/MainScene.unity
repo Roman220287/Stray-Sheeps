@@ -926,7 +926,7 @@ PrefabInstance:
     - target: {fileID: 7719788749398833025, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: backgroundBlurOverlay
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1154735796}
     - target: {fileID: 7719788749398833025, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: firstSelectedWhenPaused
       value: 
