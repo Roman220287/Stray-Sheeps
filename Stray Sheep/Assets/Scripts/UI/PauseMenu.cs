@@ -11,6 +11,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject firstSelectedWhenPaused;
     public Behaviour[] disableWhilePaused;
 
+    [Header("Background Blur")]
+    [SerializeField] private GameObject backgroundBlurOverlay;
+
     [Header("Title Screen")]
     public GameObject titleScreenUI;
     public GameObject firstSelectedOnTitle;
@@ -161,7 +164,13 @@ public class PauseMenu : MonoBehaviour
     public void SetPause(bool pause)
     {
         isPaused = pause;
-        pauseMenuUI.SetActive(pause);
+
+        if (backgroundBlurOverlay != null)
+            backgroundBlurOverlay.SetActive(pause);
+
+        if (pauseMenuUI != null)
+            pauseMenuUI.SetActive(pause);
+
         Time.timeScale = pause ? 0f : 1f;
         Cursor.lockState = pause ? CursorLockMode.None : CursorLockMode.None;
         Cursor.visible = !pause;
