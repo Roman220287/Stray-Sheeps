@@ -11,6 +11,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject firstSelectedWhenPaused;
     public Behaviour[] disableWhilePaused;
 
+    [Header("Background Blur")]
+    [SerializeField] private GameObject backgroundBlurOverlay;
+    [SerializeField, Range(0.5f, 4f)] private float blurStrength = 1.2f;
+
     [Header("Title Screen")]
     public GameObject titleScreenUI;
     public GameObject firstSelectedOnTitle;
@@ -26,6 +30,9 @@ public class PauseMenu : MonoBehaviour
     private Vector2 navigateInput;
     private bool hasMoveInput;
     private float nextMoveTime;
+    private Material blurMaterial;
+    private RenderTexture blurredBackgroundTexture;
+    private Texture2D capturedFrameTexture;
 
     private void Awake()
     {
@@ -161,7 +168,19 @@ public class PauseMenu : MonoBehaviour
     public void SetPause(bool pause)
     {
         isPaused = pause;
-        pauseMenuUI.SetActive(pause);
+
+        if (pause)
+        {
+            CaptureAndBlurBackground();
+        }
+        else
+        {
+            HideBackgroundBlur();
+        }
+
+        if (pauseMenuUI != null)
+            pauseMenuUI.SetActive(pause);
+
         Time.timeScale = pause ? 0f : 1f;
         Cursor.lockState = pause ? CursorLockMode.None : CursorLockMode.None;
         Cursor.visible = !pause;
@@ -180,6 +199,102 @@ public class PauseMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(firstSelectedWhenPaused);
         }
+    }
+
+    private void CaptureAndBlurBackground()
+    {
+        EnsureBlurOverlay();
+
+        if (backgroundBlurOverlay == null)
+            return;
+
+        if (blurMaterial == null)
+        {
+            var shader = Shader.Find("UI/FullscreenBlur");
+            if (shader != null)
+                blurMaterial = new Material(shader);
+        }
+
+        if (blurMaterial == null)
+            return;
+
+        blurMaterial.SetFloat("_BlurSize", blurStrength);
+
+        if (capturedFrameTexture != null)
+            Destroy(capturedFrameTexture);
+
+        capturedFrameTexture = ScreenCapture.CaptureScreenshotAsTexture();
+
+        if (capturedFrameTexture == null)
+            return;
+
+        if (blurredBackgroundTexture == null ||
+            blurredBackgroundTexture.width != Screen.width ||
+            blurredBackgroundTexture.height != Screen.height)
+        {
+            if (blurredBackgroundTexture != null)
+                blurredBackgroundTexture.Release();
+
+            blurredBackgroundTexture = new RenderTexture(Screen.width, Screen.height, 0, RenderTextureFormat.ARGB32, RenderTextureReadWrite.sRGB);
+            blurredBackgroundTexture.Create();
+        }
+
+        Graphics.Blit(capturedFrameTexture, blurredBackgroundTexture, blurMaterial);
+
+        var rawImage = backgroundBlurOverlay.GetComponent<RawImage>();
+        if (rawImage != null)
+        {
+            rawImage.texture = blurredBackgroundTexture;
+            rawImage.material = blurMaterial;
+            rawImage.color = new Color(1f, 1f, 1f, 0.45f);
+            rawImage.enabled = true;
+        }
+
+        backgroundBlurOverlay.SetActive(true);
+    }
+
+    private void HideBackgroundBlur()
+    {
+        if (backgroundBlurOverlay != null)
+            backgroundBlurOverlay.SetActive(false);
+
+        if (capturedFrameTexture != null)
+        {
+            Destroy(capturedFrameTexture);
+            capturedFrameTexture = null;
+        }
+
+        if (blurredBackgroundTexture != null)
+        {
+            blurredBackgroundTexture.Release();
+            Destroy(blurredBackgroundTexture);
+            blurredBackgroundTexture = null;
+        }
+    }
+
+    private void EnsureBlurOverlay()
+    {
+        if (backgroundBlurOverlay != null)
+            return;
+
+        var canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+            return;
+
+        backgroundBlurOverlay = new GameObject("Pause Background Blur", typeof(RectTransform), typeof(RawImage));
+        backgroundBlurOverlay.transform.SetParent(canvas.transform, false);
+        backgroundBlurOverlay.transform.SetAsFirstSibling();
+
+        var rectTransform = backgroundBlurOverlay.GetComponent<RectTransform>();
+        rectTransform.anchorMin = Vector2.zero;
+        rectTransform.anchorMax = Vector2.one;
+        rectTransform.offsetMin = Vector2.zero;
+        rectTransform.offsetMax = Vector2.zero;
+
+        var rawImage = backgroundBlurOverlay.GetComponent<RawImage>();
+        rawImage.raycastTarget = false;
+        rawImage.color = Color.white;
+        rawImage.enabled = false;
     }
 
     public void Resume()
