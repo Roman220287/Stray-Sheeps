@@ -771,6 +771,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth3Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1666342910}
@@ -786,6 +790,10 @@ PrefabInstance:
       propertyPath: 'spawnPoints.Array.data[3]'
       value: 
       objectReference: {fileID: 2002408541}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth3Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4691676394463959680, guid: 294da3de0b54b984da52a0b09c00d76f, type: 3}
     - target: {fileID: 6402819300031693281, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: m_Name
       value: TheMostImportantEmptyObject
@@ -898,6 +906,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7437414411430587534, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7719788749398833025, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: pauseMenuUI
       value: 
@@ -991,7 +1003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1305513430
 RectTransform:
   m_ObjectHideFlags: 0
