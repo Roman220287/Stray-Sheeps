@@ -23,12 +23,16 @@ public class PlayerStatsBase : MonoBehaviour
     {
         currentHealth = maxHealth;
         cameraFollow = FindFirstObjectByType<SmoothCameraFollow>();
+        HeartUI heartUI = FindFirstObjectByType<HeartUI>();
+        if (heartUI != null) heartUI.UpdateHearts((int)currentHealth);
     }
 
     public void TakeDamage(float amount)
     {
         FindFirstObjectByType<SmoothCameraFollow>().Shake(0.05f, 0.5f);
         currentHealth -= amount;
+        HeartUI heartUI = FindFirstObjectByType<HeartUI>();
+        if (heartUI != null) heartUI.UpdateHearts((int)currentHealth);
         if (currentHealth <= 0) Die();
     }
 

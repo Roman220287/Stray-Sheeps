@@ -522,6 +522,7 @@ RectTransform:
   - {fileID: 1065253528}
   - {fileID: 2059282435}
   - {fileID: 1305513430}
+  - {fileID: 2126615840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1421,17 +1422,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8be33acdddadd2a46a4d7c5357bd8217, type: 3}
---- !u!114 &1736196514 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4227311317022857241, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
-  m_PrefabInstance: {fileID: 6503122447036093481}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb7cdbc655a683c49aef5055d764d61c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1764369719 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4569439724459442852, guid: 8be33acdddadd2a46a4d7c5357bd8217, type: 3}
@@ -1839,6 +1829,82 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2126615839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2126615840}
+  - component: {fileID: 2126615842}
+  - component: {fileID: 2126615843}
+  m_Layer: 5
+  m_Name: HeartContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2126615840
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126615839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 550501220}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 200.1, y: -150.5}
+  m_SizeDelta: {x: 400, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2126615842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126615839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34aa6bf8fbce7754287a9ce1bdf99fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartPrefab: {fileID: 3904346864618918813, guid: 04198da35ead33e449b32b6655f9ba04, type: 3}
+  spacing: 10
+  heartsPerRow: 10
+--- !u!114 &2126615843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126615839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 30, y: 30}
+  m_Spacing: {x: 10, y: 10}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!114 &93948186304892264 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 328619139476871632, guid: 53e68a5fc07fe574f8b754aa4ea95d96, type: 3}
@@ -2012,9 +2078,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5911539212861108135, guid: 53e68a5fc07fe574f8b754aa4ea95d96, type: 3}
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911539212861108135, guid: 53e68a5fc07fe574f8b754aa4ea95d96, type: 3}
       propertyPath: cameraShake
       value: 
-      objectReference: {fileID: 1736196514}
+      objectReference: {fileID: 0}
     - target: {fileID: 5989116200429809257, guid: 53e68a5fc07fe574f8b754aa4ea95d96, type: 3}
       propertyPath: m_Layer
       value: 3

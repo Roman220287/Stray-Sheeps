@@ -20,6 +20,7 @@ public class PlayerBase : MonoBehaviour
     [Header("Dash")]
     [SerializeField] private float dashDistance = 4f;
     [SerializeField] private float dashDuration = 0.15f;
+    [SerializeField] private float dashCooldown = 1f;
 
     private InputSystem_Actions controls;
     private PlayerStatsBase playerStats;
@@ -31,6 +32,7 @@ public class PlayerBase : MonoBehaviour
     private bool isDashing;
 
     private float nextAttackTime;
+    private float nextDashTime;
 
     #region Unity Methods
 
@@ -106,7 +108,6 @@ public class PlayerBase : MonoBehaviour
 
     private Vector3 GetLookDirection()
     {
-        // If right-stick look is used, ignore mouse look direction.
         if (Gamepad.current != null)
         {
             Vector2 lookInput = controls.Player.Look.ReadValue<Vector2>();
@@ -187,6 +188,9 @@ public class PlayerBase : MonoBehaviour
         if (isDashing)
             return;
 
+        if (Time.time < nextDashTime)
+            return;
+
         Vector3 dashDirection = GetDashDirection();
 
         if (dashDirection == Vector3.zero)
@@ -212,6 +216,9 @@ public class PlayerBase : MonoBehaviour
         }
 
         isDashing = false;
+
+        // Cooldown starts after the dash ends
+        nextDashTime = Time.time + dashCooldown;
     }
 
     private void RotateTowardsLookDirection()
