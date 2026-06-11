@@ -50,9 +50,27 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 1
+        m_Name: ALL SIZE
+        m_Overridden: 0
+      - m_Value: 0.9
+        m_Name: Drag Coefficient
+        m_Overridden: 1
+      - m_Value: 1.86
+        m_Name: Impact Size
+        m_Overridden: 1
+      - m_Value: 0.57
+        m_Name: Impact Lifetime
+        m_Overridden: 0
+      - m_Value: 2.3
+        m_Name: Back Impact Size
+        m_Overridden: 1
     m_Vector2f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 0.55, y: 0.3}
+        m_Name: Droplet Size Parameters
+        m_Overridden: 0
     m_Vector3f:
       m_Array: []
     m_Vector4f:
@@ -67,15 +85,111 @@ VisualEffect:
       - m_Value: 0
         m_Name: Bool
         m_Overridden: 1
-      - m_Value: 100000
+      - m_Value: 1
         m_Name: Loop Amount
-        m_Overridden: 0
+        m_Overridden: 1
     m_Matrix4x4f:
       m_Array: []
     m_AnimationCurve:
       m_Array: []
     m_Gradient:
-      m_Array: []
+      m_Array:
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 0.09552424, g: 0.06256675, b: 0.3584906, a: 0}
+          key1: {r: 0.32515794, g: 0.21568625, b: 0.65882355, a: 1}
+          key2: {r: 0.015208514, g: 0.013702081, b: 0.020288562, a: 1}
+          key3: {r: 0.015208514, g: 0.013702081, b: 0.020288562, a: 0.67058825}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 17348
+          ctime1: 31418
+          ctime2: 65535
+          ctime3: 65535
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 9175
+          atime2: 21588
+          atime3: 35081
+          atime4: 47995
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_ColorSpace: 1
+          m_NumColorKeys: 3
+          m_NumAlphaKeys: 5
+        m_Name: Droplets Gradient
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 0.6829796, g: 0.24900001, b: 1, a: 1}
+          key1: {r: 0.10449383, g: 0.042363837, b: 0.5283019, a: 1}
+          key2: {r: 0.015208514, g: 0.013702081, b: 0.020288562, a: 0.7294118}
+          key3: {r: 0.015208514, g: 0.013702081, b: 0.020288562, a: 0.47058824}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 7903
+          ctime1: 19468
+          ctime2: 65535
+          ctime3: 65535
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 11180
+          atime2: 17926
+          atime3: 42174
+          atime4: 65535
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 2
+          m_ColorSpace: 1
+          m_NumColorKeys: 3
+          m_NumAlphaKeys: 5
+        m_Name: ImpactGradient
+        m_Overridden: 1
+      - m_Value:
+          serializedVersion: 2
+          key0: {r: 0.2528925, g: 0, b: 1, a: 1}
+          key1: {r: 0.11185103, g: 0.0995016, b: 0.49056602, a: 0.5647059}
+          key2: {r: 0.015208514, g: 0.013702081, b: 0.020288562, a: 0}
+          key3: {r: 0, g: 0, b: 0, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
+          key5: {r: 0, g: 0, b: 0, a: 0}
+          key6: {r: 0, g: 0, b: 0, a: 0}
+          key7: {r: 0, g: 0, b: 0, a: 0}
+          ctime0: 0
+          ctime1: 21203
+          ctime2: 65535
+          ctime3: 0
+          ctime4: 0
+          ctime5: 0
+          ctime6: 0
+          ctime7: 0
+          atime0: 0
+          atime1: 27371
+          atime2: 43947
+          atime3: 0
+          atime4: 0
+          atime5: 0
+          atime6: 0
+          atime7: 0
+          m_Mode: 0
+          m_ColorSpace: 1
+          m_NumColorKeys: 3
+          m_NumAlphaKeys: 3
+        m_Name: Back ImpactGradient
+        m_Overridden: 1
     m_NamedObject:
       m_Array: []
     m_Bool:

@@ -5,15 +5,19 @@ using System.Collections;
 public class NextLevelManager : MonoBehaviour
 {
     public static NextLevelManager instance;
+    public static int CurrentDepth { get; private set; }
+
     public ChooseUpgradeMenu upgradeMenu;
 
     private int enemiesAlive;
     private bool allWavesComplete = false;
     private bool levelEnding = false;
+    [SerializeField] public int depth = 0;
 
     private void Awake()
     {
         instance = this;
+        depth = CurrentDepth;
     }
 
     public void RegisterEnemy()
@@ -60,6 +64,9 @@ public class NextLevelManager : MonoBehaviour
 
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
         int totalScenes = SceneManager.sceneCountInBuildSettings;
+
+        CurrentDepth = depth + 1;
+        depth = CurrentDepth;
 
         if (currentIndex + 1 < totalScenes)
         {

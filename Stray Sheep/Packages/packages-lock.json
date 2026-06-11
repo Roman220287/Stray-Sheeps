@@ -164,6 +164,22 @@
         "com.unity.searcher": "4.9.3"
       }
     },
+    "com.unity.sysroot": {
+      "version": "2.0.10",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot.linux-x86_64": {
+      "version": "2.0.9",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.10"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.test-framework": {
       "version": "1.6.0",
       "depth": 0,
@@ -196,10 +212,20 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.toonshader": {
-      "version": "file:C:/Users/maris/Downloads/com.unity.toonshader-0.14.1-preview/package",
+    "com.unity.toolchain.win-x86_64-linux-x86_64": {
+      "version": "2.0.11",
       "depth": 0,
-      "source": "local",
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.10",
+        "com.unity.sysroot.linux-x86_64": "2.0.9"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.toonshader": {
+      "version": "file:C:/Users/simon/Downloads/com.unity.toonshader-0.14.1-preview.tgz",
+      "depth": 0,
+      "source": "local-tarball",
       "dependencies": {
         "com.unity.film-internal-utilities": "0.20.0-preview",
         "com.unity.render-pipelines.core": "17.0.3"
