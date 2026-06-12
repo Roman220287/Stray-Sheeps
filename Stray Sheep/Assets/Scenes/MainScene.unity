@@ -980,7 +980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1154735797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2057,8 +2057,28 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
+      propertyPath: stageCenter.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
+      propertyPath: stageCenter.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
+      propertyPath: stageCenter.z
+      value: -18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
       propertyPath: fixedRotation.x
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
+      propertyPath: lookAheadFactor
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
+      propertyPath: followSmoothTime
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
       propertyPath: positionOffset.x
@@ -2071,6 +2091,10 @@ PrefabInstance:
     - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
       propertyPath: positionOffset.z
       value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834088553807705432, guid: 52e7222f3b31f5644a005b9ceef4ed07, type: 3}
+      propertyPath: lookAheadDeadzone
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2191,6 +2215,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1080571442}
+  - {fileID: 6503122447036093481}
+  - {fileID: 1670776745}
   - {fileID: 2041889213}
   - {fileID: 7870557806470144035}
   - {fileID: 1666342910}
@@ -2199,5 +2225,3 @@ SceneRoots:
   - {fileID: 2002408541}
   - {fileID: 550501220}
   - {fileID: 432131412}
-  - {fileID: 6503122447036093481}
-  - {fileID: 1670776745}
