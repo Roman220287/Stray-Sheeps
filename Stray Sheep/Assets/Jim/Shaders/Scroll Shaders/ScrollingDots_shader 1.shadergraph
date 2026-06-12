@@ -101,7 +101,7 @@
                 "m_Node": {
                     "m_Id": "69fff35ea61b49619fa568df829bc6ab"
                 },
-                "m_SlotId": 4
+                "m_SlotId": 1
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -129,7 +129,7 @@
                 "m_Node": {
                     "m_Id": "81e34083ddb2430e90d446fc50ef9c3f"
                 },
-                "m_SlotId": 0
+                "m_SlotId": 4
             },
             "m_InputSlot": {
                 "m_Node": {
@@ -657,9 +657,9 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "r": 1.0,
-        "g": 1.0,
-        "b": 1.0,
+        "r": 0.5,
+        "g": 0.5,
+        "b": 0.5,
         "a": 1.0
     },
     "isMainColor": false,
@@ -1034,7 +1034,7 @@
     "m_AlphaClip": false,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
-    "m_DisableTint": true,
+    "m_DisableTint": false,
     "m_AdditionalMotionVectorMode": 0,
     "m_AlembicMotionVectors": false,
     "m_SupportsLODCrossFade": false,
