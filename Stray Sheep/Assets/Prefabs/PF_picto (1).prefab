@@ -360,6 +360,7 @@ MonoBehaviour:
   burstSpreadAngle: 15
   dashDistance: 4
   dashDuration: 0.15
+  dashCooldown: 1
 --- !u!114 &5911539212861108135
 MonoBehaviour:
   m_ObjectHideFlags: 0

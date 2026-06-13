@@ -1313,6 +1313,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -48.375
       objectReference: {fileID: 0}
+    - target: {fileID: 4345584511453012612, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5100122997371574084, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
       propertyPath: m_Name
       value: PF_Environment_City
@@ -1320,6 +1324,14 @@ PrefabInstance:
     - target: {fileID: 6465314908996949070, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.018
+      objectReference: {fileID: 0}
+    - target: {fileID: 7579492840280604075, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707824776173037399, guid: 97b11cf7adfcd4245ad6db84ffae93be, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
