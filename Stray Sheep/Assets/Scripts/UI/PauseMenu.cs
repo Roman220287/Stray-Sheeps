@@ -14,6 +14,9 @@ public class PauseMenu : MonoBehaviour
     [Header("Background Blur")]
     [SerializeField] private GameObject backgroundBlurOverlay;
 
+    [Header("Background Scrolling Shader")]
+    [SerializeField] private GameObject backgroundScrollOverlay;
+
     [Header("Title Screen")]
     public GameObject titleScreenUI;
     public GameObject firstSelectedOnTitle;
@@ -165,8 +168,13 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = pause;
 
+        EnsureScrollingOverlay();
+
         if (backgroundBlurOverlay != null)
             backgroundBlurOverlay.SetActive(pause);
+
+        if (backgroundScrollOverlay != null)
+            backgroundScrollOverlay.SetActive(pause);
 
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(pause);
@@ -189,6 +197,20 @@ public class PauseMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(firstSelectedWhenPaused);
         }
+    }
+
+    private void EnsureScrollingOverlay()
+    {
+        if (backgroundScrollOverlay != null)
+            return;
+
+        if (pauseMenuUI == null)
+            return;
+
+        var canvas = pauseMenuUI.GetComponentInParent<Canvas>();
+        if (canvas == null)
+            return;
+
     }
 
     public void Resume()

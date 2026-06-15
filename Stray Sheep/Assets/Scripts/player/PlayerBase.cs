@@ -147,15 +147,12 @@ public class PlayerBase : MonoBehaviour
     }
 
     private Vector3 GetDashDirection()
-    {
-        if (lookDirection != Vector3.zero)
-            return lookDirection;
-
+    {   
         Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
-
         if (moveDirection.sqrMagnitude > 0.01f)
+        {
             return moveDirection.normalized;
-
+        }
         return transform.forward;
     }
 
