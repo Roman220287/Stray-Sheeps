@@ -294,9 +294,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: -38
-    y: -733
-    width: 10450
-    height: 3152
+    y: -731
+    width: 10449
+    height: 3163
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
