@@ -104,6 +104,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5364662463216027404, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      propertyPath: m_PreviewTimeScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -162,13 +166,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  lifetime: 0.4
+  lifetime: 1
   speed: 15
   isProjectile: 1
   bounceCount: 0
   bleedingDamage: 0
   slowDuration: 0
-  slowAmount: 0.5
+  slowAmount: 0
 --- !u!54 &1782683274010908958
 Rigidbody:
   m_ObjectHideFlags: 0

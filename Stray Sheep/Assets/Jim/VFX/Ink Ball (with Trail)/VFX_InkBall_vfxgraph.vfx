@@ -231,9 +231,9 @@ MonoBehaviour:
     position:
       serializedVersion: 2
       x: 2561
-      y: -486
+      y: -489
       width: 1727
-      height: 1590
+      height: 1593
     contents:
     - model: {fileID: 8926484042661615757}
       id: 0
@@ -294,9 +294,9 @@ MonoBehaviour:
   uiBounds:
     serializedVersion: 2
     x: -38
-    y: -731
-    width: 10449
-    height: 3163
+    y: -733
+    width: 10450
+    height: 3152
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -955,7 +955,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615440}
   - {fileID: 8926484042661614543}
   dataType: 0
-  capacity: 500000
+  capacity: 128
   stripCapacity: 16
   particlePerStripCount: 16
   needsComputeBounds: 0
@@ -1181,7 +1181,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 666, y: -142}
+  m_UIPosition: {x: 666, y: -143}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
@@ -2830,7 +2830,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 5000
+      m_SerializableObject: 32
     m_Space: -1
   m_Property:
     name: Rate
@@ -3528,9 +3528,9 @@ MonoBehaviour:
   - {fileID: 8926484042661614724}
   - {fileID: 8926484042661614778}
   dataType: 1
-  capacity: 25000000
-  stripCapacity: 5000
-  particlePerStripCount: 5000
+  capacity: 65536
+  stripCapacity: 256
+  particlePerStripCount: 256
   needsComputeBounds: 0
   boundsMode: 0
   m_Space: 1
@@ -7187,7 +7187,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615485}
       inputSlot: {fileID: 8926484042661615445}
-    position: {x: 801.60004, y: 1316.7999}
+    position: {x: 801.6, y: 1316.7999}
     expandedSlots: []
     expanded: 1
     supecollapsed: 0
@@ -8246,7 +8246,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children:
   - {fileID: 8926484042661615759}
-  m_UIPosition: {x: 2978, y: -426}
+  m_UIPosition: {x: 2974, y: -428}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
@@ -8610,7 +8610,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615790}
   - {fileID: 8926484042661615833}
   dataType: 0
-  capacity: 512
+  capacity: 128
   stripCapacity: 1
   particlePerStripCount: 32
   needsComputeBounds: 1
@@ -9753,7 +9753,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615815}
   - {fileID: 8926484042661615802}
   dataType: 0
-  capacity: 128
+  capacity: 32
   stripCapacity: 1
   particlePerStripCount: 128
   needsComputeBounds: 1
@@ -11703,7 +11703,7 @@ MonoBehaviour:
     linkedSlots:
     - outputSlot: {fileID: 8926484042661615912}
       inputSlot: {fileID: 8926484042661615812}
-    position: {x: 2621.5999, y: 587.2}
+    position: {x: 2621.6, y: 587.2}
     expandedSlots: []
     expanded: 1
     supecollapsed: 0
