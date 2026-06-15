@@ -61,6 +61,7 @@ public class KnightMeeple : EnemyBase
 
     protected override void Update()
     {
+        if (PauseManager.IsPaused) return;
         if (playerTarget == null) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.position);

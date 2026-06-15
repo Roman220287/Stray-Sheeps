@@ -25,6 +25,8 @@ public class FlamingMeeple : EnemyBase
 
     protected override void Update()
     {
+        if (PauseManager.IsPaused) return;
+
         if (!isIgnited && playerTarget != null)
         {
             Ignite();

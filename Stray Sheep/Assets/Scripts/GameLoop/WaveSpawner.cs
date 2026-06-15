@@ -36,12 +36,18 @@ public class WaveSpawner : MonoBehaviour
         {
             for (int i = 0; i < enemiesPerWave; i++)
             {
+                while (PauseManager.IsPaused)
+                    yield return null;
+
                 SpawnEnemy();
 
-                yield return new WaitForSeconds(timeBetweenSpawns);
+                yield return new WaitForSecondsRealtime(timeBetweenSpawns);
             }
 
-            yield return new WaitForSeconds(timeBetweenWaves);
+            while (PauseManager.IsPaused)
+                yield return null;
+
+            yield return new WaitForSecondsRealtime(timeBetweenWaves);
         }
 
         NextLevelManager.instance.WavesFinished();

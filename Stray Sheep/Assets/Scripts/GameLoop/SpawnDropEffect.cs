@@ -91,6 +91,7 @@ public class SpawnDropEffect : MonoBehaviour
 
     private void Update()
     {
+        if (PauseManager.IsPaused) return;
         if (!initialized) return;
 
         if (isDescending)

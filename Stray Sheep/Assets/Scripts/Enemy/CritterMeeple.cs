@@ -8,6 +8,7 @@ public class CritterMeeple : EnemyBase
     [SerializeField] private float attackCooldown = 1.5f;
     protected override void Update()
     {
+        if (PauseManager.IsPaused) return;
         if (playerTarget == null) return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, playerTarget.position);

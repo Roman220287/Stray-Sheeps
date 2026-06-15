@@ -41,6 +41,8 @@ public class BlowpipeMeeple : EnemyBase
 
     protected override void Update()
     {
+        if (PauseManager.IsPaused) return;
+
         base.Update();
 
         bool playerInRange = IsPlayerInRange();

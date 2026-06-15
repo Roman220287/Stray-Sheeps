@@ -59,6 +59,8 @@ public class PlayerBase : MonoBehaviour
 
     private void Update()
     {
+        if (PauseManager.IsPaused) return;
+
         ReadInput();
 
         if (isDashing)
