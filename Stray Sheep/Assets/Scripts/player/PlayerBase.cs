@@ -8,6 +8,10 @@ public class PlayerBase : MonoBehaviour
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform attackPoint;
     [SerializeField] private GameObject attackPrefab;
+    [SerializeField] private Animator animator;
+
+    [Header("Animator Settings")]
+    [SerializeField] private string animatorParameter = "Speed"; // Match this to your Animator parameter name
 
     [Header("Movement")]
     [SerializeField] public float moveSpeed = 7f;
@@ -61,6 +65,13 @@ public class PlayerBase : MonoBehaviour
     {
         ReadInput();
 
+        // Update Animator Speed
+        if (animator != null)
+        {
+            // Set the animator parameter to the magnitude of the input (0 to 1)
+            animator.SetFloat(animatorParameter, moveInput.magnitude);
+        }
+
         if (isDashing)
             return;
 
@@ -87,6 +98,8 @@ public class PlayerBase : MonoBehaviour
 
         controller.Move(moveDirection * moveSpeed * Time.deltaTime);
     }
+
+    // ... (rest of your existing methods remain unchanged)
 
     private void HandleRotation()
     {
@@ -147,7 +160,7 @@ public class PlayerBase : MonoBehaviour
     }
 
     private Vector3 GetDashDirection()
-    {   
+    {
         Vector3 moveDirection = new Vector3(moveInput.x, 0f, moveInput.y);
         if (moveDirection.sqrMagnitude > 0.01f)
         {
@@ -214,7 +227,6 @@ public class PlayerBase : MonoBehaviour
 
         isDashing = false;
 
-        // Cooldown starts after the dash ends
         nextDashTime = Time.time + dashCooldown;
     }
 

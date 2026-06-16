@@ -2,10 +2,10 @@ using UnityEngine;
 using UnityEngine.AI;
 public class CritterMeeple : EnemyBase
 {
-    [SerializeField] private float maxHealth = 10f;
-    [SerializeField] private float damage = 1f;
-    [SerializeField] private float attackRange = 2.5f;
-    [SerializeField] private float attackCooldown = 1.5f;
+    private float maxHealth = 10f;
+    private float damage = 1f;
+    private float attackRange = 2.5f;
+    private float attackCooldown = 1.5f;
     protected override void Update()
     {
         if (playerTarget == null) return;
