@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_ScrollingDots
-  m_Shader: {fileID: -6465566751694194690, guid: 1701cde508d61974eae841337f26db98, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 256a7c14f21c6ec4d9c0688d9e2af6a2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -49,12 +49,12 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 2
+    - _Blend: 0
     - _CastShadows: 1
     - _ColorMask: 15
     - _Cull: 2
-    - _DstBlend: 1
-    - _DstBlendAlpha: 1
+    - _DstBlend: 10
+    - _DstBlendAlpha: 10
     - _QueueControl: 0
     - _QueueOffset: -50
     - _SrcBlend: 5
@@ -68,9 +68,9 @@ Material:
     - _Texture_Power: 1
     - _UIMaskSoftnessX: 1
     - _UIMaskSoftnessY: 1
-    - _ZTest: 4
+    - _ZTest: 1
     - _ZWrite: 0
-    - _ZWriteControl: 0
+    - _ZWriteControl: 2
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.554717, g: 0.45561135, b: 0.41342115, a: 1}

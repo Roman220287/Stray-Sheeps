@@ -63,6 +63,8 @@ public class PlayerBase : MonoBehaviour
 
     private void Update()
     {
+        if (PauseManager.IsPaused) return;
+
         ReadInput();
 
         // Update Animator Speed

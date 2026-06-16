@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -32,6 +34,11 @@ public class PauseMenu : MonoBehaviour
     private Vector2 navigateInput;
     private bool hasMoveInput;
     private float nextMoveTime;
+    private readonly List<Behaviour> pausedBehaviours = new();
+    private readonly List<NavMeshAgent> pausedAgents = new();
+    private readonly List<Rigidbody> pausedRigidbodies = new();
+    private readonly List<bool> pausedAgentWasStopped = new();
+    private readonly List<bool> pausedRigidbodyWasKinematic = new();
 
     private void Awake()
     {
@@ -167,6 +174,12 @@ public class PauseMenu : MonoBehaviour
     public void SetPause(bool pause)
     {
         isPaused = pause;
+        PauseManager.SetPaused(pause);
+
+        if (pause)
+            DisableGameplayLogic();
+        else
+            RestoreGameplayLogic();
 
         EnsureScrollingOverlay();
 
@@ -179,7 +192,7 @@ public class PauseMenu : MonoBehaviour
         if (pauseMenuUI != null)
             pauseMenuUI.SetActive(pause);
 
-        Time.timeScale = pause ? 0f : 1f;
+        // Keep time running so shader-based background motion keeps animating.
         Cursor.lockState = pause ? CursorLockMode.None : CursorLockMode.None;
         Cursor.visible = !pause;
 
@@ -197,6 +210,95 @@ public class PauseMenu : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.SetSelectedGameObject(firstSelectedWhenPaused);
         }
+    }
+
+    private void DisableGameplayLogic()
+    {
+        pausedBehaviours.Clear();
+        pausedAgents.Clear();
+        pausedRigidbodies.Clear();
+        pausedAgentWasStopped.Clear();
+        pausedRigidbodyWasKinematic.Clear();
+
+        foreach (var behaviour in FindObjectsByType<Behaviour>(FindObjectsSortMode.None))
+        {
+            if (behaviour == this || behaviour == null)
+                continue;
+
+            if (behaviour is PauseMenu)
+                continue;
+
+            if (behaviour is EnemyBase || behaviour is PlayerBase || behaviour is WaveSpawner || behaviour is SpawnDropEffect || behaviour is AttackInstance)
+            {
+                pausedBehaviours.Add(behaviour);
+                behaviour.enabled = false;
+            }
+        }
+
+        foreach (var agent in FindObjectsByType<NavMeshAgent>(FindObjectsSortMode.None))
+        {
+            if (agent == null)
+                continue;
+
+            pausedAgents.Add(agent);
+            pausedAgentWasStopped.Add(agent.isStopped);
+            agent.isStopped = true;
+        }
+
+        foreach (var rb in FindObjectsByType<Rigidbody>(FindObjectsSortMode.None))
+        {
+            if (rb == null)
+                continue;
+
+            pausedRigidbodies.Add(rb);
+            pausedRigidbodyWasKinematic.Add(rb.isKinematic);
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.isKinematic = true;
+            rb.Sleep();
+        }
+
+        if (disableWhilePaused != null)
+        {
+            foreach (var behaviour in disableWhilePaused)
+            {
+                if (behaviour != null && behaviour.enabled)
+                {
+                    pausedBehaviours.Add(behaviour);
+                    behaviour.enabled = false;
+                }
+            }
+        }
+    }
+
+    private void RestoreGameplayLogic()
+    {
+        for (int i = 0; i < pausedBehaviours.Count; i++)
+        {
+            if (pausedBehaviours[i] != null)
+                pausedBehaviours[i].enabled = true;
+        }
+
+        for (int i = 0; i < pausedAgents.Count; i++)
+        {
+            if (pausedAgents[i] != null)
+                pausedAgents[i].isStopped = pausedAgentWasStopped[i];
+        }
+
+        for (int i = 0; i < pausedRigidbodies.Count; i++)
+        {
+            if (pausedRigidbodies[i] != null)
+            {
+                pausedRigidbodies[i].isKinematic = pausedRigidbodyWasKinematic[i];
+                pausedRigidbodies[i].WakeUp();
+            }
+        }
+
+        pausedBehaviours.Clear();
+        pausedAgents.Clear();
+        pausedRigidbodies.Clear();
+        pausedAgentWasStopped.Clear();
+        pausedRigidbodyWasKinematic.Clear();
     }
 
     private void EnsureScrollingOverlay()
