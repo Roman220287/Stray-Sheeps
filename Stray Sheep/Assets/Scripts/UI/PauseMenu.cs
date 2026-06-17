@@ -193,8 +193,6 @@ public class PauseMenu : MonoBehaviour
             pauseMenuUI.SetActive(pause);
 
         // Keep time running so shader-based background motion keeps animating.
-        Cursor.lockState = pause ? CursorLockMode.None : CursorLockMode.None;
-        Cursor.visible = !pause;
 
         if (disableWhilePaused != null)
         {
@@ -318,20 +316,16 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         SetPause(false);
-        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Pause()
     {
         SetPause(true);
-        Cursor.visible = true;
     }
 
     public void QuitGame()
     {
         SceneManager.LoadScene("Title Screen");
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
      //only for title screen
