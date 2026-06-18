@@ -2,10 +2,6 @@ using UnityEngine;
 using UnityEngine.AI;
 public class CritterMeeple : EnemyBase
 {
-    private float maxHealth = 10f;
-    private float damage = 1f;
-    private float attackRange = 2.5f;
-    private float attackCooldown = 1.5f;
     protected override void Update()
     {
         if (PauseManager.IsPaused) return;
