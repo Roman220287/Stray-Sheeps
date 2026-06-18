@@ -32,6 +32,7 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
+        // wacht tot de game niet op pauze staat voordat je begint met spawnen
         for (int wave = 0; wave < numberOfWaves; wave++)
         {
             for (int i = 0; i < enemiesPerWave; i++)
@@ -55,6 +56,7 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
+        // kies een willekeurige vijand uit de beschikbare pool voor de huidige diepte en spawn deze op een willekeurige spawnpositie
         GameObject[] availableEnemies = GetEnemyPoolForCurrentDepth();
         if (availableEnemies == null || availableEnemies.Length == 0)
         {
@@ -88,6 +90,7 @@ public class WaveSpawner : MonoBehaviour
 
     private GameObject[] GetEnemyPoolForCurrentDepth()
     {
+        // bepaal de huidige diepte en kies de juiste vijandpool
         int currentDepth = NextLevelManager.instance != null ? NextLevelManager.instance.depth : 0;
 
         if (currentDepth >= 6 && depth6Enemies != null && depth6Enemies.Length > 0)
@@ -108,6 +111,7 @@ public class WaveSpawner : MonoBehaviour
 
     private Transform[] GetActiveSpawnPoints()
     {
+        // verzamel alle unieke spawnpunten van de opgegeven array en de kinderen van deze spawner, en pas het aantal aan op basis van de huidige diepte
         List<Transform> candidates = new List<Transform>();
 
         if (spawnPoints != null)

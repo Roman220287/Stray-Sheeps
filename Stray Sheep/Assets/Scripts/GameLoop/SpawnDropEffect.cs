@@ -34,6 +34,7 @@ public class SpawnDropEffect : MonoBehaviour
 
     private void Awake()
     {
+        // haal de benodigde componenten op en schakel ze uit totdat de vijand is geland
         agent = GetComponent<NavMeshAgent>();
         rb = GetComponent<Rigidbody>();
         enemyAI = GetComponent<EnemyBase>();
@@ -57,6 +58,7 @@ public class SpawnDropEffect : MonoBehaviour
 
     private void SetupLineRenderer()
     {
+        // zet de lijnrenderer op die de spawnpositie verbindt met de vijand
         if (!showString) return;
 
         lineRenderer = gameObject.GetComponent<LineRenderer>();
@@ -75,6 +77,7 @@ public class SpawnDropEffect : MonoBehaviour
 
     public void Initialize(Vector3 targetGround)
     {
+        // stel de spawnpositie en de grondpositie in, en begin het langzaam zakken
         groundPosition = targetGround;
         Vector3 spawnPosition = targetGround + Vector3.up * spawnHeight;
         transform.position = spawnPosition;
@@ -91,9 +94,11 @@ public class SpawnDropEffect : MonoBehaviour
 
     private void Update()
     {
+        // als de game op pauze staat of niet geïnitialiseerd is, doe niets
         if (PauseManager.IsPaused) return;
         if (!initialized) return;
 
+        // laat de vijand langzaam zakken tot het releaseHeight, daarna laat het vallen
         if (isDescending)
         {
             float elapsed = Time.time - descendStartTime;
@@ -141,6 +146,7 @@ public class SpawnDropEffect : MonoBehaviour
 
     private void StartDrop()
     {
+        // de vijand is nu klaar om te vallen
         isDescending = false;
         isDropping = true;
         landTime = 0f;
@@ -161,6 +167,7 @@ public class SpawnDropEffect : MonoBehaviour
 
     private void LandOnGround(Vector3 contactPoint)
     {
+        // wanneer de vijand de grond raakt, zet de positie vast en schakel de AI in
         if (!isDropping || hasLanded) return;
 
         hasLanded = true;
@@ -192,6 +199,7 @@ public class SpawnDropEffect : MonoBehaviour
 
     private void UpdateStringRenderer()
     {
+        // update de lijn die de spawnpositie verbindt met de vijand
         if (lineRenderer == null || !showString) return;
 
         if (hasLanded)
