@@ -13,6 +13,10 @@ public class UpgradeOption
     public PickUpBase.StatType statToModify;
     [Tooltip("The percentage to increase the stat by when this upgrade is chosen.")]
     public float percentageIncrease = 10f;
+
+    [Header("Visuals")]
+    [Tooltip("Optional sprite for this upgrade's button visual. If left empty, the button keeps its current sprite.")]
+    public Sprite visualSprite;
 }
 
 public class ChooseUpgradeMenu : MonoBehaviour
@@ -206,10 +210,12 @@ public class ChooseUpgradeMenu : MonoBehaviour
             {
                 UpgradeOption option = allUpgrades[activeChoices[slot]];
                 if (optionTitles != null && slot < optionTitles.Length && optionTitles[slot] != null)
-                    optionTitles[slot].text = option.title;
+                    optionTitles[slot].text = GetUpgradeTitle(option.statToModify);
 
                 if (optionDescriptions != null && slot < optionDescriptions.Length && optionDescriptions[slot] != null)
-                    optionDescriptions[slot].text = option.description;
+                    optionDescriptions[slot].text = GetUpgradeDescription(option.statToModify, option.percentageIncrease);
+
+                ApplyOptionVisual(optionButtons[slot], option);
 
                 int buttonIndex = slot;
                 optionButtons[slot].onClick.RemoveAllListeners();
@@ -287,5 +293,71 @@ public class ChooseUpgradeMenu : MonoBehaviour
             list[i] = list[randomIndex];
             list[randomIndex] = temp;
         }
+    }
+
+    private string GetUpgradeTitle(PickUpBase.StatType statType)
+    {
+        switch (statType)
+        {
+            case PickUpBase.StatType.WeaponDamage:
+                return "Weapon Damage";
+            case PickUpBase.StatType.FireRate:
+                return "Fire Rate";
+            case PickUpBase.StatType.BulletSpeed:
+                return "Bullet Speed";
+            case PickUpBase.StatType.MoveSpeed:
+                return "Move Speed";
+            case PickUpBase.StatType.MaxHealth:
+                return "Max Health";
+            case PickUpBase.StatType.ExtraBounce:
+                return "Extra Bounce";
+            case PickUpBase.StatType.Burst:
+                return "Burst Shots";
+            case PickUpBase.StatType.BleedingDamage:
+                return "Bleeding Damage";
+            case PickUpBase.StatType.SlowingEnemies:
+                return "Slow Enemies";
+            case PickUpBase.StatType.AttackSpeed:
+                return "Attack Speed";
+            default:
+                return statType.ToString();
+        }
+    }
+
+    private string GetUpgradeDescription(PickUpBase.StatType statType, float percentageIncrease)
+    {
+        switch (statType)
+        {
+            case PickUpBase.StatType.FireRate:
+            case PickUpBase.StatType.AttackSpeed:
+                return $"Reduce attack delay by {percentageIncrease:0}%";
+            case PickUpBase.StatType.MaxHealth:
+                return $"Increase max health by {percentageIncrease:0}%";
+            case PickUpBase.StatType.MoveSpeed:
+                return $"Increase move speed by {percentageIncrease:0}%";
+            case PickUpBase.StatType.BulletSpeed:
+                return $"Increase bullet speed by {percentageIncrease:0}%";
+            case PickUpBase.StatType.WeaponDamage:
+                return $"Increase weapon damage by {percentageIncrease:0}%";
+            case PickUpBase.StatType.ExtraBounce:
+                return "Add more bounces to your shots";
+            case PickUpBase.StatType.Burst:
+                return "Fire additional shots in each burst";
+            case PickUpBase.StatType.BleedingDamage:
+                return "Increase bleed damage over time";
+            case PickUpBase.StatType.SlowingEnemies:
+                return "Increase the duration of enemy slow";
+            default:
+                return $"Upgrade {GetUpgradeTitle(statType)} by {percentageIncrease:0}%";
+        }
+    }
+
+    private void ApplyOptionVisual(Button button, UpgradeOption option)
+    {
+        if (button == null || button.image == null || option == null)
+            return;
+
+        if (option.visualSprite != null)
+            button.image.sprite = option.visualSprite;
     }
 }
