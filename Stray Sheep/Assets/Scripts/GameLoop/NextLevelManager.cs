@@ -63,18 +63,15 @@ public class NextLevelManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(0.5f);
 
         int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        int totalScenes = SceneManager.sceneCountInBuildSettings;
 
         CurrentDepth = depth + 1;
         depth = CurrentDepth;
 
-        if (currentIndex + 1 < totalScenes)
+       SceneManager.LoadScene(currentIndex);
+
+        if (CurrentDepth > 6)
         {
-            SceneManager.LoadScene(currentIndex + 1);
-        }
-        else
-        {
-            Debug.Log("Prototype Complete!");
+          SceneManager.LoadScene(0);  
         }
     }
 }
