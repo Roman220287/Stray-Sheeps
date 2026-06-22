@@ -26,17 +26,17 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _EMISSIVE_SIMPLE
-  - _IS_CLIPPING_OFF
-  - _IS_OUTLINE_CLIPPING_NO
+  - _IS_CLIPPING_TRANSMODE
+  - _IS_OUTLINE_CLIPPING_YES
   - _OUTLINE_NML
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2450
   stringTagMap:
     IgnoreProjection: False
-    RenderType: Opaque
+    RenderType: TransparentCutout
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -292,7 +292,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ClippingMatteMode: 0
-    - _ClippingMode: 0
+    - _ClippingMode: 2
     - _Clipping_Level: 0
     - _CoatMask: 0
     - _ColorShift_Speed: 0
@@ -326,7 +326,7 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _EnvironmentReflections: 1
-    - _Farthest_Distance: 100
+    - _Farthest_Distance: 0
     - _FirstShadeOverridden: 0
     - _FirstShadeVisible: 1
     - _GI_Intensity: 0
@@ -382,7 +382,7 @@ Material:
     - _MatCap: 0
     - _MaterialID: 1
     - _Metallic: 0
-    - _Nearest_Distance: 0.5
+    - _Nearest_Distance: 0
     - _NormalMapSpace: 0
     - _NormalScale: 1
     - _OUTLINE: 0
