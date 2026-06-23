@@ -144,15 +144,15 @@ MonoBehaviour:
     textSize: Small
   categories:
   - name: Impact Circle
-    collapsed: 1
+    collapsed: 0
   - name: Yarn
     collapsed: 0
   uiBounds:
     serializedVersion: 2
-    x: 0
-    y: -177
-    width: 5887
-    height: 2990
+    x: 1706
+    y: -238
+    width: 4182
+    height: 3077
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,7 +328,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"324b82e548209d44bad0cb5cdcb9aeb9","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"7a91b48135b06ff418099176c2fd1215","type":3}}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -345,22 +345,6 @@ MonoBehaviour:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
       m_SerializableObject: '{"colorKeys":[{"color":{"r":3.737051486968994,"g":3.2530555725097658,"b":2.8133652210235597,"a":1.0},"time":0.02235446684062481},{"color":{"r":0.7283018827438355,"g":0.26601311564445498,"b":0.07008186727762222,"a":1.0},"time":0.2576485872268677},{"color":{"r":0.7064692378044128,"g":0.14663518965244294,"b":0.021761488169431688,"a":1.0},"time":0.46471351385116579},{"color":{"r":0.7283018827438355,"g":0.336580753326416,"b":0.1855107843875885,"a":1.0},"time":0.8082398772239685}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
-    min: -Infinity
-    max: Infinity
-    enumValues: []
-    descendantCount: 0
-  - name: FlareTexture
-    path: FlareTexture
-    tooltip: 
-    space: -1
-    spaceable: 0
-    sheetType: m_NamedObject
-    realType: Texture2D
-    defaultValue:
-      m_Type:
-        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"22e13e3f68ecd5c4fbedfa58410c13f6","type":3}}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -397,6 +381,22 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
+  - name: FlareTexture
+    path: FlareTexture
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_NamedObject
+    realType: Texture2D
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"22e13e3f68ecd5c4fbedfa58410c13f6","type":3}}'
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
   - name: Flare Impact Lifetime
     path: Flare Impact Lifetime
     tooltip: 
@@ -424,7 +424,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.8716981410980225,"g":0.758802056312561,"b":0.656240701675415,"a":1.0},"time":0.15411612391471864},{"color":{"r":0.7283018827438355,"g":0.336580753326416,"b":0.1855107843875885,"a":1.0},"time":0.19647516310214997},{"color":{"r":0.7056604027748108,"g":0.14221268892288209,"b":0.019971400499343873,"a":1.0},"time":0.32353705167770388},{"color":{"r":0.7283018827438355,"g":0.26601311564445498,"b":0.07008186727762222,"a":1.0},"time":0.7823605537414551}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":0.4156862795352936,"time":0.3329365849494934},{"alpha":0.0,"time":0.7541161179542542}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.8716981410980225,"g":0.758802056312561,"b":0.656240701675415,"a":1.0},"time":0.15411612391471864},{"color":{"r":1.029974341392517,"g":0.47599706053733828,"b":0.2623518705368042,"a":1.0},"time":0.19412527978420258},{"color":{"r":0.7056604027748108,"g":0.14221268892288209,"b":0.019971400499343873,"a":1.0},"time":0.32353705167770388},{"color":{"r":0.7283018827438355,"g":0.26601311564445498,"b":0.07008186727762222,"a":1.0},"time":0.7823605537414551}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":0.4156862795352936,"time":0.3329365849494934},{"alpha":0.0,"time":0.7541161179542542}],"gradientMode":0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -440,7 +440,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 7
+      m_SerializableObject: 10
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -3977,6 +3977,7 @@ MonoBehaviour:
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
+  - {fileID: 8926484042661615506}
   - {fileID: 8926484042661614701}
   m_OutputSlots: []
   m_Label: Render Quad
@@ -3991,7 +3992,7 @@ MonoBehaviour:
   cullMode: 0
   zWriteMode: 0
   zTestMode: 0
-  useAlphaClipping: 0
+  useAlphaClipping: 1
   generateMotionVector: 0
   excludeFromTUAndAA: 0
   sortingPriority: 1
@@ -4049,7 +4050,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"324b82e548209d44bad0cb5cdcb9aeb9","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"7a91b48135b06ff418099176c2fd1215","type":3}}'
     m_Space: -1
   m_Property:
     name: mainTexture
@@ -10733,7 +10734,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"324b82e548209d44bad0cb5cdcb9aeb9","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"7a91b48135b06ff418099176c2fd1215","type":3}}'
     m_Space: -1
   m_Property:
     name: o
@@ -10766,7 +10767,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614916}
   m_ExposedName: ImpactGradient
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 1
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -10847,7 +10848,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614918}
   m_ExposedName: Impact Lifetime
   m_Exposed: 1
-  m_Order: 12
+  m_Order: 2
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -10921,14 +10922,14 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614920}
   m_ExposedName: Flare Impact Lifetime
   m_Exposed: 1
-  m_Order: 16
+  m_Order: 5
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11004,14 +11005,14 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614922}
   m_ExposedName: Flare ImpactGradient
   m_Exposed: 1
-  m_Order: 18
+  m_Order: 6
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11059,7 +11060,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.8716981410980225,"g":0.758802056312561,"b":0.656240701675415,"a":1.0},"time":0.15411612391471864},{"color":{"r":0.7283018827438355,"g":0.336580753326416,"b":0.1855107843875885,"a":1.0},"time":0.19647516310214997},{"color":{"r":0.7056604027748108,"g":0.14221268892288209,"b":0.019971400499343873,"a":1.0},"time":0.32353705167770388},{"color":{"r":0.7283018827438355,"g":0.26601311564445498,"b":0.07008186727762222,"a":1.0},"time":0.7823605537414551}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":0.4156862795352936,"time":0.3329365849494934},{"alpha":0.0,"time":0.7541161179542542}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.8716981410980225,"g":0.758802056312561,"b":0.656240701675415,"a":1.0},"time":0.15411612391471864},{"color":{"r":1.029974341392517,"g":0.47599706053733828,"b":0.2623518705368042,"a":1.0},"time":0.19412527978420258},{"color":{"r":0.7056604027748108,"g":0.14221268892288209,"b":0.019971400499343873,"a":1.0},"time":0.32353705167770388},{"color":{"r":0.7283018827438355,"g":0.26601311564445498,"b":0.07008186727762222,"a":1.0},"time":0.7823605537414551}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":0.4156862795352936,"time":0.3329365849494934},{"alpha":0.0,"time":0.7541161179542542}],"gradientMode":0}'
     m_Space: -1
   m_Property:
     name: o
@@ -11266,7 +11267,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614928}
   m_ExposedName: Impact Size
   m_Exposed: 1
-  m_Order: 13
+  m_Order: 3
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11452,14 +11453,14 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
   - {fileID: 8926484042661614932}
   m_ExposedName: Flare Impact Size
   m_Exposed: 1
-  m_Order: 19
+  m_Order: 7
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11507,7 +11508,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 7
+      m_SerializableObject: 10
     m_Space: -1
   m_Property:
     name: o
@@ -14784,7 +14785,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615263}
   m_ExposedName: FlareTexture
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 4
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -15654,6 +15655,40 @@ MonoBehaviour:
     name: seed
     m_serializedType:
       m_SerializableType: System.UInt32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+  m_Direction: 0
+  m_LinkedSlots: []
+--- !u!114 &8926484042661615506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661615506}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614700}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 0.129
+    m_Space: -1
+  m_Property:
+    name: alphaThreshold
+    m_serializedType:
+      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
         PublicKeyToken=b77a5c561934e089
   m_Direction: 0
   m_LinkedSlots: []

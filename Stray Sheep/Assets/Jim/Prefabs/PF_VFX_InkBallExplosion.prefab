@@ -59,11 +59,11 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 1.86
         m_Name: Impact Size
-        m_Overridden: 1
+        m_Overridden: 0
       - m_Value: 0.57
         m_Name: Impact Lifetime
         m_Overridden: 0
-      - m_Value: 2.3
+      - m_Value: 3.3
         m_Name: Back Impact Size
         m_Overridden: 1
     m_Vector2f:
