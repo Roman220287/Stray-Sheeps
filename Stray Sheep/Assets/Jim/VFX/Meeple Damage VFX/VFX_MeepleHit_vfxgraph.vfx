@@ -4632,7 +4632,7 @@ MonoBehaviour:
   - {fileID: 114350483966675106}
   m_ExposedName: Gravity Multiplier
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 4
   m_Category: Angry
   m_Min:
     m_Type:
@@ -4713,7 +4713,7 @@ MonoBehaviour:
   - {fileID: 114350483966675108}
   m_ExposedName: Drag Coefficient
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 8
   m_Category: Angry
   m_Min:
     m_Type:
@@ -4796,7 +4796,7 @@ MonoBehaviour:
   - {fileID: 114350483966675110}
   m_ExposedName: Loop Amount
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: 
   m_Min:
     m_Type:
@@ -4880,7 +4880,7 @@ MonoBehaviour:
   - {fileID: 114350483966675112}
   m_ExposedName: ALL SIZE
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 6
   m_Category: 
   m_Min:
     m_Type:
@@ -4974,7 +4974,7 @@ MonoBehaviour:
   - {fileID: 114350483966675114}
   m_ExposedName: Angry Size
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 14
   m_Category: Angry
   m_Min:
     m_Type:
@@ -5127,7 +5127,7 @@ MonoBehaviour:
   - {fileID: 114350483966675118}
   m_ExposedName: Angry Velocity
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 16
   m_Category: Angry
   m_Min:
     m_Type:
@@ -5280,7 +5280,7 @@ MonoBehaviour:
   - {fileID: 114350483966675122}
   m_ExposedName: Angry Color Variants
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 17
   m_Category: Angry
   m_Min:
     m_Type:
@@ -7966,7 +7966,7 @@ MonoBehaviour:
   - {fileID: 114350483966675239}
   m_ExposedName: Alpha Gradient GRRR
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 10
   m_Category: 
   m_Min:
     m_Type:
@@ -8631,7 +8631,7 @@ MonoBehaviour:
   - {fileID: 114350483966675300}
   m_ExposedName: SizeOverLife
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 12
   m_Category: Angry
   m_Min:
     m_Type:
@@ -14775,7 +14775,7 @@ MonoBehaviour:
   - {fileID: 114350483966675503}
   m_ExposedName: Impact Circle Texture
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -14856,7 +14856,7 @@ MonoBehaviour:
   - {fileID: 114350483966675505}
   m_ExposedName: ImpactGradient
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 3
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -14937,7 +14937,7 @@ MonoBehaviour:
   - {fileID: 114350483966675507}
   m_ExposedName: Impact Lifetime
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 7
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -15020,7 +15020,7 @@ MonoBehaviour:
   - {fileID: 114350483966675509}
   m_ExposedName: Flare Impact Lifetime
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 11
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -15103,7 +15103,7 @@ MonoBehaviour:
   - {fileID: 114350483966675511}
   m_ExposedName: Flare ImpactGradient
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 15
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -15184,7 +15184,7 @@ MonoBehaviour:
   - {fileID: 114350483966675513}
   m_ExposedName: Enemy Hit
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 18
   m_Category: 
   m_Min:
     m_Type:
@@ -15265,7 +15265,7 @@ MonoBehaviour:
   - {fileID: 114350483966675515}
   m_ExposedName: Loop Amount 1
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 19
   m_Category: 
   m_Min:
     m_Type:
@@ -15349,7 +15349,7 @@ MonoBehaviour:
   - {fileID: 114350483966675517}
   m_ExposedName: Impact Size
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 5
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -15430,7 +15430,7 @@ MonoBehaviour:
   - {fileID: 114350483966675519}
   m_ExposedName: ALL SIZE 1
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 20
   m_Category: 
   m_Min:
     m_Type:
@@ -15521,7 +15521,7 @@ MonoBehaviour:
   - {fileID: 114350483966675521}
   m_ExposedName: Flare Impact Size
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 13
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -15602,7 +15602,7 @@ MonoBehaviour:
   - {fileID: 114350483966675523}
   m_ExposedName: FlareTexture
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 9
   m_Category: Impact Circle
   m_Min:
     m_Type:
