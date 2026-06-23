@@ -149,10 +149,10 @@ MonoBehaviour:
     collapsed: 0
   uiBounds:
     serializedVersion: 2
-    x: 1706
-    y: -238
-    width: 4182
-    height: 3077
+    x: 0
+    y: -177
+    width: 5887
+    height: 2990
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -10291,7 +10291,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614904}
   m_ExposedName: Alpha Gradient Yarn
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 5
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -10372,7 +10372,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614906}
   m_ExposedName: Yarn Amount
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 11
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -10521,7 +10521,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614910}
   m_ExposedName: Gravity Multiplier
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 15
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -10602,7 +10602,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614912}
   m_ExposedName: Drag Coefficient
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 17
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -10766,7 +10766,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614916}
   m_ExposedName: ImpactGradient
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 6
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -10847,7 +10847,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614918}
   m_ExposedName: Impact Lifetime
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 12
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -10928,7 +10928,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614920}
   m_ExposedName: Flare Impact Lifetime
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 16
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11011,7 +11011,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614922}
   m_ExposedName: Flare ImpactGradient
   m_Exposed: 1
-  m_Order: 6
+  m_Order: 18
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11092,7 +11092,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614924}
   m_ExposedName: Enemy Hit
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 7
   m_Category: 
   m_Min:
     m_Type:
@@ -11173,7 +11173,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614926}
   m_ExposedName: Loop Amount
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 8
   m_Category: 
   m_Min:
     m_Type:
@@ -11266,7 +11266,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614928}
   m_ExposedName: Impact Size
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 13
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11347,7 +11347,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614930}
   m_ExposedName: ALL SIZE
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: 
   m_Min:
     m_Type:
@@ -11459,7 +11459,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614932}
   m_ExposedName: Flare Impact Size
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 19
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -11540,7 +11540,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614934}
   m_ExposedName: Yarn Size
   m_Exposed: 1
-  m_Order: 7
+  m_Order: 20
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -11693,7 +11693,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614938}
   m_ExposedName: Yarn Velocity
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 14
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -11846,7 +11846,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615037}
   m_ExposedName: YarnTexture_1
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 9
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -13981,7 +13981,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615218}
   m_ExposedName: Yarn Color Variants
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 2
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -14784,7 +14784,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615263}
   m_ExposedName: FlareTexture
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 10
   m_Category: Impact Circle
   m_Min:
     m_Type:
@@ -14865,7 +14865,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615265}
   m_ExposedName: YarnTexture_2
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 3
   m_Category: Yarn
   m_Min:
     m_Type:
@@ -14946,7 +14946,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615331}
   m_ExposedName: maaktnietuit
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 21
   m_Category: 
   m_Min:
     m_Type:
@@ -15018,7 +15018,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615336}
   m_ExposedName: YarnTexture_3
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 4
   m_Category: Yarn
   m_Min:
     m_Type:
