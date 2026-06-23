@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6684693118750880091}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -51,9 +51,9 @@ VisualEffect:
   m_PropertySheet:
     m_Float:
       m_Array:
-      - m_Value: 2
+      - m_Value: 6
         m_Name: Impact Size
-        m_Overridden: 0
+        m_Overridden: 1
       - m_Value: 10
         m_Name: Back Impact Size
         m_Overridden: 1
@@ -63,8 +63,23 @@ VisualEffect:
       - m_Value: 8
         m_Name: Flare Impact Size
         m_Overridden: 0
+      - m_Value: 9.8
+        m_Name: Drag Coefficient
+        m_Overridden: 1
+      - m_Value: 0.4
+        m_Name: Impact Lifetime
+        m_Overridden: 1
     m_Vector2f:
-      m_Array: []
+      m_Array:
+      - m_Value: {x: 1.5, y: 2}
+        m_Name: Yarn Size
+        m_Overridden: 1
+      - m_Value: {x: 3, y: 7}
+        m_Name: Yarn Amount
+        m_Overridden: 1
+      - m_Value: {x: 35, y: 50}
+        m_Name: Yarn Velocity
+        m_Overridden: 1
     m_Vector3f:
       m_Array: []
     m_Vector4f:
@@ -116,26 +131,26 @@ VisualEffect:
         m_Overridden: 1
       - m_Value:
           serializedVersion: 2
-          key0: {r: 2.4335723, g: 2.1183937, b: 1.8320668, a: 1}
+          key0: {r: 3.7370515, g: 3.2530556, b: 2.8133652, a: 1}
           key1: {r: 0.7283019, g: 0.26601312, b: 0.07008187, a: 1}
-          key2: {r: 0.70646924, g: 0.14663519, b: 0.021761488, a: 0.47058824}
-          key3: {r: 0.7283019, g: 0.33658075, b: 0.18551078, a: 0}
-          key4: {r: 0.7283019, g: 0.33658075, b: 0.18551078, a: 0}
+          key2: {r: 1.5471698, g: 0.36550006, b: 0.11384817, a: 0.50980395}
+          key3: {r: 1.6167483, g: 0.36846069, b: 0.08236252, a: 0}
+          key4: {r: 0, g: 0, b: 0, a: 0}
           key5: {r: 0, g: 0, b: 0, a: 0}
           key6: {r: 0, g: 0, b: 0, a: 0}
           key7: {r: 0, g: 0, b: 0, a: 0}
           ctime0: 1465
           ctime1: 16885
-          ctime2: 30455
+          ctime2: 30146
           ctime3: 52968
-          ctime4: 65535
+          ctime4: 0
           ctime5: 0
           ctime6: 0
           ctime7: 0
           atime0: 0
-          atime1: 65535
-          atime2: 42174
-          atime3: 65535
+          atime1: 36468
+          atime2: 50346
+          atime3: 65304
           atime4: 0
           atime5: 0
           atime6: 0
@@ -143,9 +158,9 @@ VisualEffect:
           m_Mode: 0
           m_ColorSpace: 1
           m_NumColorKeys: 4
-          m_NumAlphaKeys: 2
+          m_NumAlphaKeys: 4
         m_Name: ImpactGradient
-        m_Overridden: 0
+        m_Overridden: 1
       - m_Value:
           serializedVersion: 2
           key0: {r: 0.87169814, g: 0.75880206, b: 0.6562407, a: 1}
@@ -179,7 +194,10 @@ VisualEffect:
         m_Name: Yarn Color Variants
         m_Overridden: 0
     m_NamedObject:
-      m_Array: []
+      m_Array:
+      - m_Value: {fileID: 2800000, guid: 49d79543f90792345bc9d117a7ebba84, type: 3}
+        m_Name: FlareTexture
+        m_Overridden: 1
     m_Bool:
       m_Array:
       - m_Value: 1
