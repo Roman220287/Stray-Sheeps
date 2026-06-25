@@ -50,6 +50,12 @@ public class NextLevelManager : MonoBehaviour
 
     private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
     {
+        enemiesAlive = 0;
+        allWavesComplete = false;
+        levelEnding = false;
+
+        Time.timeScale = 1f;
+
         StartCoroutine(ApplyStoredUpgradesAfterLoad(scene));
     }
 
@@ -154,11 +160,21 @@ public class NextLevelManager : MonoBehaviour
         CurrentDepth = depth + 1;
         depth = CurrentDepth;
 
-       SceneManager.LoadScene(currentIndex);
-
-        if (CurrentDepth > 6)
+        if (CurrentDepth <= 6)
         {
-          SceneManager.LoadScene(0);  
+            SceneManager.LoadScene(currentIndex);
+        }
+        else if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
+        {
+            CurrentDepth = 0;
+            depth = 0;
+            SceneManager.LoadScene(currentIndex + 1);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
         }
     }
+
+    
 }
