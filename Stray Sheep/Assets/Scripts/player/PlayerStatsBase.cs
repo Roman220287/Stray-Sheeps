@@ -60,6 +60,12 @@ public class PlayerStatsBase : MonoBehaviour
 
         HeartUI heartUI = FindFirstObjectByType<HeartUI>();
         if (heartUI != null) heartUI.UpdateHearts((int)currentHealth);
+    }
 
+    private void Heal()
+    {
+        currentHealth = MaxHealth;
+        HeartUI heartUI = FindFirstObjectByType<HeartUI>();
+        if (heartUI != null) heartUI.UpdateHearts((int)currentHealth);
     }
 }
