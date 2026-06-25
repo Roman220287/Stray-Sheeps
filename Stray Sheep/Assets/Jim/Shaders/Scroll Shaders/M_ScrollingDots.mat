@@ -75,7 +75,7 @@ Material:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.19461787, g: 0.06301003, b: 0.012286487, a: 1}
     - _Texture_Speed: {r: 0.15, g: 0.1, b: 0, a: 0}
-    - _Texture_Tiling: {r: 5, g: 4, b: 0, a: 0}
+    - _Texture_Tiling: {r: 5, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1846591017499581506
