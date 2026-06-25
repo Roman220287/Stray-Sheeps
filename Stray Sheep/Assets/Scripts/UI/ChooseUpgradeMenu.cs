@@ -24,6 +24,7 @@ public class ChooseUpgradeMenu : MonoBehaviour
     [Header("UI")]
     public GameObject upgradeMenuUI;
     public Button[] optionButtons;
+    public Image[] optionImages;
     public Text[] optionTitles;
     public Text[] optionDescriptions;
     public Behaviour[] disableWhileMenuOpen;
@@ -215,7 +216,7 @@ public class ChooseUpgradeMenu : MonoBehaviour
                 if (optionDescriptions != null && slot < optionDescriptions.Length && optionDescriptions[slot] != null)
                     optionDescriptions[slot].text = GetUpgradeDescription(option.statToModify, option.percentageIncrease);
 
-                ApplyOptionVisual(optionButtons[slot], option);
+                ApplyOptionVisual(slot, option);
 
                 int buttonIndex = slot;
                 optionButtons[slot].onClick.RemoveAllListeners();
@@ -258,7 +259,7 @@ public class ChooseUpgradeMenu : MonoBehaviour
             return;
         }
 
-        PlayerStatsBase playerStats = FindObjectsByType<PlayerStatsBase>(FindObjectsSortMode.None)[0];
+        PlayerStatsBase playerStats = FindFirstObjectByType<PlayerStatsBase>();
         if (playerStats == null)
         {
             Debug.LogWarning("ChooseUpgradeMenu: No PlayerStatsBase found in scene. Cannot apply upgrade.");
@@ -268,6 +269,12 @@ public class ChooseUpgradeMenu : MonoBehaviour
         statsToApply.statToModify = option.statToModify;
         statsToApply.percentageIncrease = option.percentageIncrease;
         statsToApply.ApplyPickupTo(playerStats);
+
+        // Record the upgrade so it persists across scene reloads
+        if (NextLevelManager.instance != null)
+        {
+            NextLevelManager.instance.RecordUpgrade(option.statToModify, option.percentageIncrease);
+        }
     }
 
     private IEnumerator ShowWinScreenThenProceed()
@@ -352,12 +359,24 @@ public class ChooseUpgradeMenu : MonoBehaviour
         }
     }
 
-    private void ApplyOptionVisual(Button button, UpgradeOption option)
+    private void ApplyOptionVisual(int slot, UpgradeOption option)
     {
-        if (button == null || button.image == null || option == null)
+        if (option == null || option.visualSprite == null)
             return;
 
-        if (option.visualSprite != null)
-            button.image.sprite = option.visualSprite;
+        Image image = null;
+
+        if (optionImages != null && slot >= 0 && slot < optionImages.Length)
+            image = optionImages[slot];
+
+        if (image == null && optionButtons != null && slot >= 0 && slot < optionButtons.Length && optionButtons[slot] != null)
+            image = optionButtons[slot].GetComponentInChildren<Image>(true);
+
+        if (image == null)
+            return;
+
+        image.sprite = option.visualSprite;
+        image.overrideSprite = option.visualSprite;
+        image.enabled = true;
     }
 }
