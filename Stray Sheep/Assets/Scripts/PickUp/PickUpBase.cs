@@ -58,7 +58,7 @@ public class PickUpBase : MonoBehaviour
         ApplyPickup(stats);
     }
 
-    protected virtual void ApplyPickup(PlayerStatsBase stats)
+    public static void ApplyPickupTo(PlayerStatsBase stats, StatType statToModify, float percentageIncrease)
     {
         float multiplier = percentageIncrease / 100f;
         switch (statToModify)
@@ -120,5 +120,10 @@ public class PickUpBase : MonoBehaviour
                 Debug.Log($"Weapon Damage increased by {percentageIncrease}%! New Damage: {stats.baseDamage}");
                 break;
         }
+    }
+
+    protected virtual void ApplyPickup(PlayerStatsBase stats)
+    {
+        ApplyPickupTo(stats, statToModify, percentageIncrease);
     }
 }

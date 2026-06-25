@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PlayerStatsBase : MonoBehaviour
 {
+    public static PlayerStatsBase Instance { get; private set; }
     [Header("Combat Stats")]
     public float baseDamage = 1f;
     public float fireRateDelay = 0.5f; // Time between shots in seconds
@@ -19,6 +20,18 @@ public class PlayerStatsBase : MonoBehaviour
     public float slowAmount = 0.5f; // Multiplier (0.5 = 50% slower)
     private SmoothCameraFollow cameraFollow;
 
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Persist across scenes
+        }
+        else
+        {
+            Destroy(gameObject); // Delete duplicates
+        }
+    }
     private void Start()
     {
         currentHealth = maxHealth;

@@ -259,7 +259,7 @@ public class ChooseUpgradeMenu : MonoBehaviour
             return;
         }
 
-        PlayerStatsBase playerStats = FindObjectsByType<PlayerStatsBase>(FindObjectsSortMode.None)[0];
+        PlayerStatsBase playerStats = FindFirstObjectByType<PlayerStatsBase>();
         if (playerStats == null)
         {
             Debug.LogWarning("ChooseUpgradeMenu: No PlayerStatsBase found in scene. Cannot apply upgrade.");
@@ -269,6 +269,12 @@ public class ChooseUpgradeMenu : MonoBehaviour
         statsToApply.statToModify = option.statToModify;
         statsToApply.percentageIncrease = option.percentageIncrease;
         statsToApply.ApplyPickupTo(playerStats);
+
+        // Record the upgrade so it persists across scene reloads
+        if (NextLevelManager.instance != null)
+        {
+            NextLevelManager.instance.RecordUpgrade(option.statToModify, option.percentageIncrease);
+        }
     }
 
     private IEnumerator ShowWinScreenThenProceed()
