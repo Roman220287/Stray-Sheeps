@@ -14,10 +14,97 @@ public class NextLevelManager : MonoBehaviour
     private bool levelEnding = false;
     [SerializeField] public int depth = 0;
 
+    private static readonly System.Collections.Generic.List<StoredUpgrade> staticStoredUpgrades = new System.Collections.Generic.List<StoredUpgrade>();
+
     private void Awake()
     {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         instance = this;
+        DontDestroyOnLoad(gameObject);
         depth = CurrentDepth;
+        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        if (instance == this)
+            UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private struct StoredUpgrade
+    {
+        public PickUpBase.StatType stat;
+        public float percentage;
+    }
+
+    public void RecordUpgrade(PickUpBase.StatType stat, float percentage)
+    {
+        staticStoredUpgrades.Add(new StoredUpgrade { stat = stat, percentage = percentage });
+        Debug.Log($"NextLevelManager: Recorded upgrade {stat} {percentage}%.");
+    }
+
+    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    {
+        StartCoroutine(ApplyStoredUpgradesAfterLoad(scene));
+    }
+
+    private IEnumerator ApplyStoredUpgradesAfterLoad(UnityEngine.SceneManagement.Scene scene)
+    {
+        yield return null;
+
+        int attempts = 0;
+        PlayerStatsBase player = null;
+        while (attempts < 20)
+        {
+            player = FindPlayerInScene(scene);
+            if (player != null)
+                break;
+
+            attempts++;
+            yield return new WaitForSecondsRealtime(0.05f);
+        }
+
+        if (player == null)
+        {
+            Debug.LogWarning("NextLevelManager: No PlayerStatsBase found in loaded scene. Stored upgrades were not applied.");
+            yield break;
+        }
+
+        ApplyStoredUpgradesToPlayer(player);
+    }
+
+    private PlayerStatsBase FindPlayerInScene(UnityEngine.SceneManagement.Scene scene)
+    {
+        foreach (GameObject rootGameObject in scene.GetRootGameObjects())
+        {
+            PlayerStatsBase player = rootGameObject.GetComponentInChildren<PlayerStatsBase>(true);
+            if (player != null)
+                return player;
+        }
+        return null;
+    }
+
+    private void ApplyStoredUpgradesToPlayer(PlayerStatsBase player)
+    {
+        if (staticStoredUpgrades.Count == 0) return;
+
+        foreach (var su in staticStoredUpgrades)
+        {
+            GameObject temp = new GameObject("_TempPickup");
+            var pickup = temp.AddComponent<PickUpBase>();
+            pickup.statToModify = su.stat;
+            pickup.percentageIncrease = su.percentage;
+            pickup.ApplyPickupTo(player);
+            Destroy(temp);
+        }
+
+        Debug.Log($"NextLevelManager: Applied {staticStoredUpgrades.Count} stored upgrade(s) to player.");
+        staticStoredUpgrades.Clear();
     }
 
     public void RegisterEnemy()
