@@ -41,4 +41,12 @@ public class PlayerStatsBase : MonoBehaviour
         Destroy(gameObject);
         SceneManager.LoadScene("Title Screen");
     }
+
+    private void Update()
+    {
+
+        HeartUI heartUI = FindFirstObjectByType<HeartUI>();
+        if (heartUI != null) heartUI.UpdateHearts((int)currentHealth);
+
+    }
 }
