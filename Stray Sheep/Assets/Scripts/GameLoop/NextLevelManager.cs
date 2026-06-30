@@ -54,7 +54,12 @@ public class NextLevelManager : MonoBehaviour
         allWavesComplete = false;
         levelEnding = false;
 
+        // FORCE clear any lingering system pause states before doing anything else
         Time.timeScale = 1f;
+        PauseManager.SetPaused(false); 
+
+        // Re-find the upgrade menu instance in the newly loaded scene
+        upgradeMenu = FindFirstObjectByType<ChooseUpgradeMenu>();
 
         StartCoroutine(ApplyStoredUpgradesAfterLoad(scene));
     }
