@@ -24,21 +24,45 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenSpawns;
     public float timeBetweenWaves;
 
+    // 1. Move everything to OnEnable. This runs EVERY time a scene loads/reloads, 
+    // even if Awake had a minor hiccup.
+    void OnEnable()
+    {
+        try 
+        {
+            PauseManager.SetPaused(false);
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogWarning($"WaveSpawner safely bypassed a PauseManager error on reload: {e.Message}");
+        }
 
+        Time.timeScale = 1f;
+
+        // Force a fresh start of the spawning logic
+        StopAllCoroutines();
+        StartCoroutine(SpawnWaves());
+    }
+
+    // Remove or empty your old Start() method so they don't fight
     void Start()
     {
-        StartCoroutine(SpawnWaves());
+        // Kept empty to prevent duplicate triggers
     }
 
     IEnumerator SpawnWaves()
     {
-        // wacht tot de game niet op pauze staat voordat je begint met spawnen
         for (int wave = 0; wave < numberOfWaves; wave++)
         {
+            Debug.Log($"WaveSpawner: Starting wave {wave + 1}/{numberOfWaves} with {enemiesPerWave} enemies.");
             for (int i = 0; i < enemiesPerWave; i++)
             {
-                while (PauseManager.IsPaused)
-                    yield return null;
+                // Only stall if it isn't the absolute first spawn of the entire level
+                if (wave > 0 || i > 0)
+                {
+                    while (PauseManager.IsPaused)
+                        yield return null;
+                }
 
                 SpawnEnemy();
 

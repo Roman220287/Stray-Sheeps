@@ -174,7 +174,6 @@ public class ChooseUpgradeMenu : MonoBehaviour
         if (upgradeMenuUI != null)
             upgradeMenuUI.SetActive(false);
 
-        Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

@@ -674,7 +674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: enemyPrefabs.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: depth1Enemies.Array.size
@@ -719,7 +719,7 @@ PrefabInstance:
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[0]'
       value: 
-      objectReference: {fileID: 3268286226755068057, guid: 9b0da8dec2187b94e87838358c1e5d38, type: 3}
+      objectReference: {fileID: 6628108264827281919, guid: 42ff6b4f2f2317a4a97b2897064816b2, type: 3}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'enemyPrefabs.Array.data[1]'
       value: 
