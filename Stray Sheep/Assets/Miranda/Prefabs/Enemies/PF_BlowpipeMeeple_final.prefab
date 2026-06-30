@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &772899601549115413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6896513348651841228}
+  m_Layer: 0
+  m_Name: Shootpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6896513348651841228
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772899601549115413}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.06, y: 1.58, z: 0.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5814171261406559045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6285525931772697774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -178,7 +209,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67160a0cdf563da4697dbbbf6a640bae, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6896513348651841228}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67160a0cdf563da4697dbbbf6a640bae, type: 3}
       insertIndex: -1
@@ -196,6 +230,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3841244530703025659}
   m_SourcePrefab: {fileID: 100100000, guid: 67160a0cdf563da4697dbbbf6a640bae, type: 3}
+--- !u!4 &5814171261406559045 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 67160a0cdf563da4697dbbbf6a640bae, type: 3}
+  m_PrefabInstance: {fileID: 6285525931772697774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6628108264827281919 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 67160a0cdf563da4697dbbbf6a640bae, type: 3}
@@ -267,7 +306,7 @@ MonoBehaviour:
   attackRange: 10
   attackCooldown: 1.5
   blowpipeProjectilePrefab: {fileID: 603746346175075396, guid: d37e422e9ce7b6145ada0ad9ba6d758d, type: 3}
-  shootPoint: {fileID: 1891126106421811233, guid: d5011ec9c45a50849be9b2f2abe0b5cc, type: 3}
+  shootPoint: {fileID: 6896513348651841228}
   shortStrawRange: 10
   shootInterval: 0.1
 --- !u!114 &1540987454263954250
