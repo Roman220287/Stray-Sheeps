@@ -48,8 +48,14 @@ public class NextLevelManager : MonoBehaviour
         Debug.Log($"NextLevelManager: Recorded upgrade {stat} {percentage}%.");
     }
 
-    private void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.buildIndex == 0)
+        {
+            SceneManager.sceneLoaded -= OnSceneLoaded;
+            Destroy(gameObject);
+            return;
+        }
         enemiesAlive = 0;
         allWavesComplete = false;
         levelEnding = false;
@@ -181,5 +187,27 @@ public class NextLevelManager : MonoBehaviour
         }
     }
 
+    public void ResetGameEntirely()
+    {
+        Debug.Log("NextLevelManager: Full game reset triggered.");
     
+        // Reset static and instance variables
+        CurrentDepth = 0;
+        depth = 0;
+        enemiesAlive = 0;
+        allWavesComplete = false;
+        levelEnding = false;
+    
+        // Clear out any accumulated player upgrades from previous runs
+        staticStoredUpgrades.Clear(); 
+    
+        // Ensure the system time scale is normal
+        Time.timeScale = 1f;
+        try 
+        {
+            PauseManager.SetPaused(false);
+        }
+        catch { }
+    }
 }
+

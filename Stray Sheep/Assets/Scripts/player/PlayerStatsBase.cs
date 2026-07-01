@@ -53,6 +53,7 @@ public class PlayerStatsBase : MonoBehaviour
     {
         Destroy(gameObject);
         SceneManager.LoadScene("Title Screen");
+        NextLevelManager.instance.ResetGameEntirely();
     }
 
     private void Update()
