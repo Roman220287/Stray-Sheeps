@@ -141,6 +141,11 @@ public class ChooseUpgradeMenu : MonoBehaviour
 
     public void ShowMenu()
     {
+        if (upgradeMenuUI == null)
+        {
+            upgradeMenuUI = gameObject;
+        }
+
         PopulateOptions();
 
         if (disableWhileMenuOpen != null)
@@ -285,17 +290,16 @@ public class ChooseUpgradeMenu : MonoBehaviour
 
         if (winScreenUI != null)
             winScreenUI.SetActive(false);
-            Time.timeScale = 1f;
-            // --- CHANGED HERE ---
-            // Instead of automatically advancing, we find the exit gate in the scene and open it!
-            LevelExitGate exitGate = FindFirstObjectByType<LevelExitGate>();
+
+        Time.timeScale = 1f;
+
+        LevelExitGate exitGate = FindFirstObjectByType<LevelExitGate>();
         if (exitGate != null)
         {
             exitGate.OpenGate();
         }
         else
         {
-            // Fallback: If you forgot to place a gate in the scene, just advance so the game doesn't softlock
             Debug.LogWarning("No LevelExitGate found in scene! Advancing automatically.");
             if (NextLevelManager.instance != null)
                 NextLevelManager.instance.ProceedToNextLevel();

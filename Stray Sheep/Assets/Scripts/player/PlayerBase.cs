@@ -53,12 +53,21 @@ public class PlayerBase : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Player.Enable();
+        controls?.Player.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Player.Disable();
+        controls?.Player.Disable();
+    }
+
+    public void ReenableInput()
+    {
+        if (controls == null)
+            return;
+
+        enabled = true;
+        controls.Player.Enable();
     }
 
     private void Update()

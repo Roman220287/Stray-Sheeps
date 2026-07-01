@@ -179,7 +179,10 @@ public class PauseMenu : MonoBehaviour
         if (pause)
             DisableGameplayLogic();
         else
+        {
             RestoreGameplayLogic();
+            ReenablePlayerInput();
+        }
 
         EnsureScrollingOverlay();
 
@@ -226,7 +229,12 @@ public class PauseMenu : MonoBehaviour
             if (behaviour is PauseMenu)
                 continue;
 
-            if (behaviour is EnemyBase || behaviour is PlayerBase || behaviour is WaveSpawner || behaviour is SpawnDropEffect || behaviour is AttackInstance)
+            if (behaviour is PlayerBase)
+            {
+                continue;
+            }
+
+            if (behaviour is EnemyBase || behaviour is WaveSpawner || behaviour is SpawnDropEffect || behaviour is AttackInstance)
             {
                 pausedBehaviours.Add(behaviour);
                 behaviour.enabled = false;
@@ -266,6 +274,16 @@ public class PauseMenu : MonoBehaviour
                     behaviour.enabled = false;
                 }
             }
+        }
+    }
+
+    private void ReenablePlayerInput()
+    {
+        var players = FindObjectsByType<PlayerBase>(FindObjectsSortMode.None);
+        foreach (var player in players)
+        {
+            if (player != null)
+                player.ReenableInput();
         }
     }
 
@@ -325,6 +343,9 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        
+        PauseManager.SetPaused(false);
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Title Screen");
     }
 
@@ -332,6 +353,8 @@ public class PauseMenu : MonoBehaviour
      #region Title Screen
     public void StartGame()
     {
+        PauseManager.SetPaused(false);
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainScene");
     }
 
