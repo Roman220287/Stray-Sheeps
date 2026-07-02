@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class CritterMeeple : EnemyBase
 {
-    private bool IsAttacking = false;
+    private Animator mAnimator;
     protected override void Update()
     {
         if (PauseManager.IsPaused) return;
@@ -32,7 +32,6 @@ public class CritterMeeple : EnemyBase
     protected override void AttackBehavior()
     {
         agent.isStopped = true;
-        if (Time.time <= nextAttackTime) IsAttacking = false;
         if (Time.time >= nextAttackTime)
         {
             PerformAttack();
@@ -42,12 +41,19 @@ public class CritterMeeple : EnemyBase
 
     protected override void PerformAttack()
     {
-        IsAttacking = true;
+
         Vector3 lookDir = (playerTarget.position - transform.position).normalized;
         lookDir.y = 0;
         if (lookDir != Vector3.zero) transform.rotation = Quaternion.LookRotation(lookDir);
 
-        playerTarget.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        if (mAnimator == null) mAnimator = GetComponent<Animator>();
+        mAnimator.SetTrigger("Attack");
+        StartCoroutine(DelayDamage(0.5f)); // 0.5 seconds delay
+    }
 
+    private System.Collections.IEnumerator DelayDamage(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        playerTarget.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 }
