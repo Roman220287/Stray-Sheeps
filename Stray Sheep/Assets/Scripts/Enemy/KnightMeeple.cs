@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
+
 
 public class KnightMeeple : EnemyBase
 {
