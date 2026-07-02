@@ -991,7 +991,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: enemiesPerWave
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: spawnPoints.Array.size
@@ -1093,6 +1093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TheMostImportantEmptyObject
       objectReference: {fileID: 0}
+    - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: winScreenUI
+      value: 
+      objectReference: {fileID: 1305513429}
     - target: {fileID: 6911890180032862086, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: statsToApply
       value: 

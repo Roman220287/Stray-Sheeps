@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Linq;
 
 public class NextLevelManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class NextLevelManager : MonoBehaviour
             Debug.Log("NextLevelManager: Recovered instance via FindFirstObjectByType.");
         return instance;
     }
+
+    [Header("Layout Progression")]
+    [SerializeField] private Transform[] layoutAnchors;
+    [SerializeField] private float layoutTransitionDelay = 0.5f;
 
     public ChooseUpgradeMenu upgradeMenu;
 
@@ -45,6 +50,17 @@ public class NextLevelManager : MonoBehaviour
     {
         if (instance == this)
             UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void Start()
+    {
+        if (layoutAnchors == null || layoutAnchors.Length == 0)
+        {
+            layoutAnchors = FindObjectsByType<LevelLayoutAnchor>(FindObjectsSortMode.None)
+                .OrderBy(x => x.layoutIndex)
+                .Select(x => x.transform)
+                .ToArray();
+        }
     }
 
     private struct StoredUpgrade
@@ -193,27 +209,69 @@ public class NextLevelManager : MonoBehaviour
 
     IEnumerator LoadNextLevel()
     {
-        yield return new WaitForSecondsRealtime(0.5f);
-
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        yield return new WaitForSecondsRealtime(layoutTransitionDelay);
 
         CurrentDepth = depth + 1;
         depth = CurrentDepth;
 
         if (CurrentDepth <= 6)
         {
-            SceneManager.LoadScene(currentIndex);
-        }
-        else if (currentIndex + 1 < SceneManager.sceneCountInBuildSettings)
-        {
-            CurrentDepth = 0;
-            depth = 0;
-            SceneManager.LoadScene(currentIndex + 1);
+            MovePlayerToLayout(CurrentDepth);
         }
         else
         {
-            SceneManager.LoadScene(0);
+            CurrentDepth = 0;
+            depth = 0;
+            MovePlayerToLayout(0);
         }
+    }
+
+    private void MovePlayerToLayout(int targetLayoutIndex)
+    {
+        if (layoutAnchors == null || layoutAnchors.Length == 0)
+        {
+            Debug.LogWarning("NextLevelManager: No layout anchors found. Falling back to current position.");
+            return;
+        }
+
+        Transform targetAnchor = null;
+        for (int i = 0; i < layoutAnchors.Length; i++)
+        {
+            if (layoutAnchors[i] != null && layoutAnchors[i].GetComponent<LevelLayoutAnchor>()?.layoutIndex == targetLayoutIndex)
+            {
+                targetAnchor = layoutAnchors[i];
+                break;
+            }
+        }
+
+        if (targetAnchor == null)
+        {
+            Debug.LogWarning($"NextLevelManager: No anchor found for layout {targetLayoutIndex}.");
+            return;
+        }
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null)
+        {
+            Debug.LogWarning("NextLevelManager: No player found to teleport.");
+            return;
+        }
+
+        CharacterController controller = player.GetComponent<CharacterController>();
+        if (controller != null)
+        {
+            controller.enabled = false;
+            player.transform.position = targetAnchor.position;
+            player.transform.rotation = targetAnchor.rotation;
+            controller.enabled = true;
+        }
+        else
+        {
+            player.transform.position = targetAnchor.position;
+            player.transform.rotation = targetAnchor.rotation;
+        }
+
+        Debug.Log($"NextLevelManager: Teleported player to layout {targetLayoutIndex}.");
     }
 
     public void ResetGameEntirely()

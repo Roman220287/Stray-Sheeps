@@ -56,14 +56,27 @@ public class EnemyBase : MonoBehaviour
     public virtual void TakeDamage(float amount)
     {
         currentHealth -= amount;
-        if (currentHealth <= 0) Die();
+        Debug.Log($"EnemyBase: Took damage. Remaining health: {currentHealth} (damage: {amount})");
+        if (currentHealth <= 0)
+        {
+            Debug.Log("EnemyBase: Health reached zero. Calling Die().");
+            Die();
+        }
     }
 
     protected virtual void Die()
     {
+        Debug.Log("EnemyBase: Die() called.");
         NextLevelManager manager = NextLevelManager.ResolveInstance();
         if (manager != null)
+        {
+            Debug.Log("EnemyBase: Calling NextLevelManager.UnregisterEnemy().");
             manager.UnregisterEnemy();
+        }
+        else
+        {
+            Debug.LogWarning("EnemyBase: NextLevelManager was missing when trying to unregister enemy.");
+        }
         Destroy(gameObject);
     }
 
