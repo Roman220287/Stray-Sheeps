@@ -75,7 +75,15 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSecondsRealtime(timeBetweenWaves);
         }
 
-        NextLevelManager.instance.WavesFinished();
+        NextLevelManager manager = NextLevelManager.ResolveInstance();
+        if (manager != null)
+        {
+            manager.WavesFinished();
+        }
+        else
+        {
+            Debug.LogError("WaveSpawner: NextLevelManager is missing, so the upgrade flow could not start.");
+        }
     }
 
     void SpawnEnemy()

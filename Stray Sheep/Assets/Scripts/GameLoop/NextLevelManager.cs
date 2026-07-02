@@ -7,6 +7,17 @@ public class NextLevelManager : MonoBehaviour
     public static NextLevelManager instance;
     public static int CurrentDepth { get; private set; }
 
+    public static NextLevelManager ResolveInstance()
+    {
+        if (instance != null)
+            return instance;
+
+        instance = FindFirstObjectByType<NextLevelManager>(FindObjectsInactive.Include);
+        if (instance != null)
+            Debug.Log("NextLevelManager: Recovered instance via FindFirstObjectByType.");
+        return instance;
+    }
+
     public ChooseUpgradeMenu upgradeMenu;
 
     private int enemiesAlive;
@@ -65,7 +76,8 @@ public class NextLevelManager : MonoBehaviour
         PauseManager.SetPaused(false); 
 
         // Re-find the upgrade menu instance in the newly loaded scene
-        upgradeMenu = FindFirstObjectByType<ChooseUpgradeMenu>();
+        upgradeMenu = ResolveUpgradeMenu();
+        Debug.Log($"NextLevelManager: Scene loaded {scene.name} (index {scene.buildIndex}); upgrade menu resolved: {(upgradeMenu != null ? "yes" : "no")}");
 
         StartCoroutine(ApplyStoredUpgradesAfterLoad(scene));
     }
@@ -127,17 +139,20 @@ public class NextLevelManager : MonoBehaviour
     public void RegisterEnemy()
     {
         enemiesAlive += 1;
+        Debug.Log($"NextLevelManager: Enemy registered. Alive count: {enemiesAlive}");
     }
 
     public void UnregisterEnemy()
     {
         enemiesAlive = Mathf.Max(0, enemiesAlive - 1);
+        Debug.Log($"NextLevelManager: Enemy unregistered. Alive count: {enemiesAlive}");
         CheckLevelComplete();
     }
 
     public void WavesFinished()
     {
         allWavesComplete = true;
+        Debug.Log("NextLevelManager: All waves finished. Checking win condition.");
         CheckLevelComplete();
     }
 
@@ -146,15 +161,29 @@ public class NextLevelManager : MonoBehaviour
         if (!levelEnding && allWavesComplete && enemiesAlive <= 0)
         {
             levelEnding = true;
-            if (upgradeMenu != null)
+            ChooseUpgradeMenu menu = ResolveUpgradeMenu();
+            Debug.Log($"NextLevelManager: Level complete; attempting to show upgrade UI. Menu found: {(menu != null ? "yes" : "no")}");
+            if (menu != null)
             {
-                upgradeMenu.ShowMenu();
+                menu.ShowMenu();
+                Debug.Log("NextLevelManager: ShowMenu() called on upgrade menu.");
             }
             else
             {
+                Debug.LogWarning("NextLevelManager: Upgrade menu not found; advancing without showing upgrade UI.");
                 StartCoroutine(LoadNextLevel());
             }
         }
+    }
+
+    private ChooseUpgradeMenu ResolveUpgradeMenu()
+    {
+        if (upgradeMenu != null)
+            return upgradeMenu;
+
+        upgradeMenu = FindFirstObjectByType<ChooseUpgradeMenu>(FindObjectsInactive.Include);
+        Debug.Log($"NextLevelManager: ResolveUpgradeMenu() found menu: {(upgradeMenu != null ? "yes" : "no")}");
+        return upgradeMenu;
     }
 
     public void ProceedToNextLevel()

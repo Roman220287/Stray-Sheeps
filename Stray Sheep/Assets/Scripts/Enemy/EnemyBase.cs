@@ -28,8 +28,9 @@ public class EnemyBase : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) playerTarget = player.transform;
 
-        if (NextLevelManager.instance != null)
-            NextLevelManager.instance.RegisterEnemy();
+        NextLevelManager manager = NextLevelManager.ResolveInstance();
+        if (manager != null)
+            manager.RegisterEnemy();
     }
 
     protected virtual void Update()
@@ -60,7 +61,9 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void Die()
     {
-        NextLevelManager.instance.UnregisterEnemy();
+        NextLevelManager manager = NextLevelManager.ResolveInstance();
+        if (manager != null)
+            manager.UnregisterEnemy();
         Destroy(gameObject);
     }
 
