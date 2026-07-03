@@ -77,5 +77,6 @@ public class PlayerStatsBase : MonoBehaviour
         // Optional: Trigger death animation or effects here
         SceneManager.LoadScene("Title Screen");
         Destroy(gameObject);
+        NextLevelManager.instance.ResetGameEntirely();
     }
 }
