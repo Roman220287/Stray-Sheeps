@@ -56,6 +56,12 @@ public class SmoothCameraFollow : MonoBehaviour
         transform.rotation = Quaternion.Euler(fixedRotation);
     }
 
+    public void SetStageCenter(Vector3 newCenter)
+    {
+        stageCenter = newCenter;
+        Debug.Log($"SmoothCameraFollow: Updated stage center to {stageCenter}");
+    }
+
     public void Shake(float duration, float magnitude)
     {
         shakeDuration = Mathf.Max(shakeDuration, duration);

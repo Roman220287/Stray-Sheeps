@@ -293,16 +293,15 @@ public class ChooseUpgradeMenu : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        LevelExitGate exitGate = FindFirstObjectByType<LevelExitGate>();
-        if (exitGate != null)
+        // Open the gate and wait for player to touch it
+        NextLevelManager manager = NextLevelManager.ResolveInstance();
+        if (manager != null)
         {
-            exitGate.OpenGate();
+            manager.OpenCurrentLayoutGate();
         }
         else
         {
-            Debug.LogWarning("No LevelExitGate found in scene! Advancing automatically.");
-            if (NextLevelManager.instance != null)
-                NextLevelManager.instance.ProceedToNextLevel();
+            Debug.LogWarning("No NextLevelManager found in scene!");
         }
     }
 

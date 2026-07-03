@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -50,6 +51,26 @@ public class WaveSpawner : MonoBehaviour
         // Kept empty to prevent duplicate triggers
     }
 
+    public void RestartWaves()
+    {
+        RestartWavesWithDelay(0f);
+    }
+
+    public void RestartWavesWithDelay(float delaySeconds)
+    {
+        StartCoroutine(RestartWavesDelayedCoroutine(delaySeconds));
+    }
+
+    private IEnumerator RestartWavesDelayedCoroutine(float delaySeconds)
+    {
+        if (delaySeconds > 0)
+            yield return new WaitForSecondsRealtime(delaySeconds);
+
+        Debug.Log("WaveSpawner: Restarting waves for new layout.");
+        StopAllCoroutines();
+        StartCoroutine(SpawnWaves());
+    }
+
     IEnumerator SpawnWaves()
     {
         for (int wave = 0; wave < numberOfWaves; wave++)
@@ -96,7 +117,7 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
-        Transform[] activeSpawnPoints = GetActiveSpawnPoints();
+        Transform[] activeSpawnPoints = GetActiveSpawnPointsForLayout();
         if (activeSpawnPoints == null || activeSpawnPoints.Length == 0)
         {
             Debug.LogWarning("WaveSpawner has no spawn points assigned or found under this spawner.");
@@ -118,6 +139,31 @@ public class WaveSpawner : MonoBehaviour
         {
             dropEffect.Initialize(spawnPosition);
         }
+    }
+
+    private Transform[] GetActiveSpawnPointsForLayout()
+    {
+        // Try to find layout-specific spawn points
+        NextLevelManager manager = NextLevelManager.ResolveInstance();
+        if (manager != null)
+        {
+            LevelLayoutAnchor[] anchors = FindObjectsByType<LevelLayoutAnchor>(FindObjectsSortMode.None);
+            foreach (var anchor in anchors)
+            {
+                if (anchor != null && anchor.layoutIndex == manager.depth)
+                {
+                    Transform[] layoutSpawns = anchor.GetLayoutSpawnPoints();
+                    if (layoutSpawns != null && layoutSpawns.Length > 0)
+                    {
+                        Debug.Log($"WaveSpawner: Using {layoutSpawns.Length} spawn points for layout {manager.depth}.");
+                        return layoutSpawns;
+                    }
+                }
+            }
+        }
+
+        // Fall back to default spawn point retrieval
+        return GetActiveSpawnPoints();
     }
 
     private GameObject[] GetEnemyPoolForCurrentDepth()

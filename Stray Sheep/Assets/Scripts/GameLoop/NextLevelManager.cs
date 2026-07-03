@@ -22,6 +22,7 @@ public class NextLevelManager : MonoBehaviour
     [Header("Layout Progression")]
     [SerializeField] private Transform[] layoutAnchors;
     [SerializeField] private float layoutTransitionDelay = 0.5f;
+    [SerializeField] private float cameraSettleTime = 1f;
 
     public ChooseUpgradeMenu upgradeMenu;
 
@@ -207,6 +208,12 @@ public class NextLevelManager : MonoBehaviour
         StartCoroutine(LoadNextLevel());
     }
 
+    public void OpenCurrentLayoutGate()
+    {
+        Debug.Log($"NextLevelManager: OpenCurrentLayoutGate called. Current depth: {depth}");
+        OpenGateForLayout(depth);
+    }
+
     IEnumerator LoadNextLevel()
     {
         yield return new WaitForSecondsRealtime(layoutTransitionDelay);
@@ -214,16 +221,76 @@ public class NextLevelManager : MonoBehaviour
         CurrentDepth = depth + 1;
         depth = CurrentDepth;
 
+        // Start the transition
+        TransitionScreen transition = FindFirstObjectByType<TransitionScreen>();
+        if (transition != null)
+        {
+            transition.ShowImmediately();
+        }
+
         if (CurrentDepth <= 6)
         {
-            MovePlayerToLayout(CurrentDepth);
+            yield return StartCoroutine(TransitionToLayout(CurrentDepth, transition));
         }
         else
         {
             CurrentDepth = 0;
             depth = 0;
-            MovePlayerToLayout(0);
+            yield return StartCoroutine(TransitionToLayout(0, transition));
         }
+    }
+
+    private IEnumerator TransitionToLayout(int targetLayoutIndex, TransitionScreen transition)
+    {
+        // Move player and update camera during fade
+        MovePlayerToLayout(targetLayoutIndex);
+
+        // Wait for camera to settle
+        yield return new WaitForSecondsRealtime(cameraSettleTime);
+
+        // Fade out transition
+        if (transition != null)
+        {
+            yield return StartCoroutine(FadeOutTransition(transition));
+        }
+    }
+
+    private IEnumerator FadeOutTransition(TransitionScreen transition)
+    {
+        float fadeDuration = 0.5f;
+        float elapsedTime = 0f;
+        CanvasGroup canvasGroup = transition.GetComponent<CanvasGroup>();
+
+        while (elapsedTime < fadeDuration)
+        {
+            elapsedTime += Time.unscaledDeltaTime;
+            canvasGroup.alpha = Mathf.Lerp(1f, 0f, elapsedTime / fadeDuration);
+            yield return null;
+        }
+
+        canvasGroup.alpha = 0f;
+    }
+
+    private void OpenGateForLayout(int targetLayoutIndex)
+    {
+        LevelExitGate[] gates = FindObjectsByType<LevelExitGate>(FindObjectsSortMode.None);
+        Debug.Log($"NextLevelManager: Looking for gate with layout index {targetLayoutIndex}. Found {gates.Length} gates.");
+        
+        foreach (var gate in gates)
+        {
+            if (gate != null)
+            {
+                Debug.Log($"  Checking gate: gateLayoutIndex={gate.GetGateLayoutIndex()}");
+                if (gate.GetGateLayoutIndex() == targetLayoutIndex)
+                {
+                    gate.OpenGate();
+                    Debug.Log($"NextLevelManager: ✓ Opened gate for layout {targetLayoutIndex}.");
+                    return;
+                }
+            }
+        }
+
+        Debug.LogWarning($"NextLevelManager: ✗ No gate found for layout {targetLayoutIndex}. Available gates: {string.Join(", ", System.Linq.Enumerable.Select(gates, g => g?.GetGateLayoutIndex().ToString() ?? "null"))}");
     }
 
     private void MovePlayerToLayout(int targetLayoutIndex)
@@ -270,6 +337,32 @@ public class NextLevelManager : MonoBehaviour
             player.transform.position = targetAnchor.position;
             player.transform.rotation = targetAnchor.rotation;
         }
+
+        // Update camera to center on the middle of this layout
+        SmoothCameraFollow cameraFollow = FindFirstObjectByType<SmoothCameraFollow>();
+        LevelLayoutAnchor layoutAnchor = targetAnchor.GetComponent<LevelLayoutAnchor>();
+        if (cameraFollow != null)
+        {
+            Vector3 layoutCenterPos = (layoutAnchor != null) ? layoutAnchor.GetLayoutCenterPosition() : targetAnchor.position;
+            cameraFollow.SetStageCenter(layoutCenterPos);
+        }
+
+        // Reset the wave spawner for the new layout
+        WaveSpawner waveSpawner = FindFirstObjectByType<WaveSpawner>();
+        if (waveSpawner != null)
+        {
+            // Reset level ending flag so the next layout can trigger win condition properly
+            levelEnding = false;
+            allWavesComplete = false;
+            enemiesAlive = 0;
+            
+            // Delay wave restart until after transition is complete (1.5 seconds: cameraSettleTime + fade duration)
+            waveSpawner.RestartWavesWithDelay(cameraSettleTime + 0.5f);
+            Debug.Log($"NextLevelManager: Scheduled wave spawner restart for layout {targetLayoutIndex}.");
+        }
+
+        // Open the gate for this layout
+        OpenGateForLayout(targetLayoutIndex);
 
         Debug.Log($"NextLevelManager: Teleported player to layout {targetLayoutIndex}.");
     }
