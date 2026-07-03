@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.VFX;
+
 
 public class FlamingMeeple : EnemyBase
 {
@@ -11,11 +13,12 @@ public class FlamingMeeple : EnemyBase
 
     private bool isIgnited;
     private float ignitionTime;
+    private Animator mAnimator;
 
     protected override void Awake()
     {
         base.Awake();
-        
+
         if (agent != null)
             agent.speed = baseMovementSpeed;
 
@@ -96,6 +99,14 @@ public class FlamingMeeple : EnemyBase
         if (lookDir != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(lookDir);
 
+        if (mAnimator == null) mAnimator = GetComponent<Animator>();
+        mAnimator.SetTrigger("Attack");
+        StartCoroutine(DelayDamage(0.5f)); // 0.5 seconds delay
+    }
+
+    private System.Collections.IEnumerator DelayDamage(float delay)
+    {
+        yield return new WaitForSeconds(delay);
         playerTarget.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 

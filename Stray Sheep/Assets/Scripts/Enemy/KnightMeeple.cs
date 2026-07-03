@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
+
 
 public class KnightMeeple : EnemyBase
 {
@@ -12,6 +14,7 @@ public class KnightMeeple : EnemyBase
     [SerializeField] private bool shieldUpOnStart = true;
 
     private bool shieldActive;
+    private Animator mAnimator;
 
     protected override void Awake()
     {
@@ -114,7 +117,16 @@ public class KnightMeeple : EnemyBase
         lookDir.y = 0f;
         if (lookDir != Vector3.zero) transform.rotation = Quaternion.LookRotation(lookDir);
 
-        playerTarget.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
+        if (mAnimator == null) mAnimator = GetComponent<Animator>();
+        mAnimator.SetTrigger("Attack");
+        StartCoroutine(DelayDamage(0.5f)); // 0.5 seconds delay
+    }
+
+    private System.Collections.IEnumerator DelayDamage(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (playerTarget != null)
+            playerTarget.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 
     protected override void OnDrawGizmosSelected()

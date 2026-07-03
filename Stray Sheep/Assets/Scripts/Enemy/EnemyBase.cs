@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.VFX;
+
 
 [RequireComponent(typeof(NavMeshAgent), typeof(Rigidbody))]
 public class EnemyBase : MonoBehaviour
@@ -9,6 +11,8 @@ public class EnemyBase : MonoBehaviour
     public float damage = 1f;
     public float attackRange = 2.5f;
     public float attackCooldown = 1.5f;
+    [SerializeField] private VisualEffect hitEffect;
+
 
     protected float currentHealth;
     protected float nextAttackTime;
@@ -55,6 +59,7 @@ public class EnemyBase : MonoBehaviour
 
     public virtual void TakeDamage(float amount)
     {
+        if (hitEffect != null) hitEffect.Play();
         currentHealth -= amount;
         Debug.Log($"EnemyBase: Took damage. Remaining health: {currentHealth} (damage: {amount})");
         if (currentHealth <= 0)
