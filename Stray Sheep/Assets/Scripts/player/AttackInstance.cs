@@ -8,7 +8,7 @@ public class AttackInstance : MonoBehaviour
     public bool isProjectile = true;
 
     // Upgrade stats
-    public int bounceCount = 0;
+    public int bounceCount = 1; // Make sure this is 1 or higher in the inspector!
     public float bleedingDamage = 0f;
     public float slowDuration = 0f;
     public float slowAmount = 0.5f;
@@ -19,7 +19,6 @@ public class AttackInstance : MonoBehaviour
     private void Start()
     {
         lastDirection = transform.root.forward;
-        // Use transform.root to ensure we destroy the top-most parent after the lifetime ends
         Destroy(transform.root.gameObject, lifetime);
     }
 
@@ -27,7 +26,6 @@ public class AttackInstance : MonoBehaviour
     {
         if (!isProjectile) return;
 
-        // Initialize bounces on first frame
         if (bouncesRemaining == -1)
             bouncesRemaining = bounceCount;
 
@@ -35,16 +33,19 @@ public class AttackInstance : MonoBehaviour
         transform.root.Translate(transform.root.forward * speed * Time.deltaTime, Space.World);
     }
 
+    // --- REPLACE THIS METHOD ---
     private void HandleEnvironmentBounce()
     {
-        float castDistance = speed * Time.deltaTime + 0.1f;
+        float castDistance = (speed * Time.deltaTime) + 0.15f;
+
         if (!Physics.Raycast(transform.root.position, transform.root.forward, out RaycastHit hitInfo, castDistance))
             return;
 
         if (hitInfo.collider.CompareTag("Enemy"))
             return;
 
-        if (!hitInfo.collider.CompareTag("Environment"))
+        // Checks for either "Wall" or "Environment" tags
+        if (!hitInfo.collider.CompareTag("Wall") && !hitInfo.collider.CompareTag("Environment"))
             return;
 
         if (bouncesRemaining <= 0)
@@ -55,6 +56,8 @@ public class AttackInstance : MonoBehaviour
 
         bouncesRemaining--;
         BounceProjectile(hitInfo.normal);
+
+        // This teleports the bullet slightly away from the wall so it doesn't clip inside
         transform.root.position = hitInfo.point + hitInfo.normal * 0.1f;
         Debug.Log($"Bounced off environment! Bounces remaining: {bouncesRemaining}");
     }
@@ -81,9 +84,10 @@ public class AttackInstance : MonoBehaviour
         Destroy(transform.root.gameObject);
     }
 
+    // --- REPLACE THIS METHOD ---
     private void BounceProjectile(Vector3 normal)
     {
-        lastDirection = Vector3.Reflect(lastDirection, normal);
-        transform.root.rotation = Quaternion.LookRotation(lastDirection);
+        Vector3 newDirection = Vector3.Reflect(transform.root.forward, normal);
+        transform.root.rotation = Quaternion.LookRotation(newDirection);
     }
 }
