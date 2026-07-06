@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1131609900018579948}
+  - component: {fileID: 7924260624800045071}
+  - component: {fileID: 5381657832011020155}
+  - component: {fileID: 6588503237642369419}
   m_Layer: 0
   m_Name: PF_Arena_City_Layout_1
   m_TagString: Untagged
@@ -24,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 981676646363832092}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -42, z: 32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -43,6 +46,69 @@ Transform:
   - {fileID: 4216730717725485924}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7924260624800045071
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981676646363832092}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.947571, y: 5.3505135, z: 5.6691694}
+  m_Center: {x: -5.4057007, y: 2.1752567, z: -8.971369}
+--- !u!65 &5381657832011020155
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981676646363832092}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.1697388, y: 4.229162, z: 6.714753}
+  m_Center: {x: 4.2165527, y: 1.6145811, z: -8.978508}
+--- !u!65 &6588503237642369419
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 981676646363832092}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.9189453, y: 2.4862065, z: 2.5221052}
+  m_Center: {x: -20.644592, y: 1.408613, z: -5.189121}
 --- !u!1 &1237762665337813073
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,6 +120,7 @@ GameObject:
   - component: {fileID: 2010953230483004383}
   - component: {fileID: 8673573103319328354}
   - component: {fileID: 3868687281608568863}
+  - component: {fileID: 5860963475599046119}
   m_Layer: 0
   m_Name: Road sign (5)
   m_TagString: Untagged
@@ -129,6 +196,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5860963475599046119
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237762665337813073}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.34177235, y: 0.23313588, z: 0.07392162}
+  m_Center: {x: -0.000001549804, y: 0.019096106, z: 0.0027864429}
 --- !u!1 &1400463566022752191
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +337,7 @@ GameObject:
   - component: {fileID: 4912681744378301536}
   - component: {fileID: 7128230516479034595}
   - component: {fileID: 7856120425480642091}
+  - component: {fileID: 3835178695449031158}
   m_Layer: 0
   m_Name: PF_Arena_box3.1 (1)
   m_TagString: Untagged
@@ -324,6 +413,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3835178695449031158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949131959550779218}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2779957, y: 0.63352704, z: 0.5275176}
+  m_Center: {x: 0, y: 0.000000014901161, z: 0.0000039190054}
 --- !u!1 &2590823804214215357
 GameObject:
   m_ObjectHideFlags: 0
@@ -421,6 +531,7 @@ GameObject:
   - component: {fileID: 7967375826222220805}
   - component: {fileID: 4158988835581651038}
   - component: {fileID: 7577621332260921338}
+  - component: {fileID: 4096957189474595924}
   m_Layer: 0
   m_Name: PF_Arena_box1.1 (1)
   m_TagString: Untagged
@@ -496,6 +607,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4096957189474595924
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2943491531433921093}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2779956, y: 0.63352704, z: 0.52751756}
+  m_Center: {x: 0, y: 0.000000014901161, z: 0.00000010430813}
 --- !u!1 &4119623129888051727
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,6 +639,7 @@ GameObject:
   - component: {fileID: 948646208911962146}
   - component: {fileID: 919009939877962902}
   - component: {fileID: 876633569979050705}
+  - component: {fileID: 5897194976504484678}
   m_Layer: 0
   m_Name: PF_Arena_box2.1 (2)
   m_TagString: Untagged
@@ -582,6 +715,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5897194976504484678
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4119623129888051727}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2779956, y: 0.63352704, z: 0.52751756}
+  m_Center: {x: 0, y: 0.000000014901161, z: 0.00000010430813}
 --- !u!1 &4422940423453919832
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,6 +919,7 @@ GameObject:
   - component: {fileID: 9041762099998672059}
   - component: {fileID: 5993015471472316642}
   - component: {fileID: 937638818388906894}
+  - component: {fileID: 2959419099090108604}
   m_Layer: 0
   m_Name: Road sign (4)
   m_TagString: Untagged
@@ -840,6 +995,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2959419099090108604
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5720648434587411554}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.34177235, y: 0.23313588, z: 0.07392161}
+  m_Center: {x: -0.0000025033953, y: 0.019096106, z: 0.0027864429}
 --- !u!1 &5966367650776969161
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,6 +1136,7 @@ GameObject:
   - component: {fileID: 763298302582356578}
   - component: {fileID: 8401331376003987946}
   - component: {fileID: 7427233583550526589}
+  - component: {fileID: 4862552985275429122}
   m_Layer: 0
   m_Name: PF_Arena_box3.2 (1)
   m_TagString: Untagged
@@ -1035,6 +1212,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4862552985275429122
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005012174904116777}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6025553, y: 0.63352704, z: 0.5106566}
+  m_Center: {x: 0.000000059604645, y: 0.000000014901161, z: 0.000007733703}
 --- !u!1 &8851500068360391908
 GameObject:
   m_ObjectHideFlags: 0
