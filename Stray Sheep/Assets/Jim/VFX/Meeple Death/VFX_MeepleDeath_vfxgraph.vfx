@@ -31,7 +31,11 @@ MonoBehaviour:
       id: 0
       isStickyNote: 0
   stickyNoteInfos: []
-  categories: []
+  categories:
+  - name: Meeple
+    collapsed: 1
+  - name: Technical
+    collapsed: 1
   uiBounds:
     serializedVersion: 2
     x: -678
@@ -85,12 +89,44 @@ MonoBehaviour:
   - {fileID: 8926484042661615356}
   - {fileID: 8926484042661615365}
   - {fileID: 8926484042661615367}
+  - {fileID: 8926484042661615376}
   m_UIPosition: {x: 0, y: 0}
   m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_UIInfos: {fileID: 114340500867371532}
   m_CustomAttributes: []
   m_ParameterInfo:
+  - name: Loop Amount
+    path: Loop Amount
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_Int
+    realType: Int32
+    defaultValue:
+      m_Type:
+        m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    min: 1
+    max: 100000
+    enumValues: []
+    descendantCount: 0
+  - name: Meeple
+    path: 
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: 
+    realType: 
+    defaultValue:
+      m_Type:
+        m_SerializableType: 
+      m_SerializableObject: 
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
   - name: BlockAmount
     path: BlockAmount
     tooltip: 
@@ -107,8 +143,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: BlockDissapear Curve _Y
-    path: BlockDissapear Curve _Y
+  - name: Animation Curve Rotation
+    path: Animation Curve Rotation
     tooltip: 
     space: -1
     spaceable: 0
@@ -118,7 +154,23 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.8372684717178345,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-0.06904055923223496,"outTangent":-0.06904055923223496,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.8722543716430664,"value":0.0,"inTangent":-0.028039876371622087,"outTangent":-0.028039876371622087,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":1.0,"inTangent":-0.06904055923223496,"outTangent":-0.06904055923223496,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+    min: -Infinity
+    max: Infinity
+    enumValues: []
+    descendantCount: 0
+  - name: Block Speed Randomness
+    path: Block Speed Randomness
+    tooltip: 
+    space: -1
+    spaceable: 0
+    sheetType: m_Vector2f
+    realType: Vector2
+    defaultValue:
+      m_Type:
+        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+      m_SerializableObject: '{"x":9.0,"y":15.0}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -139,8 +191,8 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: Animation Curve Rotation
-    path: Animation Curve Rotation
+  - name: BlockDissapear Curve _Y
+    path: BlockDissapear Curve _Y
     tooltip: 
     space: -1
     spaceable: 0
@@ -150,7 +202,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.8722543716430664,"value":0.0,"inTangent":-0.028039876371622087,"outTangent":-0.028039876371622087,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":1.0,"inTangent":-0.06904055923223496,"outTangent":-0.06904055923223496,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":0.8372684717178345,"value":1.0,"inTangent":0.0,"outTangent":0.0,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":0.0,"inTangent":-0.06904055923223496,"outTangent":-0.06904055923223496,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -203,18 +255,17 @@ MonoBehaviour:
     max: Infinity
     enumValues: []
     descendantCount: 0
-  - name: Block Speed Randomness
-    path: Block Speed Randomness
+  - name: Technical
+    path: 
     tooltip: 
     space: -1
     spaceable: 0
-    sheetType: m_Vector2f
-    realType: Vector2
+    sheetType: 
+    realType: 
     defaultValue:
       m_Type:
-        m_SerializableType: UnityEngine.Vector2, UnityEngine.CoreModule, Version=0.0.0.0,
-          Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"x":9.0,"y":15.0}'
+        m_SerializableType: 
+      m_SerializableObject: 
     min: -Infinity
     max: Infinity
     enumValues: []
@@ -316,6 +367,7 @@ MonoBehaviour:
   m_UISuperCollapsed: 0
   m_InputSlots:
   - {fileID: 8926484042661614879}
+  - {fileID: 8926484042661615375}
   m_OutputSlots: []
   m_Label: Spawn system
   m_Data: {fileID: 8926484042661614702}
@@ -327,7 +379,7 @@ MonoBehaviour:
     - context: {fileID: 8926484042661614707}
       slotIndex: 0
   loopDuration: 1
-  loopCount: 0
+  loopCount: 1
   delayBeforeLoop: 0
   delayAfterLoop: 0
 --- !u!114 &8926484042661614702
@@ -2581,7 +2633,7 @@ MonoBehaviour:
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 0
+  m_UICollapsed: 1
   m_UISuperCollapsed: 0
   m_InputSlots: []
   m_OutputSlots:
@@ -2589,7 +2641,7 @@ MonoBehaviour:
   m_ExposedName: BlockAmount
   m_Exposed: 1
   m_Order: 0
-  m_Category: 
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -3670,8 +3722,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615040}
   m_ExposedName: BlockDissapear Curve
   m_Exposed: 1
-  m_Order: 2
-  m_Category: 
+  m_Order: 1
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -3957,8 +4009,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615055}
   m_ExposedName: Animation Curve Rotation
   m_Exposed: 1
-  m_Order: 3
-  m_Category: 
+  m_Order: 0
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -4634,7 +4686,7 @@ MonoBehaviour:
   m_ExposedName: BlockDissapear Curve _Y
   m_Exposed: 1
   m_Order: 1
-  m_Category: 
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -4723,8 +4775,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615082}
   m_ExposedName: MeepleTexture
   m_Exposed: 1
-  m_Order: 4
-  m_Category: 
+  m_Order: 2
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -4874,8 +4926,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615086}
   m_ExposedName: Block Size Randomness
   m_Exposed: 1
-  m_Order: 5
-  m_Category: 
+  m_Order: 3
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5124,8 +5176,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615201}
   m_ExposedName: Lifetime Randomness
   m_Exposed: 1
-  m_Order: 6
-  m_Category: 
+  m_Order: 4
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5277,8 +5329,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615205}
   m_ExposedName: Block Speed Randomness
   m_Exposed: 1
-  m_Order: 7
-  m_Category: 
+  m_Order: 0
+  m_Category: Meeple
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -5919,8 +5971,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615229}
   m_ExposedName: PlaneHeight
   m_Exposed: 1
-  m_Order: 8
-  m_Category: 
+  m_Order: 1
+  m_Category: Technical
   m_Min:
     m_Type:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -7948,8 +8000,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615366}
   m_ExposedName: Outline Size
   m_Exposed: 1
-  m_Order: 9
-  m_Category: 
+  m_Order: 2
+  m_Category: Technical
   m_Min:
     m_Type:
       m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
@@ -8031,8 +8083,8 @@ MonoBehaviour:
   - {fileID: 8926484042661615368}
   m_ExposedName: Outline Color
   m_Exposed: 1
-  m_Order: 10
-  m_Category: 
+  m_Order: 3
+  m_Category: Technical
   m_Min:
     m_Type:
       m_SerializableType: 
@@ -8225,3 +8277,121 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
   m_Direction: 1
   m_LinkedSlots: []
+--- !u!114 &8926484042661615375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d246e354feb93041a837a9ef59437cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661615375}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661614700}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: -1
+  m_Property:
+    name: LoopCount
+    m_serializedType:
+      m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+  m_Direction: 0
+  m_LinkedSlots:
+  - {fileID: 8926484042661615377}
+--- !u!114 &8926484042661615376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 330e0fca1717dde4aaa144f48232aa64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 114350483966674976}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 0
+  m_UISuperCollapsed: 0
+  m_InputSlots: []
+  m_OutputSlots:
+  - {fileID: 8926484042661615377}
+  m_ExposedName: Loop Amount
+  m_Exposed: 1
+  m_Order: 0
+  m_Category: 
+  m_Min:
+    m_Type:
+      m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    m_SerializableObject: 1
+  m_Max:
+    m_Type:
+      m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+    m_SerializableObject: 100000
+  m_IsOutput: 0
+  m_EnumValues: []
+  m_ValueFilter: 1
+  m_Tooltip: 
+  m_Nodes:
+  - m_Id: 0
+    linkedSlots:
+    - outputSlot: {fileID: 8926484042661615377}
+      inputSlot: {fileID: 8926484042661615375}
+    position: {x: 22.400002, y: 424.80002}
+    expandedSlots: []
+    expanded: 1
+    supecollapsed: 0
+--- !u!114 &8926484042661615377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d246e354feb93041a837a9ef59437cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UIIgnoredErrors: []
+  m_Parent: {fileID: 0}
+  m_Children: []
+  m_UIPosition: {x: 0, y: 0}
+  m_UICollapsed: 1
+  m_UISuperCollapsed: 0
+  m_MasterSlot: {fileID: 8926484042661615377}
+  m_MasterData:
+    m_Owner: {fileID: 8926484042661615376}
+    m_Value:
+      m_Type:
+        m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+          PublicKeyToken=b77a5c561934e089
+      m_SerializableObject: 1
+    m_Space: -1
+  m_Property:
+    name: o
+    m_serializedType:
+      m_SerializableType: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+  m_Direction: 1
+  m_LinkedSlots:
+  - {fileID: 8926484042661615375}

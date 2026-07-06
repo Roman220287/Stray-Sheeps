@@ -1,0 +1,123 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8149072576780437766
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[1].m_Value
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Value
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[4].m_Value
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Name
+      value: Droplet Velocity
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Name
+      value: Droplet Amount
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[0].m_Value.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[0].m_Value.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Value.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Value.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Value.y
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[0].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[1].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1825495262951379891, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_PropertySheet.m_Vector2f.m_Array.Array.data[2].m_Overridden
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265786083088764313, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_Name
+      value: PF_VFX_InkBallExplosion_EnemyHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -381.04642
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -66.22762
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6390841368120068450, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7bf7f584c0f40ef4f92ec5077d1a1a28, type: 3}
