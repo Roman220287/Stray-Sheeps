@@ -131,6 +131,8 @@ MonoBehaviour:
   bleedingDamage: 0
   slowDuration: 0
   slowAmount: 0.5
+  enemyHitVFX: {fileID: 2748458437348477414}
+  wallBounceVFX: {fileID: 5002698540835536761}
 --- !u!65 &7919339784173626957
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -284,6 +286,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1524721616136495141, guid: 8f7a3b524ca89e04fabef35365349c54, type: 3}
   m_PrefabInstance: {fileID: 3730678551126842279}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &5002698540835536761 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8550980755147744478, guid: 8f7a3b524ca89e04fabef35365349c54, type: 3}
+  m_PrefabInstance: {fileID: 3730678551126842279}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7782277199028768121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -341,6 +348,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 806de6707e959d347aece72b4b447506, type: 3}
+--- !u!1 &2748458437348477414 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5342482479103050911, guid: 806de6707e959d347aece72b4b447506, type: 3}
+  m_PrefabInstance: {fileID: 7782277199028768121}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5019180323518303517 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3001515045605277796, guid: 806de6707e959d347aece72b4b447506, type: 3}
