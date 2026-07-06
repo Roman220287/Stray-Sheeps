@@ -31572,6 +31572,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PF_Environment_City
       objectReference: {fileID: 0}
+    - target: {fileID: 6136934703681603097, guid: 9962a3d0428fa01478ac23156e57f0ac, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     - target: {fileID: 6334039913852873436, guid: 9962a3d0428fa01478ac23156e57f0ac, type: 3}
       propertyPath: m_Size.x
       value: 1.7159519

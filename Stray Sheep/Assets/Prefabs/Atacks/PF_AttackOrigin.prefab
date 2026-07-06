@@ -100,6 +100,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4500369513386351579, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2561698997341294350}
+    - targetCorrespondingSourceObject: {fileID: 4500369513386351579, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6530860754785580779}
+    - targetCorrespondingSourceObject: {fileID: 4500369513386351579, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4116655234915221443}
   m_SourcePrefab: {fileID: 100100000, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
 --- !u!1 &2736975371035309893 stripped
 GameObject:
@@ -173,7 +179,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &2561698997341294350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -191,10 +197,39 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 1.66, y: 1.26, z: 1.69}
   m_Center: {x: 0.03539914, y: 0.14700907, z: 0.03139597}
+--- !u!114 &6530860754785580779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736975371035309893}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e140ea3d3d29f0c42ab37302b7bfe9b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4116655234915221443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736975371035309893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92a31ccc6373d00429a621969080abfb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  raycastDistance: 1.5
+  groundOffset: 1
 --- !u!4 &4236437108699685080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2397585958380407878, guid: 83387f42aecdaf8499fe6890dd3ba38f, type: 3}
