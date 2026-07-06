@@ -17,6 +17,7 @@ public class AttackInstance : MonoBehaviour
     [Header("Visual Effects")]
     [SerializeField] private GameObject enemyHitVFX;
     [SerializeField] private GameObject wallBounceVFX;
+    [SerializeField] private float vfxLifetime = 2f; // Added a variable for easy tweaking in Inspector
 
     private int bouncesRemaining = -1;
     private Vector3 lastDirection;
@@ -72,10 +73,11 @@ public class AttackInstance : MonoBehaviour
         Debug.Log("Hit Enemy");
         other.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         
-        // SOLVED: Spawns the enemy hit VFX at the projectile's position facing back out
+        // FIXED: Instantiates the VFX and destroys it after vfxLifetime (2 seconds)
         if (enemyHitVFX != null)
         {
-            Instantiate(enemyHitVFX, transform.position, Quaternion.LookRotation(-transform.forward));
+            GameObject spawnedVFX = Instantiate(enemyHitVFX, transform.position, Quaternion.LookRotation(-transform.forward));
+            Destroy(spawnedVFX, vfxLifetime);
         }
 
         if (bleedingDamage > 0f)
@@ -95,10 +97,11 @@ public class AttackInstance : MonoBehaviour
 
     private void BounceProjectile(Vector3 hitPoint, Vector3 normal)
     {
-        // SOLVED: Spawns the bounce VFX at the point of impact, oriented along the wall's normal
+        // FIXED: Instantiates the VFX and destroys it after vfxLifetime (2 seconds)
         if (wallBounceVFX != null)
         {
-            Instantiate(wallBounceVFX, hitPoint, Quaternion.LookRotation(normal));
+            GameObject spawnedVFX = Instantiate(wallBounceVFX, hitPoint, Quaternion.LookRotation(normal));
+            Destroy(spawnedVFX, vfxLifetime);
         }
         
         Vector3 newDirection = Vector3.Reflect(transform.root.forward, normal);

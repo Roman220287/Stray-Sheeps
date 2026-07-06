@@ -114,6 +114,77 @@ VFXRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1001 &4532649960247289663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5557653127346510791}
+    m_Modifications:
+    - target: {fileID: 2626918760061782243, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_Name
+      value: PF_VFX_MeepleDeath_CritterMeeple
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3848956312201348109, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[0].m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+--- !u!2083052967 &832330577699414834 stripped
+VisualEffect:
+  m_CorrespondingSourceObject: {fileID: 3848956312201348109, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+  m_PrefabInstance: {fileID: 4532649960247289663}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1377200150455686725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3313515878695104890, guid: be66bafe96c5ad746aa108b15b76df93, type: 3}
+  m_PrefabInstance: {fileID: 4532649960247289663}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5380246225296473132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,6 +283,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 71287ce12bf6a1a4b9af294cfe79feac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5045235606740233080}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 71287ce12bf6a1a4b9af294cfe79feac, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1377200150455686725}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 71287ce12bf6a1a4b9af294cfe79feac, type: 3}
       insertIndex: -1
@@ -303,6 +377,7 @@ MonoBehaviour:
   attackRange: 2.5
   attackCooldown: 1.5
   hitEffect: {fileID: 3506965740597004783}
+  deathEffectPrefab: {fileID: 832330577699414834}
 --- !u!114 &7818489698012851863
 MonoBehaviour:
   m_ObjectHideFlags: 0

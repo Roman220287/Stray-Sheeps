@@ -12,6 +12,8 @@ public class EnemyBase : MonoBehaviour
     public float attackRange = 2.5f;
     public float attackCooldown = 1.5f;
     [SerializeField] private VisualEffect hitEffect;
+    [SerializeField] protected private VisualEffect deathEffectPrefab;
+
 
 
     protected float currentHealth;

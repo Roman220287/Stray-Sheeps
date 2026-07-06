@@ -110,6 +110,18 @@ public class FlamingMeeple : EnemyBase
         playerTarget.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
     }
 
+    protected override void Die()
+    {
+        if (deathEffectPrefab != null)
+        {
+            VisualEffect vfxInstance = Instantiate(deathEffectPrefab, transform.position, transform.rotation);
+            vfxInstance.Play();
+            
+            Destroy(vfxInstance.gameObject, 3f); 
+        }
+        base.Die();
+    }
+
     protected override void OnDrawGizmosSelected()
     {
         base.OnDrawGizmosSelected();
