@@ -5841,6 +5841,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Arena_City_Layout_3
       objectReference: {fileID: 0}
+    - target: {fileID: 7979350839676365931, guid: d0a9970a2704e71468db523d22e30738, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5862,10 +5866,6 @@ PrefabInstance:
     - target: {fileID: 981676646363832092, guid: 72fe11657efdff6449c0eef139f8c768, type: 3}
       propertyPath: m_Name
       value: Arena_City_Layout_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 981676646363832092, guid: 72fe11657efdff6449c0eef139f8c768, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1131609900018579948, guid: 72fe11657efdff6449c0eef139f8c768, type: 3}
       propertyPath: m_LocalPosition.x
