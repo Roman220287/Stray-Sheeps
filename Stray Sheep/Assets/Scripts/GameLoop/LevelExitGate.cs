@@ -11,6 +11,7 @@ public class LevelExitGate : MonoBehaviour
 
     private void Awake()
     {
+        isGateOpen = false;
         // Start with the gate closed
         if (closedVisual != null) closedVisual.SetActive(true);
         if (openVisual != null) openVisual.SetActive(false);

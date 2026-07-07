@@ -170,7 +170,11 @@ public class NextLevelManager : MonoBehaviour
     {
         allWavesComplete = true;
         Debug.Log("NextLevelManager: All waves finished. Checking win condition.");
-        CheckLevelComplete();
+        if (enemiesAlive <= 0)
+        {
+            Debug.Log("NextLevelManager: All waves complete and no enemies alive. Level complete.");
+            CheckLevelComplete();
+        }
     }
 
     private void CheckLevelComplete()
