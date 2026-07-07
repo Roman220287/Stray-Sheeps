@@ -42,8 +42,8 @@ VisualEffect:
   m_GameObject: {fileID: 4033482515209035713}
   m_Enabled: 1
   m_Asset: {fileID: 8926484042661614526, guid: 782326a62d9a99c47a285b7f556caac4, type: 3}
-  m_InitialEventName: OnPlay
-  m_InitialEventNameOverriden: 0
+  m_InitialEventName: Meeple_Hit
+  m_InitialEventNameOverriden: 1
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
   m_AllowInstancing: 1
