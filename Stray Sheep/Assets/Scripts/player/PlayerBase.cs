@@ -190,11 +190,20 @@ public class PlayerBase : MonoBehaviour
             return;
 
         if (Time.time < nextAttackTime)
+        {
+            animator.ResetTrigger("Attacking");
             return;
+        }
+
 
         nextAttackTime = Time.time + attackCooldown;
 
         RotateTowardsLookDirection();
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Attacking");
+        }
 
         int burstCount = Mathf.Max(1, playerStats.burstShots);
 
