@@ -232,15 +232,14 @@ public class NextLevelManager : MonoBehaviour
             transition.ShowImmediately();
         }
 
-        if (CurrentDepth <= 6)
+        if (CurrentDepth <= layoutAnchors.Length - 1)
         {
             yield return StartCoroutine(TransitionToLayout(CurrentDepth, transition));
         }
         else
         {
-            CurrentDepth = 0;
-            depth = 0;
-            yield return StartCoroutine(TransitionToLayout(0, transition));
+            ResetGameEntirely();
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -365,9 +364,14 @@ public class NextLevelManager : MonoBehaviour
             Debug.Log($"NextLevelManager: Scheduled wave spawner restart for layout {targetLayoutIndex}.");
         }
 
-        // Open the gate for this layout
-        OpenGateForLayout(targetLayoutIndex);
-
+        if (waveSpawner != null)
+        {
+            levelEnding = false;
+            allWavesComplete = false;
+            enemiesAlive = 0;
+            waveSpawner.RestartWavesWithDelay(cameraSettleTime + 0.5f);
+            Debug.Log($"NextLevelManager: Scheduled wave spawner restart for layout {targetLayoutIndex}.");
+        }
         Debug.Log($"NextLevelManager: Teleported player to layout {targetLayoutIndex}.");
     }
 

@@ -15,6 +15,15 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private GameObject[] depth4Enemies;
     [SerializeField] private GameObject[] depth5Enemies;
     [SerializeField] private GameObject[] depth6Enemies;
+    [SerializeField] private GameObject[] depth7Enemies;
+    [SerializeField] private GameObject[] depth8Enemies;
+    [SerializeField] private GameObject[] depth9Enemies;
+    [SerializeField] private GameObject[] depth10Enemies;
+    [SerializeField] private GameObject[] depth11Enemies;
+    [SerializeField] private GameObject[] depth12Enemies;
+    [SerializeField] private GameObject[] depth13Enemies;
+    [SerializeField] private GameObject[] depth14Enemies;
+    [SerializeField] private GameObject[] depth15Enemies;
 
     [Header("Spawner Settings")]
     [SerializeField] private int extraSpawnPointsAtDepth3 = 1;
@@ -171,20 +180,41 @@ public class WaveSpawner : MonoBehaviour
         // bepaal de huidige diepte en kies de juiste vijandpool
         int currentDepth = NextLevelManager.instance != null ? NextLevelManager.instance.depth : 0;
 
-        if (currentDepth >= 6 && depth6Enemies != null && depth6Enemies.Length > 0)
-            return depth6Enemies;
-        if (currentDepth >= 5 && depth5Enemies != null && depth5Enemies.Length > 0)
-            return depth5Enemies;
-        if (currentDepth >= 4 && depth4Enemies != null && depth4Enemies.Length > 0)
-            return depth4Enemies;
-        if (currentDepth >= 3 && depth3Enemies != null && depth3Enemies.Length > 0)
-            return depth3Enemies;
-        if (currentDepth >= 2 && depth2Enemies != null && depth2Enemies.Length > 0)
-            return depth2Enemies;
-        if (currentDepth >= 1 && depth1Enemies != null && depth1Enemies.Length > 0)
-            return depth1Enemies;
-
-        return enemyPrefabs;
+        switch (currentDepth)
+        {
+            case >= 15 when depth15Enemies != null && depth15Enemies.Length > 0:
+                return depth15Enemies;
+            case >= 14 when depth14Enemies != null && depth14Enemies.Length > 0:
+                return depth14Enemies;
+            case >= 13 when depth13Enemies != null && depth13Enemies.Length > 0:
+                return depth13Enemies;
+            case >= 12 when depth12Enemies != null && depth12Enemies.Length > 0:
+                return depth12Enemies;
+            case >= 11 when depth11Enemies != null && depth11Enemies.Length > 0:
+                return depth11Enemies;
+            case >= 10 when depth10Enemies != null && depth10Enemies.Length > 0:
+                return depth10Enemies;
+            case >= 9 when depth9Enemies != null && depth9Enemies.Length > 0:
+                return depth9Enemies;
+            case >= 8 when depth8Enemies != null && depth8Enemies.Length > 0:
+                return depth8Enemies;
+            case >= 7 when depth7Enemies != null && depth7Enemies.Length > 0:
+                return depth7Enemies;
+            case >= 6 when depth6Enemies != null && depth6Enemies.Length > 0:
+                return depth6Enemies;
+            case >= 5 when depth5Enemies != null && depth5Enemies.Length > 0:
+                return depth5Enemies;
+            case >= 4 when depth4Enemies != null && depth4Enemies.Length > 0:
+                return depth4Enemies;
+            case >= 3 when depth3Enemies != null && depth3Enemies.Length > 0:
+                return depth3Enemies;
+            case >= 2 when depth2Enemies != null && depth2Enemies.Length > 0:
+                return depth2Enemies;
+            case >= 1 when depth1Enemies != null && depth1Enemies.Length > 0:
+                return depth1Enemies;
+            default:
+                return enemyPrefabs;
+        }
     }
 
     private Transform[] GetActiveSpawnPoints()

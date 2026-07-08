@@ -11131,10 +11131,10 @@ MonoBehaviour:
   layoutIndex: 5
   layoutCenter: {fileID: 1384463306}
   layoutSpawnPoints:
-  - {fileID: 1102005506}
-  - {fileID: 90778409}
-  - {fileID: 456665809}
-  - {fileID: 591167058}
+  - {fileID: 423561069}
+  - {fileID: 1974719426}
+  - {fileID: 1193248086}
+  - {fileID: 1837816132}
 --- !u!1 &356596252
 GameObject:
   m_ObjectHideFlags: 0
@@ -15251,7 +15251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &550501217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25345,6 +25345,42 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth7Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth8Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth9Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth10Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth11Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth12Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth13Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth14Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: depth15Enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'spawnPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1666342910}
@@ -25391,7 +25427,7 @@ PrefabInstance:
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'depth3Enemies.Array.data[0]'
       value: 
-      objectReference: {fileID: 4691676394463959680, guid: 294da3de0b54b984da52a0b09c00d76f, type: 3}
+      objectReference: {fileID: 3268286226755068057, guid: 9b0da8dec2187b94e87838358c1e5d38, type: 3}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'depth4Enemies.Array.data[0]'
       value: 
@@ -25410,6 +25446,42 @@ PrefabInstance:
       objectReference: {fileID: 4189360913364845265, guid: 0e43cadbd5003144ebaa9f1c30a6c73a, type: 3}
     - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
       propertyPath: 'depth6Enemies.Array.data[1]'
+      value: 
+      objectReference: {fileID: 3268286226755068057, guid: 9b0da8dec2187b94e87838358c1e5d38, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth7Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4189360913364845265, guid: 0e43cadbd5003144ebaa9f1c30a6c73a, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth8Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5074167814515032445, guid: 4671c0ab982b07241813ca557c53cd3c, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth9Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3268286226755068057, guid: 9b0da8dec2187b94e87838358c1e5d38, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth10Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4189360913364845265, guid: 0e43cadbd5003144ebaa9f1c30a6c73a, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth11Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4189360913364845265, guid: 0e43cadbd5003144ebaa9f1c30a6c73a, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth12Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3268286226755068057, guid: 9b0da8dec2187b94e87838358c1e5d38, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth13Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 5074167814515032445, guid: 4671c0ab982b07241813ca557c53cd3c, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth14Enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4189360913364845265, guid: 0e43cadbd5003144ebaa9f1c30a6c73a, type: 3}
+    - target: {fileID: 2558894805925108334, guid: 50a7fc473f023834f946086709330ec4, type: 3}
+      propertyPath: 'depth15Enemies.Array.data[0]'
       value: 
       objectReference: {fileID: 3268286226755068057, guid: 9b0da8dec2187b94e87838358c1e5d38, type: 3}
     - target: {fileID: 6402819300031693281, guid: 50a7fc473f023834f946086709330ec4, type: 3}
@@ -30665,10 +30737,10 @@ MonoBehaviour:
   layoutIndex: 6
   layoutCenter: {fileID: 1342995395}
   layoutSpawnPoints:
-  - {fileID: 1102005506}
-  - {fileID: 90778409}
-  - {fileID: 456665809}
-  - {fileID: 591167058}
+  - {fileID: 1337010860}
+  - {fileID: 1834278504}
+  - {fileID: 974243038}
+  - {fileID: 1711684857}
 --- !u!1 &1380723532
 GameObject:
   m_ObjectHideFlags: 0
@@ -42943,10 +43015,10 @@ MonoBehaviour:
   layoutIndex: 7
   layoutCenter: {fileID: 442228452}
   layoutSpawnPoints:
-  - {fileID: 1102005506}
-  - {fileID: 90778409}
-  - {fileID: 456665809}
-  - {fileID: 591167058}
+  - {fileID: 546420740}
+  - {fileID: 257473689}
+  - {fileID: 1829924078}
+  - {fileID: 973422197}
 --- !u!1 &1990648516
 GameObject:
   m_ObjectHideFlags: 0
