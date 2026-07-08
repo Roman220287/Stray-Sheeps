@@ -234,8 +234,8 @@ Material:
     - _ToonMaterialVersion: 0
     m_Floats:
     - _1st2nd_Shades_Feather: 0.279
-    - _1st_ShadeColor_Feather: 0.085
-    - _1st_ShadeColor_Step: 0.5
+    - _1st_ShadeColor_Feather: 0.398
+    - _1st_ShadeColor_Step: 0.099
     - _2nd_ShadeColor_Feather: 0.279
     - _2nd_ShadeColor_Step: 0
     - _AORemapMax: 1
@@ -266,8 +266,8 @@ Material:
     - _AutoRenderQueue: 1
     - _BaseColorOverridden: 0
     - _BaseColorVisible: 1
-    - _BaseColor_Step: 0.5
-    - _BaseShade_Feather: 0.085
+    - _BaseColor_Step: 0.099
+    - _BaseShade_Feather: 0.398
     - _Base_Speed: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -380,7 +380,7 @@ Material:
     - _Offset_Z: 0
     - _OutlineOverridden: 0
     - _OutlineVisible: 1
-    - _Outline_Width: 82.56
+    - _Outline_Width: 10
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
     - _PPDMinSamples: 5
@@ -464,15 +464,15 @@ Material:
     - _simpleUI: 0
     - _utsTechnique: 0
     m_Colors:
-    - _1st_ShadeColor: {r: 0.4943396, g: 0.3288219, b: 0.13710928, a: 1}
+    - _1st_ShadeColor: {r: 0.5058824, g: 0.3019608, b: 0.1254902, a: 1}
     - _2nd_ShadeColor: {r: 1, g: 1, b: 1, a: 1}
     - _AngelRingMaskColor: {r: 0, g: 1, b: 0, a: 1}
     - _AngelRing_Color: {r: 1, g: 1, b: 1, a: 1}
     - _Ap_RimLightColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BaseColor: {r: 0.6603774, g: 0.47151995, b: 0.22801706, a: 1}
+    - _BaseColor: {r: 0.6313726, g: 0.3647059, b: 0.1764706, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _BaseColorMaskColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.6603774, g: 0.4715199, b: 0.228017, a: 1}
+    - _Color: {r: 0.6313726, g: 0.36470586, b: 0.17647055, a: 1}
     - _ColorShift: {r: 0, g: 0, b: 0, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
